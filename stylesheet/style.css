@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Work+Sans:wght@300;400&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+h1{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+}
+.light{font-weight: 300;}
+.regular{font-weight: 400;}
+.bold{font-weight: 600;}
+h2{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+}
+h3{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+}
+h4{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+}
+body{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+.size{
+  width: 50%;
+  height: auto;
+}
+.lineheight{
+  line-height: 36px;
+}
+a{
+  color: #1319C5;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+  -moz-transition:    color 0.2s;
+  -ms-transition:     color 0.2s;
+  -o-transition:      color 0.2s;
+  transition:         color 0.2s;
+}
+a:hover{
+  color: #000;
+}
+.nav-link{
+  color: #1319C5;
+}
+.nav-link:hover{
+  color: #000;
+}
+.caption{
+  font-family: 'Work Sans', sans-serif;
+  color: #878787;
+  font-size: 14px;
+}
+.primary{
+  color: #1319C5;
+}
+.subtext{
+  color: #878787;
+}
+.line{
+  height: 5px;
+  width: 80px;
+  background-color: #000;
+  border: none;
+}
+.sp-16{
+  margin-top: 16px;
+}
+.sp-24{
+  margin-top: 24px;
+}
+.sp-32{
+  margin-top: 32px;
+}
+.sp-48{
+  margin-top: 48px;
+}
+.sp-64{
+  margin-top: 64px;
+}
+.sp-128{
+  margin-top: 128px;
+}
+.sp-right{
+  margin-right: 400px;
+}
+.sp-left{
+  display: flex;
+  width: 800px;
+  margin: 0 -5px;
+}
+.margin-right{
+  margin-right: 600px;
+}
+.atf{
+  /* width: 100vw; */
+  height: 100vh;
+}
+.atf-middle{
+  /* width: 100vw; */
+  height: 60vh;
+}
+.atf-bottom{
+  /* width: 100vw; */
+  padding-top: 10vh;
+}
+.mr-auto{
+  margin-right: auto;
+}
+.ml-auto{
+  margin-left: auto;
+}
+.flex-even{
+  flex: 1;
+}
+.blue{
+    color: #1319C5;
+}
+.picture{
+    width: 900px;
+    height: auto;
+}
+#mm-type{
+   display: none;
+}
+#tt-type{
+   display: none;
+}
+#tju-type{
+   display: none;
+}
+#wwc-type{
+   display: none;
+}
