@@ -94,8 +94,9 @@ a:hover{
   width: 800px;
   margin: 0 -5px;
 }
-.margin-right{
-  margin-right: 600px;
+.margin-middle{
+  margin-left: 300px;
+  margin-right: 300px;
 }
 .atf{
   /* width: 100vw; */
@@ -136,4 +137,67 @@ a:hover{
 }
 #wwc-type{
    display: none;
+}
+
+/* Tablet */
+@media only screen and (max-width: 768px) {
+  .margin-middle{
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .picture{
+      width: 400px;
+      height: auto;
+  }
+  .sp-right{
+    margin-right: 100px;
+  }
+  h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+  }
+  h2{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+  }
+  h3{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+  }
+  h4{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+  }
+  #hide{
+    visibility: hidden;
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 480px){
+  h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+  }
+  h3{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+  }
+  h4{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+  }
+  .atf{
+    /* width: 100vw; */
+    display: none;
+  }
+  .atf-middle{
+    /* width: 100vw; */
+    display: none;
+  }
+  .atf-bottom{
+    /* width: 100vw; */
+    display: none;
+  }
 }
