@@ -26,6 +26,10 @@ body{
   font-size: 21px;
   font-weight: 400;
 }
+.responsive {
+  width: 45%;
+  height: auto;
+}
 .size{
   width: 50%;
   height: auto;
