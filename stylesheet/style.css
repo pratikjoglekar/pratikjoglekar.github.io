@@ -127,6 +127,7 @@ a:hover{
     color: #1319C5;
 }
 .picture{
+    border: 1px solid #555;
     width: 839px;
     height: auto;
 }
