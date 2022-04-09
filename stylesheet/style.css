@@ -147,11 +147,12 @@ a:hover{
 /* Tablet */
 @media only screen and (max-width: 768px) {
   .margin-middle{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
   .picture{
-      width: 400px;
+      border: 1px solid #555;
+      width: 349px;
       height: auto;
   }
   .sp-right{
@@ -181,6 +182,10 @@ a:hover{
 
 
 @media only screen and (max-width: 480px){
+  .margin-middle{
+    margin-left: 25px;
+    margin-right: 25px;
+  }
   h1{
     font-family: 'Space Grotesk', sans-serif;
     font-size: 24px;
