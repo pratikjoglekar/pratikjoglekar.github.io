@@ -26,6 +26,9 @@ body{
   font-size: 21px;
   font-weight: 400;
 }
+img {
+  border: 2px solid #555;
+}
 .responsive {
   width: 55%;
   height: auto;
