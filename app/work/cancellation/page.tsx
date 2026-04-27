@@ -316,13 +316,6 @@ export default function Cancellation() {
           </li>
         </ul>
 
-        {/* Flow diagram */}
-        <Section>
-          <div className="w-full aspect-[16/5] rounded-xl border bg-muted flex items-center justify-center text-muted-foreground">
-            Flow diagram placeholder
-          </div>
-        </Section>
-
       </TextSection>
 
       {/* Outcomes */}
