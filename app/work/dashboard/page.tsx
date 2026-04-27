@@ -33,7 +33,7 @@ export default function Dashboard() {
 
               {/* Content */}
               <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>TL;DR:</strong>{" "}<br/>In 6 months, we redesigned MassMutual’s homepage into a decision-making control surface that helped customers understand their policies and act faster. By restructuring the information hierarchy and translating insurance complexity into clear, contextual summaries, engagement time more than doubled (15.02s → 34.66s). This increase reflected deeper, more intentional interaction with previously hidden information, and correlated with improved downstream actions like policy exploration and task completion.
+                <strong>TL;DR:</strong>{" "}<br/>In 6 months, we redesigned MassMutual's homepage from a navigational pass-through into a primary control surface, surfacing policy data, payments, and key actions upfront so customers could resolve more without leaving the page. By restructuring information hierarchy and translating insurance complexity into clear, contextual summaries, customers shifted from skimming and navigating away (15.02s) to engaging and resolving in place (34.66s).
               </p>
           </div>
         </div>
@@ -88,8 +88,7 @@ export default function Dashboard() {
 
       {/* Impact */}
       <TextSection title="Impact">
-        <p>
-          The homepage redesign more than <mark className="font-bold">doubled engagement time from 15.02s to 34.66s,</mark> reflecting improved clarity, relevance, and user confidence in managing insurance policies.
+        <p>By pulling policy data, payment details, and key actions/information onto the homepage itself, <mark className="font-bold">we shifted customer behaviour from skim-and-navigate to engage-and-resolve. Median engagement time rose from 15.02s to 34.66s,</mark> not because tasks took longer, but because customers were now completing them on the homepage instead of navigating to find them. The homepage stopped being a pass-through and became the primary surface for managing their policies.
         </p>
       </TextSection>
 
