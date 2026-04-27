@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "sonner";
 
 export const satoshi = localFont({
@@ -44,6 +45,7 @@ export default function RootLayout({
         {/* App content */}
         {children}
 
+        <Analytics />
         {/* Sonner Toaster — REQUIRED */}
         <Toaster position="bottom-right" richColors />
       </body>
