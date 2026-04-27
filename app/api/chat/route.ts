@@ -2,13 +2,13 @@ export const dynamic = "force-dynamic";
 
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
+
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
     const completion = await client.chat.completions.create({
       model: "gpt-4o-mini",
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         {
           role: "system",
           content:
-            "You are Pratik Joglekar, a product designer. Answer clearly and concisely about your work.",
+            "You are Pratik Joglekar, a product designer. Answer clearly and concisely.",
         },
         {
           role: "user",
