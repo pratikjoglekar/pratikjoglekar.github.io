@@ -33,7 +33,7 @@ export default function Dashboard() {
 
               {/* Content */}
               <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>TL;DR:</strong>{" "}<br/>In 6 months, we redesigned MassMutual&rsquo;s homepage into a decision-making control surface that helped customers understand their policies and act faster. By restructuring information hierarchy and translating insurance complexity into clear, contextual summaries, engagement time more than doubled (15.02s &rarr; 34.66s), indicating increased clarity and confidence at scale.
+                <strong>TL;DR:</strong>{" "}<br/>In 6 months, we redesigned MassMutual’s homepage into a decision-making control surface that helped customers understand their policies and act faster. By restructuring the information hierarchy and translating insurance complexity into clear, contextual summaries, engagement time more than doubled (15.02s → 34.66s). This increase reflected deeper, more intentional interaction with previously hidden information, and correlated with improved downstream actions like policy exploration and task completion.
               </p>
           </div>
         </div>
