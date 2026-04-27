@@ -1,0 +1,713 @@
+===============================================================
+PORTFOLIO KNOWLEDGE FILE — INTERVIEW-READY VERSION
+Owner: Pratik Joglekar
+Last reviewed: 2026-04-27
+===============================================================
+ 
+ 
+===============================================================
+1. IDENTITY
+===============================================================
+ 
+NAME:
+- Pratik Joglekar
+ 
+CURRENT ROLE:
+- Senior Product Designer, Enterprise — Coursera (India), July 2025 — Present
+ 
+TARGET ROLE:
+- Senior+, Lead, Principal, or Staff-equivalent Product Designer (IC track).
+- Title label is secondary; what I optimize for is scope: cross-initiative influence,
+  framing-level decisions, and reducing systemic risk.
+ 
+LOCATION & MOBILITY:
+- Based in Pune, India
+- Open to EU relocation
+- EU Blue Card eligible (M.S. degree + senior salary band)
+- No country or city preference within the Blue Card support range
+ 
+CONTACT:
+- letstalk@pratikjoglekar.com
+- linkedin.com/in/pratik-joglekar
+- www.pratikjoglekar.com
+ 
+TOTAL EXPERIENCE:
+- 8+ years in product design
+ 
+DOMAINS:
+- SaaS (enterprise + consumer)
+- Education / EdTech
+- Insurance & retirement
+- Fintech-adjacent (pricing, billing, monetization)
+- Telecommunications (early career)
+ 
+PRODUCT TYPES:
+- B2B (Coursera Enterprise, HubSpot platform)
+- B2C (MassMutual policyholder experiences)
+- Hybrid platform/consumer surfaces
+ 
+INTERNATIONAL EXPERIENCE:
+- ~6.5 years working in the United States across MassMutual and HubSpot
+- Graduate study and full-time work in the U.S. (2017–2025)
+- Currently leading enterprise design for Coursera from India
+ 
+POSITIONING:
+- I design decision systems for complex products.
+- I turn ambiguous problem spaces into self-serve, governable experiences.
+- I focus on growth, monetization, activation, governance, and structural durability.
+- I run hypothesis-driven design embedded with PM, engineering, and data — and have AI-assisted research and prototyping built into my workflow.
+ 
+ 
+===============================================================
+2. LOGISTICS & AVAILABILITY
+===============================================================
+ 
+NOTICE PERIOD:
+- 1 month at Coursera.
+ 
+EARLIEST START DATE:
+- As soon as possible once notice and relocation logistics align.
+ 
+COMPENSATION:
+- Open. Target depends on offered seniority, location, and total benefits package.
+- I do not anchor a fixed number upfront; I evaluate offers against role scope, market band, and relocation factors.
+ 
+WORK MODE:
+- No strong preference — remote, hybrid, or in-office are all workable.
+ 
+LOCATION & RELOCATION:
+- Currently in Pune, India.
+- Open to relocation to any country that supports the EU Blue Card.
+- No country or city preference.
+ 
+LANGUAGES:
+- English — fluent (primary working language across all roles)
+- Hindi — native
+- Marathi — native
+- German — currently learning (A1)
+ 
+ 
+===============================================================
+3. WHY I'M LOOKING / WHAT'S NEXT
+===============================================================
+ 
+WHY I'M EXPLORING NOW:
+- I joined Coursera with a clear goal: to work on large-scale, impactful learning products and strengthen my ability to design for complex ecosystems.
+- In a short time, I've contributed meaningfully — including the native LTI integration that lifted enterprise activation from 10% to 23% and reduced support dependency from 57% to 7% across ~13,000 enterprise accounts.
+- I've realized the scope and ownership I'm looking for long-term is slightly different from what this role offers.
+- I want to operate more end-to-end — closer to product strategy, with deeper involvement in shaping 0→1 or high-growth surfaces.
+ 
+WHAT I'M LOOKING FOR NEXT:
+- Sectors: B2B SaaS, fintech, edtech, or adjacent product spaces.
+- Customer-facing products with a direct connection to end users — I value the feedback loop that proximity creates.
+- Team shape: open to early growth-stage or mature scale-up. Scope and ownership matter more than company stage.
+- Track: senior+, lead, principal, or staff-equivalent IC. Open to lead-IC paths with mentorship and influence over team practice. Not actively pursuing pure people-management as a primary track.
+- Geographic openness: any EU country with Blue Card support.
+ 
+WHAT I'M NOT FILTERING OUT IN ADVANCE:
+- I haven't pre-excluded specific industries beyond standard ethical considerations already stated in my philosophy section (no dark patterns, no systems that knowingly introduce fragility).
+- I prefer to evaluate roles on scope, team, and product before ruling out sectors.
+ 
+ 
+===============================================================
+4. STAFF CALIBRATION
+===============================================================
+ 
+HOW I DIFFERENTIATE SENIOR VS STAFF:
+ 
+- Senior designers execute well within a defined problem space.
+- Staff (and equivalent Lead/Principal in EU companies) designers reshape framing, influence the metrics teams optimize for, and reduce systemic risk.
+- Staff-altitude designers operate across initiatives and protect long-term product integrity, not single launches.
+ 
+HOW I MEASURE MY OWN IMPACT:
+ 
+- Did the framing of the problem change at the team or org level?
+- Did governance, ownership, or measurement persist beyond the launch?
+- Did the metric we optimize for become more economically honest?
+- Did I reduce structural or operational fragility?
+- Did the work become a reusable pattern other teams adopted?
+ 
+WHY I'M TARGETING THIS ALTITUDE:
+ 
+- I consistently reframe problems at the economic, governance, and platform-ownership level (e.g., churn → dollar retention, analytics → governed usage intelligence, third-party LTI → first-party platform capability).
+- I operate beyond feature scope into ownership models, observability, and risk.
+- I influence cross-functional decisions that affect long-term system durability.
+ 
+ 
+===============================================================
+5. DESIGN PHILOSOPHY
+===============================================================
+ 
+PRIMARY BELIEF — PROACTIVE VIGOR
+ 
+- I intervene before metrics collapse, not after.
+- I escalate structural risks early, even when uncomfortable.
+- I protect long-term integrity under delivery pressure.
+ 
+SECONDARY BELIEF — DESIGN AS DECISION ARCHITECTURE
+ 
+- Design exists to improve the quality, confidence, and reliability of decisions — for users, for instructors, for admins, for internal teams.
+- Engagement that does not improve judgment is noise.
+ 
+TERTIARY BELIEF — STRUCTURE BEFORE FLEXIBILITY
+ 
+- Flexibility without governance creates fragility.
+- Opinionated defaults protect system health and reduce support load.
+- Configuration should be earned, progressive, and observable.
+ 
+WHAT I OPTIMIZE FOR:
+ 
+- Governance integrity
+- Economic alignment (LTV/CAC, dollar retention, support cost)
+- Behavioral clarity
+- Long-term scalability across teams and surfaces
+- Reversible experimentation when stakes allow
+ 
+WHAT I REFUSE TO BUILD:
+ 
+- Dark patterns
+- Optics over structural integrity
+- Over-configuration without safeguards
+- Systems that knowingly introduce fragility for short-term wins
+ 
+ 
+===============================================================
+6. DECISION META-LAYER
+===============================================================
+ 
+WHEN MAKING A DECISION I EVALUATE:
+ 
+- Reversibility: Can this be safely rolled back?
+- Governance impact: Does this introduce structural debt or unclear ownership?
+- Economic alignment: Does this compound long-term value?
+- Behavioral clarity: Does this reduce confusion or add it?
+- Operational cost: Does this shift burden to support, ops, or future teams?
+ 
+WHEN I CHOOSE SPEED OVER CORRECTNESS:
+ 
+- The decision is reversible.
+- Structural risk is low.
+- Learning velocity outweighs system risk (e.g., Coursera AI-assisted prototyping under GTM pressure).
+ 
+WHEN I CHOOSE CORRECTNESS OVER SPEED:
+ 
+- Governance, ownership, or pricing models are impacted.
+- Economic integrity is at risk (e.g., HubSpot retention framed as dollar retention, not raw churn).
+- Compounding fragility would result downstream (e.g., not replacing analytics tools wholesale at HubSpot).
+ 
+ 
+===============================================================
+7. ESCALATION & RESISTANCE
+===============================================================
+ 
+ESCALATION CASE — MASSMUTUAL DASHBOARD:
+ 
+- A delivery timeline conflicted with an unresolved structural UX gap: stakeholders preferred incremental fixes; research indicated the underlying information model was the problem.
+- I argued for a full homepage redesign anchored in a "decision-making control surface" framing rather than navigational dashboard.
+- Resistance: longer timeline, higher coordination overhead, secondary feature de-emphasis.
+- Outcome: secured the redesign mandate; engagement time more than doubled (15.02s → 34.66s).
+ 
+ESCALATION CASE — COURSERA LTI:
+ 
+- GTM pressure pushed for an MVP using continued third-party middleware.
+- I argued for a first-party LTI integration so we could own observability, sync semantics, and roadmap velocity.
+- Tradeoff: less flexibility for edge-case LMS configurations.
+- Outcome: native LTI shipped; LMS connection success moved from 10% to 23%, support dependency dropped from 57% to 7% across ~13,000 enterprise accounts.
+ 
+HOW I HANDLE DISAGREEMENT:
+ 
+- Separate framing from ego.
+- Make trade-offs explicit (decision / why / tradeoff / mitigation).
+- Quantify downstream cost in operational, economic, or governance terms.
+- Anchor arguments in reversibility and structural durability.
+ 
+WHEN I LOSE AN ARGUMENT:
+ 
+- Document the rationale and the dissent.
+- Define leading indicators that would justify revisiting the decision.
+- Fully support execution unless systemic harm emerges.
+ 
+ 
+===============================================================
+8. PERSONAL RISK PROFILE
+===============================================================
+ 
+BIASES I MONITOR:
+ 
+- Over-indexing on system correctness.
+- Pushing structural clarity earlier than the team is ready for.
+- Under-valuing iteration speed in early discovery phases.
+ 
+WHEN IT HAS HURT ME:
+ 
+- Early-career: over-architected solutions where reversible iteration would have been sufficient.
+- Mid-career: occasionally pushed governance language before stakeholders had the vocabulary, slowing alignment.
+ 
+SELF-CORRECTION LOOP:
+ 
+- Ask whether the decision is irreversible before insisting on rigor.
+- Match the depth of the framework to the magnitude of the risk.
+- Default to reversible experiments when learning velocity matters more than precision.
+ 
+ 
+===============================================================
+9. CAREER HISTORY (FACT-CHECKED AGAINST RESUME)
+===============================================================
+ 
+COURSERA (India) — Senior Product Designer, Enterprise
+July 2025 — Present
+- Native LTI integration into LMS environments (Canvas, Blackboard, Moodle).
+- Activation lift: 10% → 23%.
+- Support dependency reduced 57% → 7% across ~13,000 enterprise accounts over 2 quarters.
+- Defined and launched a scalable pricing/monetization experience: churn -37%, checkout completion +11%.
+- Workshop facilitation for a new enterprise team; AI-assisted research synthesis.
+- Acted as PM for an instructor-side feature (due dates, learner progress, certificates).
+ 
+HUBSPOT (U.S.) — Senior Product Designer, Growth
+September 2022 — May 2025
+- Cancellation flow with discount + feature re-surfacing: ~36% retention of at-risk users; secondary recovery via underutilized feature prompts.
+- Campaign creation experience: +90% daily usage.
+- AI-driven usage prompts: +13% engagement.
+- Event creation flow simplification: -70% critical data errors.
+- Anomaly detection for event tracking: +64% data reliability.
+- Pricing card positioning: free → Starter CRM conversions +6%.
+- Experimentation insights surface: tool adoption +8%.
+ 
+MASSMUTUAL (U.S.) — Senior Product Designer, Consumer
+January 2020 — September 2022
+- Mobile app redesign with PM + business analyst: MAU +17%.
+- Homepage redesign collaboration: user adoption +9% (resume framing); engagement time 15.02s → 34.66s (case-study framing).
+- Architected and shipped a comprehensive mobile design system.
+- End-to-end design for a term policy experience; UX writing support in agile cadence.
+ 
+EDUCATION:
+- M.S. User Experience and Interaction Design, Thomas Jefferson University (U.S.), 2019
+- Bachelor of Computer Application, Yashwantrao Chavan Maharashtra Open University (India), 2015
+ 
+ 
+===============================================================
+10. TOOLS & STACK
+===============================================================
+ 
+DESIGN:
+- Figma (primary)
+- Adaptable to similar tools.
+ 
+RESEARCH:
+- Dovetail (primary)
+- Adaptable to similar research synthesis tools.
+ 
+ANALYTICS:
+- Amplitude (primary)
+- Adaptable to similar product analytics tools.
+ 
+EXPERIMENTATION & A/B TESTING:
+- Optimizely (primary)
+- Adaptable to similar experimentation platforms.
+ 
+AI TOOLS (used regularly in my workflow):
+- Claude
+- ChatGPT
+- Cursor
+- Figma Make
+- Lovable
+- Used for research synthesis, prototyping acceleration, ideation, and exploration. AI-assisted research synthesis is integrated into my Coursera enterprise design process.
+ 
+COLLABORATION & DOCS:
+- Loom (async walkthroughs and reviews)
+- Jira (delivery)
+- Adaptable to similar tools (Notion, Linear, Confluence).
+ 
+ENGINEERING COLLABORATION:
+- I work in both modes:
+  - Deep design-system collaboration: design tokens, Storybook, component library extension.
+  - Standard spec-and-handoff when that's how the team operates.
+- Comfortable contributing to design-system tooling and partnering with engineering on shared infrastructure.
+ 
+ 
+===============================================================
+11. LEADERSHIP & SCOPE
+===============================================================
+ 
+DIRECT REPORTS:
+- I have not formally managed direct reports.
+- I have consistently led design end-to-end on cross-functional teams as the sole designer or design lead, including driving roadmap, research, and stakeholder alignment.
+ 
+MENTORSHIP & GUIDANCE:
+- 100+ designers mentored, primarily through ADPList and similar forums.
+- Have informally guided interns and junior designers on teams I've been part of.
+- Mentorship focus: growth, portfolio reviews, career navigation.
+ 
+EXEC EXPOSURE:
+- Regularly presented design work to Directors and VPs in larger organizations (HubSpot, Coursera, MassMutual).
+- Presented to C-suite leadership in small-to-mid-sized companies.
+ 
+JURY / EXTERNAL EVALUATION:
+- Thomas Jefferson University
+- Protothon
+ 
+ 
+===============================================================
+12. PROJECT INDEX
+===============================================================
+ 
+1. Coursera for Campus — Native LTI Integrations
+2. Usage Intelligence Platform — HubSpot
+3. Retention Intervention at Cancellation — HubSpot
+4. Dashboard Redesign — MassMutual
+ 
+ 
+===============================================================
+PROJECT 1: Coursera for Campus — Native LTI Integrations
+===============================================================
+ 
+ROLE: Sole Product Designer
+TEAM: 1 Designer, 8 Developers, 1 PM, 1 Data Analyst
+DURATION: 8 months and ongoing (started July 2025)
+DISCIPLINES: UXR, Design Strategy, System Design, UX, UI
+ 
+SCALE & CONTEXT:
+- Enterprise platform serving institutional LMS integrations across ~13,000 enterprise accounts.
+- Replaces SchoolDay (GG4L) third-party middleware with a first-party LTI capability inside Canvas, Blackboard, and Moodle.
+ 
+PROBLEM:
+- 10% successful LMS connection rate.
+- Middleware dependency limited reliability, observability, and product velocity.
+- 57% of enterprise admin issues escalated to support.
+ 
+FRAMING SHIFT:
+- Initial framing: "ship a working LMS integration."
+- Reframed as: "treat integrations as a first-class, first-party platform capability."
+ 
+TRIGGER MOMENTS:
+- Sync failures (grade passback, activity sync) were impossible to diagnose because Coursera had no observability into middleware.
+- Faculty workflows did not map cleanly to LMS curricula, forcing manual workarounds.
+- Setup overhead was blocking enterprise GTM motion.
+ 
+KEY DECISIONS:
+ 
+  Decision: Build native LTI rather than continue institution-specific custom setups.
+  Why: Custom integrations created operational overhead and capped scalability.
+  Tradeoff: Less flexibility for edge-case LMS configurations.
+  Mitigation: Broad LTI standards support + bounded configuration for institutional needs.
+ 
+  Decision: Real-time grade and enrollment sync rather than periodic batch.
+  Why: Delayed records eroded instructor and admin trust.
+  Tradeoff: Higher technical complexity and dependency on LMS reliability.
+  Mitigation: Clear error states, retries, transparent sync status.
+ 
+  Decision: Opinionated, LTI-standards-aligned flow over exposing all configuration upfront.
+  Why: Most institutions share core needs; over-flexibility increased error rates and support load.
+  Tradeoff: Power users had fewer customization options.
+  Mitigation: Progressive disclosure of advanced settings; documented supported extensions.
+ 
+METHODS USED:
+- AI-assisted prototyping for rapid end-to-end concept under GTM time pressure.
+- Focused group with CSMs, Implementation Managers, and Solutions Architects to surface frontline pain.
+- MVP usability testing.
+- Deep-dive customer interviews on personalization, AI, search/browse, and decision support.
+- Cross-functional workshop to prioritize against user impact, feasibility, and platform leverage.
+ 
+OUTCOMES:
+- LMS connection success: 10% → 23%.
+- Support dependency: 57% → 7% over 2 quarters.
+- Pricing/monetization redesign: churn -37%, checkout completion +11%.
+ 
+ORGANIZATIONAL IMPACT:
+- Repositioned integrations as durable, owned infrastructure rather than an external add-on.
+- Reduced third-party dependency and increased velocity of future integration work.
+ 
+OPEN QUESTIONS / NEXT:
+- Final visual design is in flight.
+- Continued expansion of LMS coverage and observability.
+ 
+ 
+===============================================================
+PROJECT 2: Usage Intelligence Platform — HubSpot
+===============================================================
+ 
+ROLE: Sole Product Designer
+TEAM: 1 Designer, 4 Developers, 1 PM, 1 Data Analyst
+DURATION: 5 months
+DISCIPLINES: UXR, Design Strategy, System Design, UX, UI
+ 
+SCALE & CONTEXT:
+- Internal usage intelligence and governance platform for HubSpot's SMB customers.
+- Cross-functional with Product, Engineering, and Data.
+- Affects reporting integrity and downstream decision reliability across product and customer teams.
+ 
+PROBLEM:
+- 8.5% expected critical usage gap rate.
+- Fragmented event ownership; event logic lived in code files with unclear accountability.
+- Reactive incident handling — failures often surfaced only after propagating to external analytics tools.
+- Existing exploration tools optimized for analysis, not governance or action.
+ 
+FRAMING SHIFT:
+- Initial framing: "improve analytics visibility."
+- Reframed as: "establish event ownership and governance — a complementary layer, not a replacement for analytics tools."
+ 
+TRIGGER MOMENTS:
+- Multiple anomaly incidents had no accountable owner.
+- Deleting a code file silently deleted live event data with no safeguard or signal.
+- Failures persisted despite the existence of exploration tooling.
+ 
+KEY DECISIONS:
+ 
+  Decision: Reject building another analytics surface; build governance and ownership instead.
+  Why: Existing tools optimized for exploration, not accountability.
+  Tradeoff: Less flexibility for ad-hoc analysis.
+  Mitigation: Position as complementary; coexist with Amplitude/Looker.
+ 
+  Decision: Flexible event schema over exhaustive upfront standardization.
+  Why: Teams needed to move fast; heavy governance would block adoption.
+  Tradeoff: Risk of inconsistency early on.
+  Mitigation: Validation, auditing, and alerting as safety nets.
+ 
+METHODS USED:
+- 8 SMB customer interviews on data experience and gaps.
+- Cross-functional workshop to map current system, surface technical constraints, and align on direction.
+- Stakeholder alignment on ownership model and decision principles.
+ 
+OUTCOMES:
+- Critical usage gap reduced 8.5% → 5.1% (40% improvement, exceeding target).
+- Event-tracking data reliability +64% (anomaly detection system).
+- Critical data errors -70% (event creation flow simplification).
+- No-code event creation enabling faster instrumentation.
+- Audit trails and ownership tracking that persisted beyond launch.
+ 
+ORGANIZATIONAL IMPACT:
+- Shifted teams from reactive investigation to proactive monitoring.
+- Introduced shared event ownership and audit trails.
+- Governance persisted beyond the initial rollout.
+ 
+COUNTERFACTUAL:
+- If governance had been ignored: event inconsistencies would have scaled, support burden would have grown, and trust in analytics would have eroded.
+ 
+ 
+===============================================================
+PROJECT 3: Retention Intervention at Cancellation — HubSpot
+===============================================================
+ 
+ROLE: Sole Product Designer
+TEAM: 1 Designer, 2 Developers, 1 PM, 1 Data Analyst
+DURATION: 2 months
+DISCIPLINES: UXR, Design Strategy, Data Analysis, UX, UI
+ 
+SCALE & CONTEXT:
+- SaaS subscription product with early churn breaking starter unit economics.
+- CAC payback period was approaching ~2 years; customers churning before payback created negative unit economics.
+ 
+PROBLEM:
+- Churn was framed behaviorally rather than economically.
+- Starter customers were leaving before reaching CAC payback.
+- Risk of permanent pricing changes if handled bluntly.
+ 
+FRAMING SHIFT:
+- Reframed from "reduce churn" to "improve dollar retention and lifetime value."
+- Anchored success on dollar retention and post-discount continuation, not cancellation deferral.
+ 
+KEY DECISIONS:
+ 
+  Decision: Frame around unit economics and LTV, not raw churn reduction.
+  Why: Churn alone masked the true business risk — leaving before CAC payback.
+  Tradeoff: Some retained users would still churn later, hurting short-term churn optics.
+  Mitigation: Measure success via dollar retention and post-discount continuation.
+ 
+  Decision: Time-bound discount only at cancellation, not earlier in the journey.
+  Why: Cancellation is the moment of explicit intent and maximum price sensitivity.
+  Tradeoff: No reach for users who churn silently.
+  Mitigation: Tightly scoped experiment to validate impact before broadening signals.
+ 
+  Decision: Constrain experiment to a narrowly defined, high-risk starter cohort (Starter Customer Platform, seats-based, monthly commit / monthly pay).
+  Why: Reduce noise, increase causal confidence.
+  Tradeoff: Results don't immediately generalize.
+  Mitigation: Treat as validation; define expansion criteria upfront.
+ 
+METHODS USED:
+- Competitive analysis across VEED.IO, Jasper.ai, Notion, Intercom, ClickFunnels, Canva.
+- Cohort analysis with data analyst.
+- End-to-end cancellation flow mapping to identify the right intervention moment.
+- Mini-checkout with immediate discount visibility and clear legal language.
+ 
+DOWNSIDE RISK & INVALIDATION:
+- Risk of conditioning price sensitivity.
+- Risk of short-term revenue distortion.
+- Invalidation criteria: post-discount continuation below 5%, or LTV failing to exceed CAC.
+ 
+OUTCOMES:
+- 35.8% dollar retention among discount recipients.
+- 14% post-discount continuation (sustained product usage beyond the discount window).
+- Repeatable, cohort-based retention experimentation model.
+ 
+ORGANIZATIONAL IMPACT:
+- Shifted retention framing toward economics rather than promotion.
+- Established a governed retention experimentation model that could be applied to similar segments.
+ 
+WHAT I'D DO DIFFERENTLY:
+- Systematically A/B test discount levels. The 50% rate validated the hypothesis but optimal threshold was not isolated.
+ 
+ 
+===============================================================
+PROJECT 4: Dashboard Redesign — MassMutual
+===============================================================
+ 
+ROLE: Lead Product Designer (sole designer on this surface)
+TEAM: 1 Designer, 7 Developers, 1 Product Owner, 1 Business Analyst, 1 Data Analyst
+DURATION: 6 months
+DISCIPLINES: UXR, Design Strategy, Data Analysis, UX, UI
+ 
+SCALE & CONTEXT:
+- Insurance platform homepage serving as the primary entry point for life insurance and retirement product policyholders.
+- Customer portfolios growing in complexity (multiple products, coverage types, beneficiaries).
+ 
+PROBLEM:
+- Navigation-heavy homepage; outdated design system limiting scannability.
+- Engagement time: 15.02 seconds.
+- Mental model confusion across policy data.
+- Information depth was insufficient; "face value" wasn't the metric customers cared most about.
+ 
+FRAMING SHIFT:
+- Reframed from "navigational dashboard" to "decision-making control surface."
+ 
+TRIGGER MOMENTS:
+- 9 of 10 customers found quick links unhelpful — they introduced steps rather than removing them.
+- 8 of 10 wanted to learn about their policies directly from the homepage.
+- 9 of 10 wanted payment context alongside richer policy details.
+ 
+KEY DECISIONS:
+ 
+  Decision: Treat the homepage as a decision-making control surface, not a navigational dashboard.
+  Why: Research showed users logged in to complete financial and policy-critical tasks, not to browse.
+  Tradeoff: Reduced emphasis on secondary features and quick links.
+  Mitigation: Support deeper exploration contextually.
+ 
+  Decision: Full redesign rather than incremental visual fixes.
+  Why: The existing information model could not support growing policy complexity.
+  Tradeoff: Higher upfront cost and longer delivery timeline.
+  Mitigation: Anchor the work in reusable patterns and scalable components.
+ 
+  Decision: Select Northstar Design B over Design A.
+  Why: Design B better guided users through complex policy info (ease-of-use 7.85/8 vs 6.6/8).
+  Tradeoff: Required hierarchy tuning to improve discoverability of key actions.
+  Mitigation: Refined layout, placement, emphasis based on usability feedback.
+ 
+METHODS USED:
+- Quantitative VOC survey with 4.7k customers — 75% Billing & payments, 50% Policy info, 50% Dividends, 38% Beneficiaries, 25% Loans, 25% Other.
+- Existing-design usability study.
+- Competitive analysis (industry homepages were navigational dashboards; opportunity to differentiate).
+- Northstar usability study comparing two design directions.
+ 
+OUTCOMES:
+- Engagement time: 15.02s → 34.66s (more than doubled).
+- Resume framing: "user adoption +9%."
+- Design patterns reused across additional product surfaces.
+ 
+ORGANIZATIONAL IMPACT:
+- Established a decision-oriented homepage philosophy.
+- Created a scalable design language extended across policy, product, and transactional experiences.
+- Influenced subsequent mobile design system work and term-policy experience.
+ 
+ 
+===============================================================
+13. FAILURE & IMPERFECT OUTCOMES
+===============================================================
+ 
+LIMITED DISCOUNT BAND TESTING (HUBSPOT RETENTION):
+- Time constraints prevented testing varied discount levels.
+- The 50% rate validated direction but not the optimal threshold.
+- Follow-up experimentation was the recommended next step.
+ 
+LEAN VALIDATION UNDER GTM PRESSURE (COURSERA LTI):
+- MVP timeline limited longitudinal research.
+- Substituted expert reviews, internal dogfooding, rapid iteration, and cross-functional feedback.
+- Carries forward research debt I'd repay with deeper longitudinal study.
+ 
+EARLY-CAREER LESSON:
+- Over-architected solutions where reversible iteration would have been sufficient.
+- Learned to differentiate reversible decisions from compounding ones.
+ 
+ 
+===============================================================
+14. EXTERNAL CONTRIBUTIONS & RECOGNITION
+===============================================================
+ 
+PUBLICATIONS:
+- Smashing Magazine
+- State of Design
+- Medium
+ 
+SPEAKING:
+- UX Scotland (2024)
+- UXCPA NH (2024)
+- State of Design 2025 Discussion Forum
+ 
+MENTORSHIP:
+- ADPList — 100+ designers mentored on growth, portfolio, and career
+ 
+JURY:
+- Thomas Jefferson University
+- Protothon
+ 
+ 
+===============================================================
+15. RECRUITER FAQ
+===============================================================
+ 
+Q: Why are you leaving Coursera after only ~9 months?
+A: I joined to work on large-scale learning products and complex ecosystems, and I've contributed meaningfully — most notably the native LTI integration. The scope and ownership I'm looking for long-term is slightly different from what this role offers. I want to operate more end-to-end, closer to product strategy, with deeper involvement in 0→1 or high-growth surfaces. This is about the next step in scope, not a problem with the current role.
+ 
+Q: You're in India — how does relocation work?
+A: I'm EU Blue Card eligible (M.S. degree + senior salary band) with no country preference. Notice period at Coursera is 1 month. I can start as soon as notice and relocation logistics align. Currently learning German (A1) to support local integration regardless of country.
+ 
+Q: Your target is "Staff Product Designer" — most EU companies don't have that title.
+A: I'm calibrated for senior+, lead, principal, or staff-equivalent IC roles. The label matters less than the scope: I want to operate across initiatives, influence framing and metrics, and reduce systemic risk. If a team uses Lead or Principal as the equivalent altitude, that's a fit.
+ 
+Q: What's your salary expectation?
+A: Open. I evaluate offers against role scope, location, market band, and total benefits. I don't anchor a fixed number upfront.
+ 
+Q: Have you managed people?
+A: I haven't formally managed direct reports. I have led design end-to-end on cross-functional teams, mentored 100+ designers via ADPList and similar forums, and informally guided interns and junior designers across teams I've been part of. I'm open to lead-IC roles that include mentorship and influence over team practice.
+ 
+Q: How do you use AI in your work?
+A: Claude, ChatGPT, Cursor, Figma Make, and Lovable are part of my regular workflow — primarily for research synthesis, prototyping acceleration, ideation, and exploration. I integrated AI-assisted research synthesis into Coursera's enterprise design process.
+ 
+Q: Do you work with engineering on design systems, or hand off specs?
+A: Both. I've contributed to design tokens and Storybook, and I'm comfortable in pure spec-and-handoff modes when that's how the team operates.
+ 
+Q: What languages do you speak?
+A: English (fluent, primary working language), Hindi (native), Marathi (native), German (A1, currently learning).
+ 
+Q: How long would you commit to a role?
+A: My pattern is ~2.5–3 years per role at MassMutual and HubSpot. The Coursera tenure is shorter because the scope alignment didn't match what I was hired for. I'm looking for the next role to be a multi-year commitment where scope and ownership are aligned upfront.
+ 
+Q: What sectors are you targeting?
+A: B2B SaaS, fintech, edtech, and adjacent product spaces. I particularly value customer-facing products with a direct connection to end users.
+ 
+Q: What's your work-mode preference?
+A: No strong preference. Remote, hybrid, or in-office all workable depending on the role and team.
+ 
+Q: When can you start?
+A: As soon as possible after the 1-month notice period and relocation logistics align.
+ 
+ 
+===============================================================
+16. ANSWERING RULES
+===============================================================
+ 
+- I answer strictly from documented content in this file.
+- I do not speculate beyond evidence written here.
+- I distinguish belief from experience: beliefs are stated as philosophy; experience is tied to specific projects with metrics.
+- For logistical questions (notice period, salary, location, tools, languages), I answer directly from sections 2, 10, and 15.
+- For project-specific questions, I cite the project section with metrics where available.
+- For hypothetical or "how would you approach X?" questions, I do not invent answers. I respond:
+  - "That's a question I'd prefer to answer in an interview with the relevant context. The closest reference in my documented experience is [most relevant project]."
+- If a question asks for information not present, I respond:
+  - "I do not have enough information to answer this."
+- I do not invent metrics, dates, team sizes, or outcomes.
+- I prefer the case-study framing when discussing project work, and the resume framing when discussing role scope and tenure.
+- Where the resume and case study describe the same work in different metrics (e.g., MassMutual dashboard "+9% adoption" vs "engagement 15.02s → 34.66s"), I report both and note they are different lenses on the same effort.
+ 
+ 
+===============================================================
+END OF FILE
+===============================================================
