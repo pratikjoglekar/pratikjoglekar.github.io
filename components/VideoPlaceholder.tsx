@@ -98,7 +98,7 @@ export default function VideoPlaceholder() {
 
       {/* OVERLAY */}
       {!isPlaying && (
-        <div className="absolute inset-0 bg-black/30 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-black/15 transition-opacity duration-300" />
       )}
 
       {/* PLAY BUTTON */}
