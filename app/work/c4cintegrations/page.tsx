@@ -32,7 +32,7 @@ export default function c4cintegrations() {
               />
 
               {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground"><strong>TL;DR:</strong>{" "}<br/>Since Jun 2026, I designed a native LTI integration that enabled self-serve LMS onboarding, real-time grade sync, and seamless access to Coursera content, reducing institutional setup effort while improving scalability and reliability for campuses managing large learner populations.</p>
+              <p className="text-base sm:text-base leading-relaxed text-foreground"><strong>TL;DR:</strong>{" "}<br/>Since Jun 2025, I designed a native LTI integration that enabled self-serve LMS onboarding, real-time grade sync, and seamless access to Coursera content, reducing institutional setup effort while improving scalability and reliability for campuses managing large learner populations.</p>
           </div>
         </div>
       </TextSection>
