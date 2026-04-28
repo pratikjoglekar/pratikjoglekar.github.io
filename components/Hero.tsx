@@ -16,7 +16,7 @@ export default function Hero() {
         <span className="text-popover">Rigorous</span>
         <span className="text-muted-foreground">.</span>{" "}
         <span className="text-muted-foreground md:text-foreground">
-          Product Designer
+          Sr. Product Designer
         </span>
         <span className="text-muted-foreground">.</span>
       </h1>
