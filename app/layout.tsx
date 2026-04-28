@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "sonner";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         {children}
 
         <Analytics />
+        <SpeedInsights />
         {/* Sonner Toaster — REQUIRED */}
         <Toaster position="bottom-right" richColors />
       </body>
