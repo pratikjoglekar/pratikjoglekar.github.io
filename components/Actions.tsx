@@ -23,7 +23,7 @@ export default function Actions() {
     <div className="flex flex-col items-start md:items-end gap-3 md:gap-2 text-sm font-bold">
       <ActionLink
         label="Download Resume"
-        href="/Pratik_Joglekar_Resume.pdf"
+        href="images/Pratik_Joglekar_Resume.pdf"
       />
 
       <ActionLink
