@@ -112,7 +112,7 @@ export default function VideoPlaceholder() {
       {/* VIDEO */}
       <video
         ref={videoRef}
-        src="/video/intro.mp4"
+        src="/videos/intro.mp4"
         poster="/images/placeholder.png"
         className="absolute inset-0 h-full w-full object-cover"
         playsInline
