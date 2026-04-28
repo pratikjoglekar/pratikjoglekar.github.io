@@ -10,8 +10,9 @@ export default function VideoPlaceholder() {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.4);
 
-  const [progress, setProgress] = useState(0); // 0–100
+  const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const [showControls, setShowControls] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -76,13 +77,13 @@ export default function VideoPlaceholder() {
     }
   }
 
-  // 🔥 Track progress
   function handleTimeUpdate() {
     if (!videoRef.current) return;
 
     const current = videoRef.current.currentTime;
     const total = videoRef.current.duration;
 
+    setCurrentTime(current);
     setProgress((current / total) * 100);
   }
 
@@ -91,7 +92,6 @@ export default function VideoPlaceholder() {
     setDuration(videoRef.current.duration);
   }
 
-  // 🔥 Seek
   function handleSeek(e: React.ChangeEvent<HTMLInputElement>) {
     if (!videoRef.current) return;
 
@@ -102,12 +102,21 @@ export default function VideoPlaceholder() {
     setProgress(value);
   }
 
+  function formatTime(time: number) {
+    if (!time) return "0:00";
+
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  }
+
   return (
     <div
       onMouseEnter={() => setShowControls(true)}
       onMouseMove={handleInteraction}
       onMouseLeave={startHideTimer}
-      className="relative w-full h-full min-h-[360px] rounded-xl border border-borderSubtle overflow-hidden"
+      className="relative w-full h-full min-h-[360px] rounded-xl border border-borderSubtle overflow-hidden bg-black"
     >
       {/* VIDEO */}
       <video
@@ -126,68 +135,94 @@ export default function VideoPlaceholder() {
         <div className="absolute inset-0 bg-black/10 transition-opacity duration-300" />
       )}
 
-      {/* PLAY BUTTON */}
+      {/* CENTER PLAY BUTTON */}
       <button
         onClick={togglePlay}
         className={`
           absolute inset-0 m-auto
           flex items-center justify-center
-          rounded-full border border-white
-          bg-white/70 backdrop-blur-sm
-          h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16
+          rounded-full
+          bg-white/80 backdrop-blur-md
+          h-14 w-14
           transition-all duration-300
           ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}
         `}
       >
         {isPlaying ? (
-          <Pause className="h-5 w-5" />
+          <Pause className="h-5 w-5 text-black" />
         ) : (
-          <Play className="h-5 w-5" />
+          <Play className="h-5 w-5 text-black ml-1" />
         )}
       </button>
 
-      {/* CONTROLS */}
+      {/* CONTROLS BAR */}
       <div
         className={`
           absolute bottom-3 left-3 right-3
-          flex flex-col gap-2
+          rounded-lg
+          bg-black/40 backdrop-blur-md
+          px-3 py-2
+          flex items-center gap-3
           transition-opacity duration-300
           ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}
         `}
       >
-        {/* 🔥 PROGRESS BAR */}
+        {/* PLAY */}
+        <button onClick={togglePlay}>
+          {isPlaying ? (
+            <Pause className="h-4 w-4 text-white" />
+          ) : (
+            <Play className="h-4 w-4 text-white" />
+          )}
+        </button>
+
+        {/* TIME */}
+        <span className="text-[11px] text-white font-mono w-[80px]">
+          {formatTime(currentTime)} / {formatTime(duration)}
+        </span>
+
+        {/* PROGRESS */}
         <input
           type="range"
           min="0"
           max="100"
           value={progress}
           onChange={handleSeek}
-          className="w-full accent-white cursor-pointer"
+          className="
+            flex-1
+            h-[2px]
+            appearance-none
+            bg-white/30
+            rounded-full
+            cursor-pointer
+          "
         />
 
-        {/* SOUND */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={toggleMute}
-            className="flex items-center justify-center rounded-full border border-white bg-white/70 backdrop-blur-sm h-9 w-9"
-          >
-            {isMuted || volume === 0 ? (
-              <VolumeX className="h-4 w-4" />
-            ) : (
-              <Volume2 className="h-4 w-4" />
-            )}
-          </button>
+        {/* VOLUME */}
+        <button onClick={toggleMute}>
+          {isMuted || volume === 0 ? (
+            <VolumeX className="h-4 w-4 text-white" />
+          ) : (
+            <Volume2 className="h-4 w-4 text-white" />
+          )}
+        </button>
 
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="w-24 accent-white cursor-pointer"
-          />
-        </div>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={handleVolumeChange}
+          className="
+            w-20
+            h-[2px]
+            appearance-none
+            bg-white/30
+            rounded-full
+            cursor-pointer
+          "
+        />
       </div>
     </div>
   );
