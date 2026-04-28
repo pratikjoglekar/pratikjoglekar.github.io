@@ -93,7 +93,7 @@ export default function VideoPlaceholder() {
         poster="/images/placeholder.png"
         className="absolute inset-0 h-full w-full object-cover"
         playsInline
-        loop
+        onEnded={() => setIsPlaying(false)}
       />
 
       {/* OVERLAY */}
