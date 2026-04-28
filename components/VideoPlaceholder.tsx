@@ -155,7 +155,7 @@ export default function VideoPlaceholder() {
         )}
       </button>
 
-      {/* CONTROLS BAR */}
+      {/* CONTROLS */}
       <div
         className={`
           absolute bottom-3 left-3 right-3
@@ -188,14 +188,10 @@ export default function VideoPlaceholder() {
           max="100"
           value={progress}
           onChange={handleSeek}
-          className="
-            flex-1
-            h-[2px]
-            appearance-none
-            bg-white/30
-            rounded-full
-            cursor-pointer
-          "
+          className="flex-1 h-[2px] appearance-none cursor-pointer active:scale-[1.02]"
+          style={{
+            background: `linear-gradient(to right, #FF007F ${progress}%, rgba(255,255,255,0.2) ${progress}%)`,
+          }}
         />
 
         {/* VOLUME */}
@@ -214,14 +210,10 @@ export default function VideoPlaceholder() {
           step="0.01"
           value={volume}
           onChange={handleVolumeChange}
-          className="
-            w-20
-            h-[2px]
-            appearance-none
-            bg-white/30
-            rounded-full
-            cursor-pointer
-          "
+          className="w-20 h-[2px] appearance-none cursor-pointer active:scale-[1.02]"
+          style={{
+            background: `linear-gradient(to right, #FF007F ${volume * 100}%, rgba(255,255,255,0.2) ${volume * 100}%)`,
+          }}
         />
       </div>
     </div>
