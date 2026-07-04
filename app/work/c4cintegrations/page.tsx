@@ -320,24 +320,20 @@ export default function c4cintegrations() {
             {/* Nested list */}
             <ul className="mt-4 list-disc space-y-3 pl-5">
               <li>
-                <strong>Evaluate design direction fit:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Assess how well each Northstar design option resonates with policyholders, focusing on clarity, trust, and perceived usefulness.</p>
+                <strong>Self serve setup:</strong>
+                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Watched administrators connect an LMS end to end with no support present, noting every hesitation and backtrack.</p>
               </li>
 
               <li>
-                <strong>Compare effectiveness across options:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Identify which design direction better supports key user tasks, understanding, and confidence when managing policies.</p>
+                <strong>Content discovery:</strong>
+                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Asked instructors to find Coursera content that fit a specific part of their curriculum, and observed whether the flow surfaced the right material or forced workarounds.</p>
               </li>
 
               <li>
-                <strong>Surface strengths and gaps early</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Understand what works well and what creates friction in each option, enabling informed trade-offs rather than subjective design preference.</p>
+                <strong>Trust in grade sync:</strong>
+                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Showed sync status and grade passback, then probed whether instructors believed the grades were accurate enough to use for credit.</p>
               </li>
 
-              <li>
-                <strong>Inform a confident directional decision</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">Use qualitative evidence to converge on a single Northstar that could scale into the final homepage experience.</p>
-              </li>
             </ul>
           </li>
         </ul>
