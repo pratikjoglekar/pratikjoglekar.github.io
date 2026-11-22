@@ -1,481 +1,213 @@
-import Link from "next/link"
-import Image from "next/image";
-import StickyHome from "@/components/StickyHome"
+import Image from "next/image"
+import {
+  CaseStudyLayout,
+  CaseHeader,
+  CaseBody,
+  Chapter,
+  Results,
+  caseStudyMetadata,
+  TextSection,
+  Callout,
+  DecisionLog,
+  DataTable,
+  Figure,
+} from "@/components/case-study/CaseStudy"
+
+export const metadata = caseStudyMetadata("cancellation")
 
 export default function Cancellation() {
   return (
+    <CaseStudyLayout slug="cancellation">
+      <CaseHeader
+        slug="cancellation"
+        tldr={<>HubSpot&rsquo;s starter customers often cancelled before the roughly two-year payback on what it cost to acquire them. In 2 months, as the sole product designer, I designed a time-bound offer at the moment of cancellation, with a breakdown that shows exactly what the discount covers. It drove 36% dollar retention among recipients, and 14% stayed on after the discount ended, without a permanent price change.</>}
+      />
 
-    <>
-      <StickyHome />
-    <main className="min-h-screen px-4 sm:px-5 py-8 pt-24">
+      <CaseBody>
+      <Chapter
+        number={1}
+        title="Context"
+        summary={<>Starter customers often cancelled before HubSpot recouped the roughly 2-year cost of acquiring them, so each early churn lost money.</>}
+      >
+        <TextSection title="Churn that lost money">
+          <p>Acquiring a starter customer cost far more than that customer paid in the short term, so the payback took nearly two years. Customers who left before then cost HubSpot more than they ever brought in.</p>
+          <p>Cancellations and downgrades among starter customers were rising. Treated as a churn problem, the obvious fix was a lower price. Handled bluntly, that would have meant a permanent price change for everyone, including customers who were happy to pay.</p>
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Frame the work around dollar retention and lifetime value, not raw churn.</> },
+              { label: "Why", body: <>Churn alone hid the real risk: customers who left before payback created negative unit economics.</> },
+              { label: "Tradeoff", body: <>Some retained customers would still leave later, which hurts short-term churn numbers.</> },
+              { label: "Mitigation", body: <>Measure success by dollar retention and by continuation after the discount, not by deferred cancellations.</> },
+            ]}
+          />
+        </TextSection>
+      </Chapter>
 
-      {/* Header */}
-      <header className="max-w-[720px] mx-auto mb-12">
-        <h1 className="mt-4 text-4xl italic font-medium text-muted-foreground">
-          Retention Intervention at Cancellation
-        </h1>
+      <Chapter
+        number={2}
+        title="Problem"
+        summary={<>Keep price-sensitive starter customers at the moment they cancel, without permanent price changes. The market showed how.</>}
+      >
+        <TextSection title="Problem statement">
+          <p className="case-pullquote">How might we keep price-sensitive starter customers long enough to recoup what it cost to win them, without changing the price for everyone?</p>
+        </TextSection>
 
-        <p className="mt-1 text-base text-muted-foreground">
-          HubSpot
-        </p>
-      </header>
+        <TextSection title="What the market showed">
+          <p>I studied how B2B SaaS companies such as VEED.IO, Jasper.ai, Notion, Intercom, ClickFunnels and Canva use retention offers. Each pattern shaped a specific part of the design.</p>
+          <DataTable
+            caption="Competitor patterns and the part of the design each one shaped"
+            columns={["What the market showed", "What it shaped"]}
+            rows={[
+              ["Offers appear at moments of intent, not all the time", "The offer appears only inside the cancellation flow"],
+              ["Framing changes with where the customer is", "Copy written for someone who has decided to leave"],
+              ["Supportive, benefit-led language gets accepted", "An offer that reads as help, not a hard sell"],
+              ["The discount applies the moment it is accepted", "A breakdown that shows the new price straight away"],
+            ]}
+          />
+          <p>The hypothesis came with a clear failure line. A 50% discount should keep about a third of price-sensitive customers, and they should keep paying after it ends. If fewer than 5% continued after the discount, or lifetime value still did not exceed acquisition cost, the idea had failed.</p>
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Offer a time-bound discount only at the moment of cancellation, not earlier in the journey.</> },
+              { label: "Why", body: <>Cancellation is the moment of explicit intent and highest price sensitivity, so the offer is most relevant there.</> },
+              { label: "Tradeoff", body: <>No reach for customers who leave silently, without entering the flow.</> },
+              { label: "Mitigation", body: <>Validate impact on a tight scope first, before exploring earlier signals.</> },
+            ]}
+          />
+        </TextSection>
+      </Chapter>
 
+      <Chapter
+        number={3}
+        title="Approach"
+        summary={<>A tightly scoped experiment: the right cohort, the right moment in the flow, and an offer whose terms are clear before anyone accepts it.</>}
+      >
+        <TextSection title="How I led the work">
+          <p>As the only product designer, working with a PM, two developers and a data analyst:</p>
+          <ul className="space-y-2">
+            <li><strong>Chose the cohort with the analyst,</strong> from data on paying customers, product adoption and billing setup.</li>
+            <li><strong>Coordinated growth, pricing, legal, engineering and customer experience,</strong> and iterated the customer-facing language with legal while development was already underway.</li>
+          </ul>
+          <p><strong className="case-h3">The call I made</strong></p>
+          <p>The obvious brief was &ldquo;reduce churn.&rdquo; I reframed it around dollar retention and lifetime value, and anchored success on whether customers kept paying after the discount ended. That ruled out counting cancellations that were only delayed as wins, which a churn number alone would have hidden.</p>
+          <Callout label="Insight">Price-sensitive customers are not rejecting the product. They are signaling a temporary mismatch between when they get value and what they can afford. Well-timed flexibility can keep their trust and extend lifetime value.</Callout>
+        </TextSection>
 
-      {/* TL;DR */}
-      <TextSection title=" ">
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
+        <TextSection title="Options I ruled out">
+          <DataTable
+            caption="Options considered and why each was ruled out"
+            columns={["Option", "Why I ruled it out"]}
+            rows={[
+              ["A permanent price cut", "It changes the price for everyone, including customers happy to pay"],
+              ["An offer earlier in the journey", "Without explicit intent to cancel, the offer is less relevant"],
+              ["Rolling out to every customer at once", "More noise, and less confidence in what caused the result"],
+              ["Counting deferred cancellations as wins", "It hides churn that simply arrives later"],
+            ]}
+          />
+        </TextSection>
 
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>TL;DR:</strong>{" "}<br/>In 2 months, we designed and validated a targeted, time-bound retention intervention at cancellation that improved dollar retention by 35.8% among discount recipients and drove 14% post-discount continuation, proving that contextual incentives can extend customer lifetime value without introducing permanent pricing changes.
-              </p>
-          </div>
-        </div>
-      </TextSection>
+        <TextSection title="Strategy: validate narrowly, then expand">
+          <p>The first rollout went only to customers with clear price-sensitivity and churn-risk signals:</p>
+          <ul className="space-y-2">
+            <li>on <strong>starter products</strong> and the <strong>Starter Customer Platform</strong></li>
+            <li>on the <strong>new seats-based pricing</strong></li>
+            <li>on a <strong>monthly commitment, paid monthly</strong></li>
+          </ul>
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Limit the experiment to a narrowly defined, high-risk starter cohort.</> },
+              { label: "Why", body: <>A focused segment reduced noise and made the result easier to trust and faster to read.</> },
+              { label: "Tradeoff", body: <>The result would not immediately apply to every customer segment.</> },
+              { label: "Mitigation", body: <>Treat it as validation, with expansion criteria agreed up front.</> },
+            ]}
+          />
+        </TextSection>
 
-      {/* Hero image */}
-      <section className="max-w-[720px] mx-auto mb-8">
-          <div className="rounded-xl bg-muted overflow-hidden">
+        <TextSection title="Designing the moment">
+          <p>Three choices shaped the moment itself: where the offer appears, how it reads, and how clear its terms are.</p>
+          <p><strong className="case-h3">Where the offer appears</strong></p>
+          <p>I mapped the whole cancellation flow to find the moment when a customer has clearly said they are leaving but is still open to staying. The offer appears there, at the second of four steps, right after the customer says why they want to cancel and before they review the cancellation.</p>
+          <Figure caption="The cancellation flow map. The offer and its accept path are in green: the offer sits right after the customer shares why they are leaving, accepting leads to a short confirm and checkout path, and declining continues the cancellation as before.">
             <Image
-                  src="/images/retention/retention.png"
-                  alt="HubSpot retention intervention discount panel at cancellation"
-                  width={1440}
-                  height={1020}
-                  className="w-full h-auto"
-                  priority
-                />
-          </div>
-        </section>
+              src="/images/retention/cancellation-flow.png"
+              alt="Cancellation user flow: cancel auto-renewal, select what to cancel, share why, then the offer. If accepted: confirm the offer, mini checkout, offer confirmation and billing details, with a reminder 30 days before the offer expires. If declined: additional details, summary and canceled."
+              width={1568}
+              height={468}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
 
-      {/* Meta */}
-      <section className="max-w-[720px] mx-auto mb-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-base font-bold">
-        <MetaBlock
-          label="Team"
-          value={[
-            "1 Product Designer",
-            "2 Developers",
-            "1 Product Manager",
-            "1 Data Analyst",
-          ]}
-        />
-        <MetaBlock
-          label="Discipline"
-          value={["UXR, Design Strategy", "Data Analysis, UX, UI"]}
-        />
-        <MetaBlock
-          label="Duration"
-          value={["2 months"]}
-        />
-      </section>
-
-      {/* Project overview */}
-      <TextSection title="Project Overview">
-        <p>
-          The cost of acquiring starter customers significantly exceeded their short-term revenue contribution, resulting in a payback period of nearly 2 years. Customers who churned before reaching this threshold created negative unit economics, where acquisition costs outweighed the lifetime value generated.
-        </p>
-
-        <p>
-          This project focused on improving dollar retention and lifetime value by extending customer tenure, particularly at critical churn moments. By identifying and intervening at high-risk points in the customer journey, the initiative aimed to rebalance acquisition efficiency with sustainable growth, ensuring that starter customers deliver long-term value rather than incremental loss.
-        </p>
-      </TextSection>
-
-      {/* Impact */}
-      <TextSection title="Impact">
-        <p>
-          The retention offer <mark className="font-bold">drove 35.8% dollar retention among discount recipients and 14% post-discount continuation,</mark> confirming that targeted incentives at cancellation can extend customer tenure and improve LTV beyond the discount window.
-        </p>
-      </TextSection>
-
-      {/* Problem */}
-      <TextSection title="The Problem">
-        <p className="text-4xl">
-          How might we retain starter customers longer to increase dollar retention and lifetime value, ensuring the cost of acquisition is recouped more efficiently?
-        </p>
-      </TextSection>
-
-      {/* Goals */}
-      <TextSection title="Goals">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Improve unit economics for starter customers:</li>
-          <ul>
-            <li>Reduce the gap between acquisition cost and realized value by increasing customer dollar retention and extending customer lifetime value beyond the CAC payback.</li>
-          </ul>
-          <li className="font-bold">Retain price-sensitive customers at critical churn moments:</li>
-          <ul>
-            <li>Intervene at the point of cancellation with a targeted, time-bound incentive to retain customers who are otherwise likely to churn due to affordability constraints.</li>
-          </ul>
-          <li className="font-bold">Increase customer lifetime value (LTV):</li>
-          <ul>
-            <li>Extend customer tenure through contextual retention offers, with the goal of improving LTV without introducing permanent pricing changes.</li>
-          </ul>
-          <li className="font-bold">Validate a discount-based retention hypothesis:</li>
-          <ul>
-            <li>Test whether offering a 50% discount can retain approximately one-third of price-sensitive customers and result in sustained usage beyond the discount period.</li>
-          </ul>
-          <li className="font-bold">Distinguish delayed churn from meaningful retention:</li>
-          <ul>
-            <li>Measure post-discount behavior to ensure the intervention drives continued product usage rather than short-term churn deferral.</li>
-          </ul>
-          <li className="font-bold">Establish a scalable retention intervention model:</li>
-          <ul>
-            <li>Create a repeatable, data-informed framework for retention interventions that can be refined, governed, and applied across similar customer segments.</li>
-          </ul>
-        </ul>
-      </TextSection>
-
-      {/* Why needed */}
-      <TextSection title="Why was this needed?">
-        <p>
-          HubSpot observed a sustained increase in cancellations and plan downgrades among starter customers, signaling growing pressure on retention and long-term revenue health. Left unaddressed, this downward trend risked eroding customer lifetime value, weakening unit economics, and increasing reliance on acquisition to offset churn.
-        </p>
-        <p>
-          The objective was to intervene early and deliberately, testing targeted retention strategies to stabilize this trajectory, retain price-sensitive customers, and protect long-term value. By addressing churn at its most critical moment, the initiative aimed to <mark className="font-bold">shift retention from reactive loss mitigation to a more intentional, data-informed growth lever.</mark>
-        </p>
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Frame the initiative around unit economics and lifetime value rather than reducing raw churn.<br/>
-                <strong>Why:</strong>{" "}Churn alone masked the true business risk&mdash;customers leaving before CAC payback created negative unit economics.<br/>
-                <strong>Tradeoff:</strong>{" "}Some retained users would still churn later, limiting short-term churn-reduction optics.<br/>
-                <strong>Mitigation:</strong>{" "}Measure success using dollar retention and post-discount continuation, not cancellation deferral.
-              </p>
-          </div>
-        </div>
-
-      </TextSection>
-
-
-
-      {/* Challenges */}
-      <TextSection title="Challenges I encountered">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Complex stakeholder coordination:</li>
-          <ul>
-            <li>The project involved multiple teams across growth, pricing, legal, engineering, and customer experience, creating significant coordination overhead and competing priorities.</li>
-          </ul>
-          <li className="font-bold">Evolving scope and trade-offs:</li>
-          <ul>
-            <li>Repeated iteration was required to align on customer-facing language, technical feasibility, and shifting roadmap constraints, often in parallel with active development.</li>
-          </ul>
-          <li className="font-bold">High technical and strategic uncertainty:</li>
-          <ul>
-            <li>HubSpot had not previously implemented a comparable retention strategy, requiring new technical patterns, risk-mitigation approaches, and close experimentation to ensure reliability and compliance.</li>
-          </ul>
-        </ul>
-      </TextSection>
-
-      {/* Design strategy */}
-      <TextSection title="Design Strategy">
-
-      <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Insight:</strong>{" "}Price-sensitive customers aren&rsquo;t rejecting the product&mdash;they&rsquo;re signaling a temporary mismatch between value timing and affordability. Well-timed flexibility can preserve trust while extending lifetime value.</p>
-          </div>
-        </div>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Competitive Landscape & Market Signals</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              Competitor behavior strongly validated discount-based retention as an accepted market pattern. Several B2B SaaS companies already deploy targeted discounts across key customer touchpoints, including cancellation, indicating both customer expectation and commercial viability.
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              Observed competitors included: <strong>VEED.IO, Jasper.ai, Notion, Intercom, ClickFunnels, Canva,</strong> and others.
-            </p>
-
-            {/* Nested list */}
-            <ul className="mt-4 list-disc space-y-3 pl-5">
-              <li>
-                <strong>Discounts are contextual, not universal:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Competitors surface discounts at specific moments of intent&mdash;most commonly during cancellation, downgrade flows, or renewal checkpoints&mdash;rather than as always-on offers.
-                </p>
-              </li>
-
-              <li>
-                <strong>Positioning varies by touchpoint:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Discounts are framed differently depending on where the user is in their journey, reinforcing the importance of matching the intervention to user intent rather than relying on generic promotions.
-                </p>
-              </li>
-
-              <li>
-                <strong>Language drives acceptance:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Successful implementations used inviting, empathetic, and benefit-led language, positioning the discount as support or flexibility rather than a hard sell.
-                </p>
-              </li>
-
-              <li>
-                <strong>Instant gratification is expected:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  In nearly all cases, the discount took effect immediately upon acceptance. Delayed activation introduced friction and reduced perceived value.
-                </p>
-              </li>
-            </ul>
-            <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  These <mark className="font-bold">insights reinforced the decision to introduce a time-bound, contextual retention offer at cancellation,</mark> designed to feel supportive rather than transactional, activate immediately, and align with established SaaS norms while maintaining HubSpot&rsquo;s brand and pricing integrity.
-            </p>
-          </li>
-        </ul>
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Introduce a time-bound discount only at the moment of cancellation rather than earlier in the journey.<br/>
-                <strong>Why:</strong>{" "}Cancellation represents explicit intent and maximum price sensitivity, increasing relevance and acceptance.<br/>
-                <strong>Tradeoff:</strong>{" "}Limited opportunity to influence users who churn silently without entering the flow.<br/>
-                <strong>Mitigation:</strong>{" "}Scope the experiment tightly to validate impact first before exploring earlier signals.
-              </p>
-          </div>
-        </div>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Cohort Selection</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              To ensure the experiment produced reliable and actionable results, the initial rollout was deliberately scoped to a narrowly defined customer cohort. Working with an analyst, I reviewed data across paying customers, product adoption, and billing configurations to identify a segment most likely to benefit from&mdash;and respond to&mdash;the intervention.
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              The selected cohort included:
-            </p>
-              <ul className="list-disc space-y-4 pl-5">
-                <li>Customers on <strong>starter products</strong></li>
-                <li>Customers using the <strong>Starter Customer Platform</strong></li>
-                <li>Customers on the <strong>new seats-based pricing model</strong></li>
-                <li>Customers on a <strong>Monthly Commit, Monthly Pay plan</strong></li>
-              </ul>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              By constraining the experiment to a focused, price-sensitive segment with clear churn-risk signals, we reduced noise, improved interpretability of results, and increased confidence in causal impact. This approach allowed us to validate the retention hypothesis efficiently before considering broader rollout or additional segments.
-            </p>
-          </li>
-        </ul>
-
-      <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Constrain the experiment to a narrowly defined, high-risk starter cohort.<br/>
-                <strong>Why:</strong>{" "}A focused segment reduced noise, increased causal confidence, and allowed faster validation.<br/>
-                <strong>Tradeoff:</strong>{" "}Results would not immediately generalize to all customer segments.<br/>
-                <strong>Mitigation:</strong>{" "}Treat this as a validation step, not a final rollout, with clear criteria for expansion.
-              </p>
-          </div>
-        </div>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">User Flow Analysis</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              To determine the most effective placement for the discount offer, I mapped the end-to-end cancellation flow to understand user intent, decision points, and drop-off risks. This helped identify a strategic moment where users had clearly expressed cancellation intent but were still open to intervention.
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              By grounding placement decisions in the full cancellation journey&mdash;rather than isolated screens&mdash;we ensured the discount panel appeared at a moment of highest relevance, maximizing clarity, acceptance, and impact without disrupting the overall experience.
-            </p>
-          </li>
-        </ul>
-
-      </TextSection>
-
-      {/* Outcomes */}
-      <TextSection title="Final Designs and metric improvements">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Discount page</li>
-          <ul>
-            <li>A cohort-based, data-informed retention framework allowed me to evaluate retention strategies through experimentation rather than assumptions, establishing a repeatable intervention model without compromising pricing strategy.</li>
-          </ul>
-        </ul>
-          <section className="max-w-[720px] mx-auto mb-8">
-          <div className="rounded-xl bg-muted overflow-hidden">
+          <p><strong className="case-h3">An offer that reads as help</strong></p>
+          <p>The offer says what it is in one line: 50% off for the next three months. It shows the old and new price side by side, the date the discount ends, and, in plain words, that it covers existing products and seats only.</p>
+          <Figure caption="The offer at step 2 of 4: the discount, the new price, when it ends and what it covers.">
             <Image
-                  src="/images/retention/retention.png"
-                  alt="Retention discount page presented at cancellation"
-                  width={1440}
-                  height={1020}
-                  className="w-full h-auto"
-                  priority
-                />
-          </div>
-        </section>
+              src="/images/retention/retention-offer.png"
+              alt="Retention offer shown during cancellation: 50% off for 3 months"
+              width={1456}
+              height={832}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
 
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Mini-checkout experience</li>
-          <ul>
-            <li>A mini-checkout with immediate discount visibility and clear legal language helped customers reverse their cancellation decisions with higher confidence and lower friction&mdash;increasing acceptance of the retention offer without eroding trust or pricing clarity.</li>
-          </ul>
-        </ul>
-        <section className="max-w-[720px] mx-auto mb-8">
-          <div className="rounded-xl bg-muted overflow-hidden">
+          <p><strong className="case-h3">No surprises on the bill</strong></p>
+          <p>Before accepting, customers can open an offer breakdown. It lists, line by line, what is discounted and what is not, so the new total is never a surprise. Clear terms let customers reverse their decision with confidence, without eroding trust in HubSpot&rsquo;s pricing.</p>
+          <Figure caption="The offer breakdown: each product with its discount, the add-ons that stay at full price, and the new total.">
             <Image
-                  src="/images/retention/minicheckout.png"
-                  alt="Mini-checkout experience showing the applied retention discount"
-                  width={1440}
-                  height={1020}
-                  className="w-full h-auto"
-                  priority
-                />
-          </div>
-        </section>
+              src="/images/retention/offer-breakdown.png"
+              alt="Offer breakdown drawer listing each product with its 50% discount, additional marketing contacts at full price, and a summary with the order total and savings"
+              width={1317}
+              height={1214}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+        </TextSection>
+      </Chapter>
 
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Metric improvement</li>
-          <ul>
-            <li>The contextual, time-bound discount presented at cancellation helped price-sensitive customers reconsider cancellation instead of defaulting to churn.</li>
+      <Chapter
+        number={4}
+        title="Outcome"
+        summary={<>The offer drove 36% dollar retention among recipients, and 14% stayed on after the discount ended.</>}
+      >
+        <Results slug="cancellation" />
+
+        <TextSection title="What my decisions plausibly moved">
+          <p>The result belongs to the whole team, so I claim only the links I can defend, and I mark the rest as hypotheses.</p>
+          <DataTable
+            caption="Design decisions, the result each most plausibly affected, and the evidence"
+            columns={["Decision", "Result it most plausibly affected", "Evidence"]}
+            rows={[
+              ["The offer at the moment of cancellation", "Dollar retention among recipients, 36%", "Measured on the experiment cohort"],
+              ["Measuring continuation after the discount", "Telling real retention from delayed churn", "14% continued, well above the 5% failure line"],
+              ["Clear terms and the offer breakdown", "Acceptance of the offer", "Hypothesis; acceptance was not measured per screen"],
+              ["A narrow, high-risk cohort", "Confidence in the result", "Not yet shown for other segments"],
+            ]}
+          />
+        </TextSection>
+      </Chapter>
+
+      <Chapter
+        number={5}
+        title="Reflection"
+        summary={<>Retention is a systems problem, not a promotion problem. Next time I would A/B test discount levels, to find the smallest offer that still keeps customers.</>}
+      >
+        <TextSection title="Where it got hard">
+          <ul className="space-y-2">
+            <li><strong>Many teams, competing priorities.</strong> Growth, pricing, legal, engineering and customer experience all had a stake, and their priorities did not always agree.</li>
+            <li><strong>Scope moved during the build.</strong> Customer-facing language, technical feasibility and the roadmap kept shifting, often while development was already underway.</li>
+            <li><strong>No precedent.</strong> HubSpot had not run a retention offer like this before, so the patterns, the safeguards and the compliance checks were all new.</li>
+            <li><strong>Real risks.</strong> Offers can teach customers to expect discounts, and they can distort short-term revenue. The failure line kept both in view.</li>
           </ul>
-        </ul>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <OutcomeCard title="35.8%" subtitle="Dollar retention within cancellation" />
-        <OutcomeCard title="14%" subtitle="Post-discount continuation" />
-        </div>
-      </TextSection>
+        </TextSection>
 
-      {/* Differently */}
-      <TextSection title="What I could have done differently">
-        <p>I would invest more time in systematically A/B testing different discount levels. While the initial 50% discount was chosen to validate the core retention hypothesis quickly, time constraints limited deeper experimentation. Expanding tests across varied discount rates could have identified a more optimal balance between retention impact and revenue preservation, particularly across different levels of price sensitivity.</p>
-      </TextSection>
+        <TextSection title="What I would do differently">
+          <p>I would test discount levels systematically. The 50% offer was chosen to prove the idea quickly, and it did, but time did not allow testing smaller offers. The best balance between retention and revenue, for different levels of price sensitivity, is still unknown.</p>
+          <Callout label="Lesson">Effective retention is a systems problem, not a promotion problem. Clear intent signals, disciplined scoping and fast validation matter more than aggressive incentives when you need to protect lifetime value without eroding trust.</Callout>
+        </TextSection>
+      </Chapter>
 
-      {/* Next actions */}
-      <TextSection title="Next actions I would have taken">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Optimize discount levels through experimentation:</li>
-          <ul>
-            <li>Test varied discount values to identify the minimum effective incentive that maximizes retention while preserving or improving lifetime value.</li>
-          </ul>
-        </ul>
-      </TextSection>
-
-      {/* Conclusion */}
-      <TextSection title="Conclusion">
-        <p>This project demonstrated that <mark className="font-bold">targeted, time-bound interventions at the point of cancellation can meaningfully improve retention and lifetime value for price-sensitive customers.</mark> By grounding the strategy in unit economics, validating it through experimentation, and designing for transparency and trust, the team was able to stabilize churn without introducing permanent pricing changes.
-        </p>
-        <p>More importantly, the work established a repeatable retention model&mdash;one that balances customer empathy with business sustainability and can be refined through further experimentation as pricing and customer needs evolve.
-        </p>
-
-      <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">It helped me learn that effective retention is a systems problem, not a promotion problem. Clear intent signals, disciplined scoping, and fast validation matter more than aggressive incentives when teams need to protect lifetime value without eroding trust at scale.</p>
-          </div>
-        </div>
-
-      </TextSection>
-    </main>
-    </>
-  )
-}
-
-/* ------------------ */
-/* Reusable pieces   */
-/* ------------------ */
-
-function Section({ children }: { children: React.ReactNode }) {
-  return (
-    <section className="max-w-[720px] mx-auto mb-16">
-      {children}
-    </section>
-  )
-}
-
-function TextSection({
-  title,
-  children,
-}: {
-  title: string
-  children: React.ReactNode
-}) {
-  return (
-    <Section>
-      <h2 className="mb-4 text-4xl italic font-light text-muted-foreground">
-        {title}
-      </h2>
-      <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
-        {children}
-      </div>
-    </Section>
-  )
-}
-
-function MetaBlock({
-  label,
-  value,
-}: {
-  label: string
-  value: string[]
-}) {
-  return (
-    <div>
-      <div className="mb-1 font-medium text-muted-foreground">
-        {label}
-      </div>
-      <ul className="space-y-1">
-        {value.map((v) => (
-          <li key={v}>{v}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-function OutcomeCard({
-  title,
-  subtitle,
-}: {
-  title: string
-  subtitle: string
-}) {
-  return (
-    <div className="rounded-xl px-4 py-6 text-center bgColor">
-      <div className="text-xl font-semibold">{title}</div>
-      <div className="mt-1 text-base">
-        {subtitle}
-      </div>
-    </div>
+    </CaseBody>
+    </CaseStudyLayout>
   )
 }

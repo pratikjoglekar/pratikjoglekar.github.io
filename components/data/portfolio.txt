@@ -13,7 +13,7 @@ NAME:
 - Pratik Joglekar
  
 CURRENT ROLE:
-- Senior Product Designer, Enterprise — Coursera (India), July 2025 — Present
+- Senior Product Designer, Enterprise — Coursera (India), June 2025 — Present
  
 TARGET ROLE:
 - Senior+, Lead, Principal, or Staff-equivalent Product Designer (IC track).
@@ -52,7 +52,10 @@ INTERNATIONAL EXPERIENCE:
 - Currently leading enterprise design for Coursera from India
  
 POSITIONING:
-- I design decision systems for complex products.
+- I design complex products that feel simple.
+- Site hero, supporting line: "For 8+ years, I have worked on products people have to use at work, and made them want to."
+- Site hero, label line: Senior Product Designer · B2B SaaS · Enterprise · EdTech · Financial services.
+- About (in Pratik's words): "I am fascinated by what happens between a problem and a decision: the assumptions, invisible systems, and small moments that shape how people act. For over 8 years, I have explored them through product design across enterprise SaaS, EdTech, and financial services. I design for more than what people see: what they understand, what they believe, and what they can do next. Whether it is a complex enterprise workflow or an emerging AI experience, I want technology to feel thoughtful and deeply human."
 - I turn ambiguous problem spaces into self-serve, governable experiences.
 - I focus on growth, monetization, activation, governance, and structural durability.
 - I run hypothesis-driven design embedded with PM, engineering, and data — and have AI-assisted research and prototyping built into my workflow.
@@ -93,7 +96,7 @@ LANGUAGES:
  
 WHY I'M EXPLORING NOW:
 - I joined Coursera with a clear goal: to work on large-scale, impactful learning products and strengthen my ability to design for complex ecosystems.
-- In a short time, I've contributed meaningfully — including the native LTI integration that lifted enterprise activation from 10% to 23% and reduced support dependency from 57% to 7% across ~13,000 enterprise accounts.
+- In a short time, I've contributed meaningfully — including the native LTI integration that lifted enterprise activation from 10% to 31% and reduced support dependency from 57% to 7% across ~13,000 enterprise accounts.
 - I've realized the scope and ownership I'm looking for long-term is slightly different from what this role offers.
 - I want to operate more end-to-end — closer to product strategy, with deeper involvement in shaping 0→1 or high-growth surfaces.
  
@@ -212,7 +215,7 @@ ESCALATION CASE — COURSERA LTI:
 - GTM pressure pushed for an MVP using continued third-party middleware.
 - I argued for a first-party LTI integration so we could own observability, sync semantics, and roadmap velocity.
 - Tradeoff: less flexibility for edge-case LMS configurations.
-- Outcome: native LTI shipped; LMS connection success moved from 10% to 23%, support dependency dropped from 57% to 7% across ~13,000 enterprise accounts.
+- Outcome: native LTI shipped; LMS connection success moved from 10% to 31%, support dependency dropped from 57% to 7% across ~13,000 enterprise accounts.
  
 HOW I HANDLE DISAGREEMENT:
  
@@ -254,32 +257,43 @@ SELF-CORRECTION LOOP:
 9. CAREER HISTORY (FACT-CHECKED AGAINST RESUME)
 ===============================================================
  
+RESUME SUMMARY (Kayak résumé, 2026):
+- Senior Product Designer with 8+ years of experience turning complex product problems into clear, useful experiences across EdTech, SaaS, and financial services.
+- Brings together product thinking, user research, interaction design and systems thinking, from discovery through delivery.
+- Work spans enterprise integrations, growth, monetization, consumer products and complex workflows, with measurable impact on activation, adoption, retention and product usage.
+
+CORE COMPETENCIES:
+- Product strategy and discovery: product strategy, product discovery, problem framing, user research, JTBD, prioritization, roadmap influence.
+- Product design: interaction design, information architecture, complex workflows, prototyping and validation, growth and monetization, design systems, responsive experiences across web, iOS and Android. AI tools: Claude, Codex, Figma Make.
+- Systems and platforms: enterprise products, platform design, platform integrations, LTI, enterprise workflows, complex systems.
+- Leadership: cross-functional leadership, stakeholder influence, end-to-end ownership, mentoring and design critique.
+
 COURSERA (India) — Senior Product Designer, Enterprise
-July 2025 — Present
-- Native LTI integration into LMS environments (Canvas, Blackboard, Moodle).
-- Activation lift: 10% → 23%.
-- Support dependency reduced 57% → 7% across ~13,000 enterprise accounts over 2 quarters.
-- Defined and launched a scalable pricing/monetization experience: churn -37%, checkout completion +11%.
-- Workshop facilitation for a new enterprise team; AI-assisted research synthesis.
-- Acted as PM for an instructor-side feature (due dates, learner progress, certificates).
- 
+June 2025 — Present
+- Shapes product strategy and design across enterprise growth, activation, onboarding and platform integrations; partners with engineering, customer success and revenue teams.
+- Native LTI integration into LMS environments (Canvas, Blackboard, Moodle): LMS connection success 10% → 31% (the confirmed figure), by reframing the problem from discoverability to integration. Research with operators showed partners repeatedly switching between their own systems and Coursera to complete key tasks.
+- Support dependency reduced 57% → 7% over two quarters, across ~13,000 enterprise accounts, by analyzing user flows and information architecture and fixing the systemic gaps behind the highest-volume support issues.
+- Shifted the roadmap toward activation blockers: JTBD interviews with instructors and admins, and a shared prioritization framework that moved the team past surface-level feature requests to the integration gaps behind them.
+- Stepped into an open Product Manager role for an instructor-facing product (due date management, learner progress, certificate visibility), owning discovery, stakeholder alignment, sprint planning and delivery across engineering, QA and customer success.
+- Pricing calculator: 24% of exposed customers meaningfully engaged, and 75% of those did not continue to checkout. The findings separated exploration from purchase intent and led to the experience being productized (shipped to all Coursera for Teams traffic).
+
 HUBSPOT (U.S.) — Senior Product Designer, Growth
 September 2022 — May 2025
-- Cancellation flow with discount + feature re-surfacing: ~36% retention of at-risk users; secondary recovery via underutilized feature prompts.
-- Campaign creation experience: +90% daily usage.
-- AI-driven usage prompts: +13% engagement.
-- Event creation flow simplification: -70% critical data errors.
-- Anomaly detection for event tracking: +64% data reliability.
-- Pricing card positioning: free → Starter CRM conversions +6%.
-- Experimentation insights surface: tool adoption +8%.
- 
-MASSMUTUAL (U.S.) — Senior Product Designer, Consumer
+- Designed growth and monetization experiences across activation, retention, experimentation and product adoption.
+- Cancellation experience: surfaced relevant product value at the moment customers considered leaving, alongside a targeted discount. The website reports 36% dollar retention among discount recipients and 14% continuing after the discount; the résumé describes it as retaining 36% of at-risk users and recovering another 20% through prompts for underused features.
+- Campaign creation: daily usage +90%, by identifying cognitive overload as the key adoption barrier and restructuring the flow around progressive disclosure, clearer decisions and contextual guidance.
+- Usage Intelligence Platform: critical usage gaps 8.5% → 5.1%; a governance and event monitoring layer for creating, owning and tracking usage events without engineering support, reframed around operational reliability through anomaly detection, auditing and alerts.
+- Event creation flow: errors −70%, by tracing failures back to unnecessary decision points and restructuring the experience around the decisions users actually needed to make.
+- Pricing cards: CRM conversions +6%, by repositioning pricing cards at the free-to-Starter moment and restructuring the value hierarchy around the decision customers were making.
+
+MASSMUTUAL (U.S.) — Senior Product Designer, FinTech
 January 2020 — September 2022
-- Mobile app redesign with PM + business analyst: MAU +17%.
-- Homepage redesign collaboration: user adoption +9% (resume framing); engagement time 15.02s → 34.66s (case-study framing).
-- Architected and shipped a comprehensive mobile design system.
-- End-to-end design for a term policy experience; UX writing support in agile cadence.
- 
+- Designed consumer experiences across life insurance and retirement products, spanning mobile, web and new policy flows, in a highly regulated environment.
+- Mobile app redesign: monthly active users +17%, by rethinking how customers tracked policies, monitored portfolio health and managed beneficiaries.
+- Homepage redesign: adoption +9%, by designing around first-time and returning users and reducing cognitive load at the highest-traffic entry point; the case study also reports time engaged 15.02s → 34.66s.
+- Shipped audit-ready life insurance, annuity and retirement experiences for high-stakes financial decisions, partnering with legal, compliance and underwriting throughout.
+- Built a mobile design system from scratch across life insurance, annuity and retirement experiences; its reusable patterns supported the design of the term policy experience.
+
 EDUCATION:
 - M.S. User Experience and Interaction Design, Thomas Jefferson University (U.S.), 2019
 - Bachelor of Computer Application, Yashwantrao Chavan Maharashtra Open University (India), 2015
@@ -355,6 +369,7 @@ JURY / EXTERNAL EVALUATION:
 2. Usage Intelligence Platform — HubSpot
 3. Retention Intervention at Cancellation — HubSpot
 4. Dashboard Redesign — MassMutual
+5. Coursera for Teams Pricing Calculator — Coursera
  
  
 ===============================================================
@@ -363,7 +378,7 @@ PROJECT 1: Coursera for Campus — Native LTI Integrations
  
 ROLE: Sole Product Designer
 TEAM: 1 Designer, 8 Developers, 1 PM, 1 Data Analyst
-DURATION: 8 months and ongoing (started July 2025)
+DURATION: Ongoing (started June 2025)
 DISCIPLINES: UXR, Design Strategy, System Design, UX, UI
  
 SCALE & CONTEXT:
@@ -407,11 +422,53 @@ METHODS USED:
 - MVP usability testing.
 - Deep-dive customer interviews on personalization, AI, search/browse, and decision support.
 - Cross-functional workshop to prioritize against user impact, feasibility, and platform leverage.
+
+THE FOUR MIDDLEWARE PROBLEMS (as told in the case study):
+- Late, opaque grades: grade sync lagged by a day or two, and failures were hard to diagnose, so faculty could not trust the gradebook for credit.
+- Slow, manual setup: onboarding was high-touch and often took two to three weeks of back-and-forth.
+- Missing academic workflows: universities relied on customizations (multiple LMS shells, granular grade sync, roster-based access); replacing the middleware without them would break existing partners.
+- Disconnected learner experience: Coursera content opened in a separate browser tab.
+
+FOCUS GROUP (September 2025):
+- Eight Customer Success Managers, Implementation Managers and Solutions Architects across LATAM, EMEA and APAC.
+- Findings and what each shaped: embedding Coursera in the LMS was the most requested feature (shaped the embedded learner view); grade sync delays and a need for diagnostics (shaped real-time sync, registration status and the grade-sync cutoff); instructors wanted course detail before selecting and admin and instructor experiences felt far apart (shaped the content picker and admin control); setup needed self-serve guidance (shaped the guided registration flow).
+- A survey of admins and instructors among early users followed in March 2026.
+
+STRATEGY — PARITY FIRST:
+- Top university partners would not migrate until the native tool matched the workflows they already had, so the roadmap protected existing customers before adding anything new.
+- Sequence: core integration (registration, content linking, single sign-in, course-level grade sync, rostering; first customer live December 2025), then one-click setup with a single URL, then academic customizations (granular grade sync, incremental sync, restoring grades for re-enrolled students), then content discovery, then the embedded learner experience.
+
+DESIGN DECISIONS IN DEPTH:
+- Admin control over what instructors see: an org-level control opens program selection and only turns on once an active program is saved, so "control on, nothing visible" cannot happen. Each LTI registration shows a status in words (Configured, Not configured, Needs attention), with a warning when enabling with unconfigured registrations. Existing links keep working.
+- Grade-sync cutoff: sync was continuous and the LMS did not send due dates, so instructors can set an optional date when creating a link, labeled "Stop grade sync to Gradebook" so it is not mistaken for the LMS due date.
+- In the shipped link setup ("Finalize Setup"), the cutoff is a date and time based on the instructor's local time, described as a grade sync cutoff that is NOT the LMS due date; at launch it could not be changed once set. The same screen asks for the grade configuration: final grade sync or item-level grade sync.
+- Phase 2, after check-ins with Customer Success Managers: an instructor overview for each LMS course lists every Coursera item with its created date, its "Stop Grade Sync on" date (or "No date was set", or "Ungraded"), and enrolled learners, and lets instructors update the stop date, view learner details or delete a link.
+- Program Access Control in practice: turning the toggle on opens a "Program Access Control Enabled" dialog that goes straight to selecting programs; once saved, a green confirmation explains that only selected programs are available in the LMS. Turning it off asks for confirmation, since every program becomes visible again.
+- Content linking: choose license scope, then content type; one Specialization is one link with course order visible but no course picker, protecting the one-link, one-grade model.
+- Progress and certificates appear only for deep-linked items; instructors can view certificates but not download them.
+- Embedded learner view adapts to LMS hosts that scale responsively and to hosts that only allow fixed-size pop-ups.
+
+WHERE IT GOT HARD:
+- Each LMS behaves differently (Canvas decides multi-select per placement; Moodle adds its own confirmation page), and most expose little data, so the design degrades gracefully per placement.
+- Customers would only migrate between academic semesters, and migration depended on getting enrollment and grade data out of the old middleware.
+- Self-serve alone was not enough: customers often still needed hands-on help, so field-team ownership mattered as much as the product.
+
+ATTRIBUTION (Pratik is careful here):
+- Real-time sync and the cutoff most plausibly affected instructor trust in grades (survey comments, no metric yet).
+- Admin control and registration status plausibly affected support dependency (57% to 7%), and guided registration plausibly affected the connection rate (10% to 31%), but both are hypotheses, not isolated from other changes.
+
+OPTIONS RULED OUT:
+- Keep patching the middleware: Coursera would never own observability, grade sync or the roadmap.
+- Batch grade updates: delayed grades undermined trust for credit.
+- Expose every setting up front: extra flexibility raised error rates and support load.
+- Let instructors pick single courses inside a Specialization: it would break the one-link, one-grade model.
+
+LESSON:
+- Self-serve is a product plus an operating model: the setup flow is half of it; the other half is what happens when setup fails (visible status, diagnostics, a clear handoff to a person).
  
 OUTCOMES:
-- LMS connection success: 10% → 23%.
+- LMS connection success: 10% → 31%.
 - Support dependency: 57% → 7% over 2 quarters.
-- Pricing/monetization redesign: churn -37%, checkout completion +11%.
  
 ORGANIZATIONAL IMPACT:
 - Repositioned integrations as durable, owned infrastructure rather than an external add-on.
@@ -470,8 +527,7 @@ METHODS USED:
  
 OUTCOMES:
 - Critical usage gap reduced 8.5% → 5.1% (40% improvement, exceeding target).
-- Event-tracking data reliability +64% (anomaly detection system).
-- Critical data errors -70% (event creation flow simplification).
+- Errors in the event creation flow −70% (by removing decision points users did not need).
 - No-code event creation enabling faster instrumentation.
 - Audit trails and ownership tracking that persisted beyond launch.
  
@@ -480,6 +536,25 @@ ORGANIZATIONAL IMPACT:
 - Introduced shared event ownership and audit trails.
 - Governance persisted beyond the initial rollout.
  
+DESIGN DETAIL (from the case study):
+- Interview findings and what each shaped: unclear ownership of code-based events (event ownership and an audit trail); deleting a file lost live data (protected events); unannounced changes (notifications when events are created, changed or deleted); no anomaly detection (team alerts); key events hard to find (a usage library with pinned events and volume trends).
+- No-code event creation is a four-step flow (event details, properties, reviewers, review). It builds in the naming standard (a noun plus a past-tense verb, such as "Deal Created") and asks up front whether the event is protected.
+- Each event's detail page shows its expected range, flags anomalies on the usage chart, names the owning teams, and lets teams subscribe; changes go through reviewers and each event keeps a history.
+- The History tab lists every change with its date, who made it and the details (collaborating teams added, properties added, description, protected status, creation). Teams can mark an intended volume change as an "expected drop" and record the reason, so it is not mistaken for an incident.
+- Pratik reframed the brief from "improve analytics visibility" to ownership and governance, ran a cross-functional workshop to map the system and its constraints, and aligned stakeholders on an ownership model before deep design.
+- Attribution: the drop in critical usage situations (8.5% to 5.1%) is plausibly linked to alerts, protection and ownership, but Pratik treats that as a hypothesis, not isolated from other changes.
+
+OPTIONS RULED OUT:
+- Another analytics dashboard: existing tools were built for exploration, not accountability or action.
+- Replacing Amplitude and Looker: it would disrupt established workflows and slow adoption.
+- Exhaustive standardization up front: heavy governance would have blocked early adoption.
+
+VALIDATION:
+- Direction, before building: the 8 SMB interviews and the cross-functional workshop tested governance over another dashboard before design went deep.
+- Result, against a target: critical usage situations were tracked against the expected 8.5% and came in at 5.1%, beating the target.
+- Whether it lasted: event ownership and audit trails stayed in use after the initial rollout.
+- Not measured: how much alerts, protection and no-code creation each contributed on their own.
+
 COUNTERFACTUAL:
 - If governance had been ignored: event inconsistencies would have scaled, support burden would have grown, and trust in analytics would have eroded.
  
@@ -535,7 +610,7 @@ DOWNSIDE RISK & INVALIDATION:
 - Invalidation criteria: post-discount continuation below 5%, or LTV failing to exceed CAC.
  
 OUTCOMES:
-- 35.8% dollar retention among discount recipients.
+- 36% dollar retention among discount recipients.
 - 14% post-discount continuation (sustained product usage beyond the discount window).
 - Repeatable, cohort-based retention experimentation model.
  
@@ -543,6 +618,20 @@ ORGANIZATIONAL IMPACT:
 - Shifted retention framing toward economics rather than promotion.
 - Established a governed retention experimentation model that could be applied to similar segments.
  
+DESIGN DETAIL (from the case study):
+- Competitor patterns and what each shaped: offers appear at moments of intent (the offer appears only in the cancellation flow); framing changes by touchpoint (copy written for someone who has decided to leave); supportive language gets accepted (an offer that reads as help, not a hard sell); discounts apply immediately (a breakdown that shows the new price straight away).
+- The offer appears at step 2 of 4 in the cancellation flow: 50% off for the next three months, the old and new price side by side, the end date, and a plain statement that it covers existing products and seats only.
+- An "offer breakdown" panel lists line by line what is eligible for the discount, what is not, and the new total, so the bill is never a surprise.
+- Hypothesis: a 50% discount keeps about a third of price-sensitive customers, who keep paying afterwards. Failure line: post-discount continuation below 5%, or lifetime value not exceeding acquisition cost. The 14% continuation is well above that line.
+- Pratik coordinated growth, pricing, legal, engineering and customer experience, and iterated customer-facing language with legal during development.
+- The call Pratik made: reframed "reduce churn" around dollar retention and lifetime value, and anchored success on whether customers kept paying after the discount ended, so deferred cancellations were not counted as wins.
+
+OPTIONS RULED OUT:
+- A permanent price cut: it changes the price for everyone, including customers happy to pay.
+- An offer earlier in the journey: without explicit intent to cancel, the offer is less relevant.
+- Rolling out to every customer at once: more noise and less confidence in what caused the result.
+- Counting deferred cancellations as wins: it hides churn that simply arrives later.
+
 WHAT I'D DO DIFFERENTLY:
 - Systematically A/B test discount levels. The 50% rate validated the hypothesis but optimal threshold was not isolated.
  
@@ -551,7 +640,7 @@ WHAT I'D DO DIFFERENTLY:
 PROJECT 4: Dashboard Redesign — MassMutual
 ===============================================================
  
-ROLE: Lead Product Designer (sole designer on this surface)
+ROLE: Senior Product Designer, FinTech (sole designer on this surface)
 TEAM: 1 Designer, 7 Developers, 1 Product Owner, 1 Business Analyst, 1 Data Analyst
 DURATION: 6 months
 DISCIPLINES: UXR, Design Strategy, Data Analysis, UX, UI
@@ -602,10 +691,81 @@ OUTCOMES:
 - Resume framing: "user adoption +9%."
 - Design patterns reused across additional product surfaces.
  
+DESIGN DETAIL (from the case study):
+- Before: each policy was a tile showing only its face amount, followed by a list of quick links and calculators.
+- After: the homepage opens with a greeting and "What would you like to do?" with the most common tasks one click away (for example change address, view or change beneficiaries, start a disability claim), then a dated "Things to do" list for anything needing attention, then policies grouped by type.
+- Usability findings and what each shaped: quick links added steps (tasks started from the homepage itself); customers wanted to learn about policies on the homepage (policy summaries with coverage and benefits, not only face value); customers wanted payment context (payments shown with the policy they belong to).
+- Design A issues: the label "People on Policy" was unclear, the summary confused people, the next payment date was hard to find, and a cash value projection graph was not useful. Design B guided people better but some missed "What would you like to do?", so it moved to the top with important status.
+- Attribution: the rise in time engaged (15.02s to 34.66s) is good because customers finished tasks on the homepage instead of navigating away; Pratik treats the link to specific design choices as a hypothesis.
+
+OPTIONS RULED OUT:
+- Incremental visual fixes: they could not fix the information model underneath.
+- Quick links as the main way to act: 9 of 10 customers found them unhelpful.
+- Design A as the direction: lower ease of use (6.6/8 against 7.85/8), unclear labels and no clear next payment date.
+- A cash value projection graph: customers did not find it actionable.
+
 ORGANIZATIONAL IMPACT:
 - Established a decision-oriented homepage philosophy.
 - Created a scalable design language extended across policy, product, and transactional experiences.
 - Influenced subsequent mobile design system work and term-policy experience.
+ 
+ 
+===============================================================
+PROJECT 5: Coursera for Teams Pricing Calculator — Coursera
+===============================================================
+ 
+ROLE: Sole Product Designer (the only designer on the project; owned design end to end)
+TEAM: Worked with engineering, marketing, and data and analytics
+DURATION: Feb 2026 to Jul 2026, concept to A/B readout
+DISCIPLINES: UX, UI, Pricing and Conversion Design, Experimentation
+STATUS: Shipped to 100% of Coursera for Teams (C4T) traffic.
+ 
+PROBLEM:
+- Small-team buyers abandoned the C4T purchase path because they learned the real constraints too late.
+- Sticker shock: a large annual total appeared early, with no lower-commitment option beside it.
+- Hidden details: payment methods, billing specifics and licensing rules appeared only late in checkout.
+- Fear of inflexibility: buyers could not tell how adding, removing or swapping users would work.
+- The 5-seat minimum was revealed far down the funnel, where it could end a deal.
+ 
+WHAT I DESIGNED:
+- A pricing calculator module on the Teams landing page: pick 5–125 seats, compare quarterly and annual billing, read key policies (10% license rotation limit, mid-cycle add/remove) beside the price, see local currency and payment methods, and email the estimate or continue to checkout.
+- Above 125 seats, the price area becomes a guided "Contact sales" panel that keeps the seat count and billing cadence.
+- An estimate email system: estimate email (with a limited-time-offer variant), Day 7 and Day 14 reminders, and two offer-expiry reminders.
+ 
+KEY DECISIONS:
+ 
+  Decision: Self-serve pricing for 5–125 licenses; guided "Contact sales" path above that.
+  Why: Small teams get a fast answer; larger teams reach sales with intent signals (seat count, cadence).
+  Tradeoff: Buyers above the range do not get a number from the module.
+  Mitigation: Explain what happens next and carry seat count and cadence into the sales form.
+ 
+  Decision: Ship to 100% of C4T traffic despite an 8% drop in Account page progression.
+  Why: Full price transparency cost nothing in conversion (Billing page visits and Teams conversion held steady); the visitors who left early looked budget-mismatched, filtering themselves out before checkout. The +15% Teams conversion lift was directional, not statistically significant, so Pratik does not claim it.
+ 
+INSIGHT:
+- Teams buyers rarely decide alone; they need a number they trust and can carry to whoever approves the budget.
+ 
+EXPERIMENT:
+- 50:50 A/B test, about 5 weeks, randomized by cookie; 7-day attribution window from exposure.
+- Exposure to Account page: 12.3% → 11.3% (−8%, statistically significant).
+- Exposure to Billing page: 1.4% → 1.4% (+4%, neutral, directional only).
+- Exposure to Teams conversion: 0.80% → 0.92% (+15%, neutral, directional only — not claimed as a win).
+ 
+OUTCOMES:
+- About 20% of landing page traffic saw the module; 24% of those engaged with it.
+- Roughly 75% of calculator users did not continue to the Account page, acting as a low-intent filter.
+- Shipped to 100% of C4T traffic.
+ 
+DESIGN DETAIL (from the Figma file and the case study):
+- Directions explored: the first direction was a plan comparison ("Find the right plan for your goals"): For Teams (teams of 5-125, a listed price per user per year, Buy now) against For Enterprises (125+, custom price, Contact sales), taken from wireframes through light, blue and dark treatments. It answered which plan fits, not what a team would pay, so it gave way to a calculator.
+- Two options were also explored for the Coursera for Business page, each a compact strip that expands into the full calculator: Option 1 started from billing and seat count and switched to enterprise pricing (Contact sales) at high seat counts; Option 2 asked up front whether the buyer wanted Teams or Enterprise, then the billing cadence. Both were decommissioned, and the module shipped on the Coursera for Teams page.
+- The shipped module: four plain-language policies on the left (quarterly billing; license transfers of up to 10% per billing cycle; adding licenses anytime with prorated pricing; payment by card, ACH, wire, or purchase order over $10K); in the middle, annual or quarterly billing as two choices with the price per license, a license stepper starting at the 5-license minimum with a volume discounts link, and an Email estimate button; on the right, a Due today summary (taxes included, billing cycle, price per license, number of licenses), the 14-day refund policy and Continue to checkout.
+- Email estimate dialog: an email field and Send estimate, so buyers can carry the number to whoever approves the budget.
+
+LEARNINGS / NEXT:
+- Judge pricing surfaces by downstream outcomes, not top-of-funnel progression.
+- Would design the follow-up (saved estimate, reminders) as part of the module from day one.
+- Next: one-click copy or download of the quote; measure estimate and reminder email performance.
  
  
 ===============================================================
@@ -638,8 +798,10 @@ PUBLICATIONS:
  
 SPEAKING:
 - UX Scotland (2024)
-- UXCPA NH (2024)
+- UXPA NH (2024)
 - State of Design 2025 Discussion Forum
+- UX India (2026)
+- Guest lecture at MIT ADT University
  
 MENTORSHIP:
 - ADPList — 100+ designers mentored on growth, portfolio, and career
@@ -653,7 +815,7 @@ JURY:
 15. RECRUITER FAQ
 ===============================================================
  
-Q: Why are you leaving Coursera after only ~9 months?
+Q: Why are you looking to leave Coursera after a relatively short time (since June 2025)?
 A: I joined to work on large-scale learning products and complex ecosystems, and I've contributed meaningfully — most notably the native LTI integration. The scope and ownership I'm looking for long-term is slightly different from what this role offers. I want to operate more end-to-end, closer to product strategy, with deeper involvement in 0→1 or high-growth surfaces. This is about the next step in scope, not a problem with the current role.
  
 Q: You're in India — how does relocation work?

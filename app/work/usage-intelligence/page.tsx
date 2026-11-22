@@ -1,576 +1,234 @@
-import Link from "next/link"
-import StickyHome from "@/components/StickyHome"
-import Image from "next/image";
+import Image from "next/image"
+import {
+  CaseStudyLayout,
+  CaseHeader,
+  CaseBody,
+  Chapter,
+  Results,
+  caseStudyMetadata,
+  TextSection,
+  Callout,
+  DecisionLog,
+  DataTable,
+  Figure,
+} from "@/components/case-study/CaseStudy"
 
+export const metadata = caseStudyMetadata("usage-intelligence")
 
 export default function UsageIntelligenceCaseStudy() {
   return (
+    <CaseStudyLayout slug="usage-intelligence">
+      <CaseHeader
+        slug="usage-intelligence"
+        tldr={<>HubSpot customers could create usage events, but had no trusted way to own, protect or monitor them, so data problems surfaced only after they caused damage. In 5 months, as the sole product designer, I designed a governance layer that sits beside analytics tools instead of replacing them: no-code event creation, alerts and auditing. Critical usage situations fell from an expected 8.5% to 5.1%.</>}
+      />
 
-    <>
-      <StickyHome />
-    <main className="min-h-screen px-4 sm:px-5 py-8 pt-24">
-
-      {/* Header */}
-      <header className="max-w-[720px] mx-auto mb-12">
-        <h1 className="mt-4 text-4xl italic font-medium text-muted-foreground">
-          Usage Intelligence Platform
-        </h1>
-
-        <p className="mt-1 text-base text-muted-foreground">
-          HubSpot
-        </p>
-      </header>
-
-      {/* TL;DR */}
-      <TextSection title=" ">
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>TL;DR:</strong>{" "}<br/>In 5 months, we built a scalable usage intelligence layer that improved data reliability, reduced critical usage gaps by 40%, and enabled teams to proactively monitor customer behavior without engineering support.
-              </p>
-          </div>
-        </div>
-      </TextSection>
-
-
-
-      {/* Hero image */}
-      <section className="max-w-[720px] mx-auto mb-8">
-        <div className="rounded-xl bg-muted overflow-hidden">
-          <Image
-            src="/images/uip/uip.png"
-            alt="HubSpot Usage Intelligence Platform dashboard overview"
-            width={1440}
-            height={1020}
-            className="w-full h-auto"
-            priority
+      <CaseBody>
+      <Chapter
+        number={1}
+        title="Context"
+        summary={<>Customers could create usage events, but nobody clearly owned them, and problems only surfaced after they spread into analytics tools.</>}
+      >
+        <TextSection title="Events nobody owned">
+          <p>Usage events are the signals that show how customers use a product: a feature activated, a report run, a workflow completed. HubSpot customers could already create them, but making sense of them depended on outside tools such as Amplitude and Looker. Many SMB customers did not have those tools at all.</p>
+          <p>The same four problems kept coming back:</p>
+          <ul className="space-y-2">
+            <li><strong>Nobody owned the events.</strong> Event logic lived in code files. Anyone could change it, with no visibility, accountability or shared understanding.</li>
+            <li><strong>Data disappeared silently.</strong> Deleting a code file deleted live event data, with no safeguard and no signal.</li>
+            <li><strong>Problems surfaced late.</strong> Issues showed up only after they had spread into analytics tools, and nothing flagged unexpected changes in event volume.</li>
+            <li><strong>What mattered was hard to see.</strong> There was no simple way to find the most important events or follow their trends without leaving the product.</li>
+          </ul>
+          <Figure caption="Before: no data reliability, instrumentation protection, or reporting in place.">
+            <Image
+              src="/images/uip/flow.png"
+              alt="Existing user action flow before the Usage Intelligence Platform"
+              width={1440}
+              height={1020}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Build ownership and governance, not another analytics surface.</> },
+              { label: "Why", body: <>Existing tools were built for exploration, not for accountability or action.</> },
+              { label: "Tradeoff", body: <>Less flexibility for ad-hoc analysis, in favor of consistency and trust.</> },
+              { label: "Mitigation", body: <>Position it as a complementary layer that coexists with Amplitude and Looker.</> },
+            ]}
           />
-        </div>
-      </section>
+        </TextSection>
+      </Chapter>
 
+      <Chapter
+        number={2}
+        title="Problem"
+        summary={<>8.5% of usage situations were expected to turn critical. Interviews with 8 SMBs showed where ownership and visibility broke down.</>}
+      >
+        <TextSection title="Problem statement">
+          <p className="case-pullquote">How might we give teams a trusted way to create, own and monitor their usage events, so they catch problems before customers feel them, without replacing the analytics tools they already use?</p>
+        </TextSection>
 
-
-      {/* Meta */}
-      <section className="max-w-[720px] mx-auto mb-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-base font-bold">
-        <MetaBlock
-          label="Team"
-          value={[
-            "1 Product Designer",
-            "4 Developers",
-            "1 Product Manager",
-            "1 Data Analyst",
-          ]}
-        />
-        <MetaBlock
-          label="Discipline"
-          value={["UXR, Design Strategy", "System Design, UX, UI"]}
-        />
-        <MetaBlock
-          label="Duration"
-          value={["5 months"]}
-        />
-      </section>
-
-
-      {/* Project overview */}
-      <TextSection title="Project Overview">
-        <p>
-          As retention and sustainable usage became core business priorities,
-          customers needed a reliable and scalable way to interpret product
-          usage beyond surface-level metrics. This initiative established a
-          durable usage intelligence layer that enabled teams to define
-          consistent usage events, observe meaningful behavioral patterns, and
-          act on them with confidence.
-        </p>
-
-        <p>
-          The work focused on building a robust foundation rather than shallow
-          reporting&mdash;improving data quality, enabling usage insights across
-          roles, product areas, and customer teams, and explicitly supporting
-          adoption, informed decision-making, and long-term customer value.
-        </p>
-      </TextSection>
-
-      {/* Impact */}
-      <TextSection title="Impact">
-        <p>
-          <mark className="font-bold">Reduced critical usage gaps from 8.5% &rarr; 5.1%,</mark> enabling faster detection, ownership clarity, and proactive intervention at scale.
-        </p>
-      </TextSection>
-
-      {/* Problem */}
-      <TextSection title="The Problem">
-        <p className="text-4xl">
-          How might we enable users to efficiently create reliable and
-          actionable usage metrics to support their company and to drive usage
-          and user retention?
-        </p>
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Explicitly reject building another analytics surface in favor of establishing usage ownership and governance.<br/>
-                <strong>Why:</strong>{" "}Existing tools optimized for exploration, not accountability or action.<br/>
-                <strong>Tradeoff:</strong>{" "}Less flexibility for ad-hoc analysis in favor of consistency and trust.
-              </p>
-          </div>
-        </div>
-      </TextSection>
-
-
-      {/* Goals */}
-      <TextSection title="Goals">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Establish a reliable foundation for usage instrumentation:</li>
-          <ul>
-            <li>Build a dedicated platform that allows teams to securely create, store, and manage usage events within the product ecosystem, reducing dependence on external systems for operational usage signals.</li>
-          </ul>
-          <li className="font-bold">Improve data reliability and reduce critical usage risks:</li>
-          <ul>
-            <li>Decrease event-related critical situations from 8.5% by introducing improved, robust, and resilient data infrastructure that strengthens event integrity, consistency, and auditability.</li>
-          </ul>
-          <li className="font-bold">Shorten feedback loops for product and customer teams:</li>
-          <ul>
-            <li>Enable faster identification of, and response to, usage issues by making core usage signals immediately accessible, supporting day-to-day decision-making without replacing existing analytics tools.</li>
-          </ul>
-          <li className="font-bold">Design for scale and long-term ownership across teams:</li>
-          <ul>
-            <li>Ensure the platform can support growing product complexity, multiple teams, and evolving use cases&mdash;positioning usage intelligence as a durable capability rather than a point solution.</li>
-          </ul>
-        </ul>
-      </TextSection>
-
-      {/* Why needed */}
-      <TextSection title="Why was this needed?">
-        <p>
-          While customers could already create usage events, meaningful interpretation and action depended on external analytics platforms such as Amplitude and Looker. This introduced fragmentation, slower turnaround times, and additional operational overhead&mdash;particularly for teams needing to respond quickly to usage risks.
-        </p>
-        <p>
-          For HubSpot, focusing on SMB customers (who might not even have analytical tools), this dependency limited the ability to deliver a seamless, end-to-end experience around usage intelligence. The goal was not necessarily to replace dedicated analytics tools, but <mark className="font-bold">to establish a framework that supports faster instrumentation, immediate visibility, and quicker action</mark> while continuing to coexist with deeper analytical workflows where present.
-        </p>
-        <p>
-          By bringing core usage processing closer to the product experience, teams could function without external tooling for day-to-day decisions, shorten feedback loops, and address critical situations before escalation&mdash;without disrupting the existing analytics ecosystem.
-        </p>
-
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Build a complementary usage intelligence layer instead of replacing existing analytics tools.<br/>
-                <strong>Why:</strong>{" "}Replacement would disrupt established workflows and slow adoption across teams.<br/>
-                <strong>Tradeoff:</strong>{" "}Limited exploratory depth compared to full analytics platforms.
-              </p>
-          </div>
-        </div>
-
-      </TextSection>
-
-      {/* Flow diagram */}
-      <Section>
-        <section className="max-w-[720px] mx-auto mb-8">
-        <div>
-          <Image
-            src="/images/uip/flow.png"
-            alt="Existing user action flow before the Usage Intelligence Platform"
-            width={1440}
-            height={1020}
-            className="w-full h-auto"
-            priority
+        <TextSection title="What customers told us">
+          <p>I interviewed 8 SMB businesses about their experience with usage data. Each finding shaped a specific part of the design.</p>
+          <DataTable
+            caption="Interview findings and the part of the design each one shaped"
+            columns={["What customers told us", "What it shaped"]}
+            rows={[
+              ["Event logic lived in code, and nobody knew who owned what", "Event ownership and an audit trail"],
+              ["Deleting a file lost live data with no warning", "Protected events"],
+              ["Changes to events happened without anyone knowing", "Notifications when events are created, changed or deleted"],
+              ["Nothing flagged unexpected changes in event volume", "Team alerts for anomalies"],
+              ["The important events were hard to find and follow", "A usage library with pinned events and volume trends"],
+            ]}
           />
-        </div>
-      </section>
+        </TextSection>
+      </Chapter>
 
-        <p className="mt-4 text-base text-muted-foreground text-center">
-          No data reliability, instrumentation protection, or reporting in place.
-        </p>
-      </Section>
-
-      {/* Challenges */}
-      <TextSection title="Challenges I encountered">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Migration of legacy events:</li>
-          <ul>
-            <li>Transitioning existing events to a new database while preserving data integrity, historical continuity, and live customer workflows.</li>
+      <Chapter
+        number={3}
+        title="Approach"
+        summary={<>Govern first, and leave deep analysis to the tools built for it. I designed ownership, protection and alerts, on a schema flexible enough for teams to move fast.</>}
+      >
+        <TextSection title="How I led the work">
+          <p>As the only product designer, working with a PM, four developers and a data analyst:</p>
+          <ul className="space-y-2">
+            <li><strong>Ran a cross-functional workshop</strong> to map the current system, surface technical constraints and agree on what was non-negotiable, so ideas started from real architecture.</li>
+            <li><strong>Aligned stakeholders on an ownership model</strong> and decision principles before design went deep, which settled scope and let the team execute with confidence.</li>
           </ul>
-          <li className="font-bold">Designing a scalable system architecture:</li>
-          <ul>
-            <li>Defining technical capabilities that support flexibility, performance, and future growth without over-engineering.</li>
-          </ul>
-          <li className="font-bold">Establishing a clear usage event framework:</li>
-          <ul>
-            <li>Documenting a shared usage library covering event creation, data capture, and processing to ensure consistency and ease of adoption.</li>
-          </ul>
-        </ul>
+          <p><strong className="case-h3">The call I pushed for</strong></p>
+          <p>The brief asked to &ldquo;improve analytics visibility.&rdquo; The interviews pointed somewhere else: the gap was ownership and governance. I argued against building another analytics surface, and for a governance layer that works beside Amplitude and Looker. Had governance been ignored, inconsistent events would have scaled, support load would have grown, and trust in the data would have eroded.</p>
+          <Callout label="Insight">SMBs lacked a single, trusted way to govern, monitor and understand their events. So they reacted to data issues only after those issues had already caused damage.</Callout>
+        </TextSection>
 
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Decision:</strong>{" "}Prioritized a flexible event schema over exhaustive upfront standardization.<br/>
-                <strong>Why:</strong>{" "}Teams needed to move fast without heavy governance blocking early adoption.<br/>
-                <strong>Tradeoff:</strong>{" "}Increased risk of inconsistency early on.<br/>
-                <strong>Mitigation:</strong>{" "}Introduced validation, auditing, and alerting as safety nets.
-              </p>
-          </div>
-        </div>
-
-      </TextSection>
-
-      {/* Design strategy */}
-      <TextSection title="Design Strategy">
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">
-                <strong>Insight:</strong>{" "}
-                SMBs lack a single, trusted way to govern, monitor, and understand their events&mdash;forcing them to react to data issues only after they&rsquo;ve already caused downstream risk.
-              </p>
-          </div>
-        </div>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Interview</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              Interviewed 8 SMB businesses to learn about their experience with data
-              and ways we could improve it. We identified a few critical points
-              among others:
-            </p>
-
-            {/* Nested list */}
-            <ul className="mt-4 list-disc space-y-3 pl-5">
-              <li>
-                <strong>Event ownership and governance gaps:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Event logic lived in code files with unclear ownership. While this
-                  enabled flexibility, it also meant changes could be made by anyone
-                  without visibility, accountability, or shared understanding.
-                </p>
-              </li>
-
-              <li>
-                <strong>Limited visibility into important events:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Users struggled to easily identify and monitor the events that
-                  mattered most. There was no clear way to surface key events or
-                  understand how they were evolving over time.
-                </p>
-              </li>
-
-              <li>
-                <strong>Lack of trend awareness:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Users wanted lightweight ways to view trends for critical events
-                  without relying on external analytics tools or complex workflows.
-                </p>
-              </li>
-
-              <li>
-                <strong>No transparency around event changes:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  There was no reporting or notification when events were created,
-                  modified, or deleted, making it difficult to track changes or
-                  diagnose downstream issues.
-                </p>
-              </li>
-
-              <li>
-                <strong>Data protection and risk exposure:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  Deleting a code file resulted in permanent data loss with no
-                  immediate signal or safeguard. Issues often resurfaced only after
-                  propagating into analytics tools, increasing response time and risk.
-                </p>
-              </li>
-
-              <li>
-                <strong>No detection of event irregularities:</strong>
-                <p className="mt-1 text-base leading-relaxed text-muted-foreground">
-                  The system lacked foundational support for anomaly detection. Teams
-                  could not generate alerts for unexpected changes in event volume or
-                  behavior, limiting proactive intervention.
-                </p>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Workshop</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              A cross-functional workshop was conducted with key stakeholders <mark className="font-bold">to map the current system state, surface technical constraints, and align on feasible solution directions.</mark> This helped establish a shared understanding of platform limitations, clarify non-negotiables, and ground early ideation in real architectural constraints&mdash;reducing risk and rework downstream.
-            </p>
-          </li>
-        </ul>
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Stakeholder alignment and choice of direction</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              Following the workshop, stakeholders aligned on the technical constraints, ownership model, and decision principles. The group agreed to move forward with a usage framework focused on fast feedback loops and operational reliability, while explicitly positioning it as a complementary layer to existing analytics tools. This alignment clarified scope, reduced ambiguity, and enabled teams to proceed with execution confidently.
-            </p>
-          </li>
-        </ul>
-
-        <ul className="list-disc space-y-4 pl-5">
-          {/* Parent item */}
-          <li>
-            <strong className="text-xl">Final designs and metric improvements</strong>
-
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              Delivered an end-to-end user journey by introducing an interface that made event creation and customer activity tracking dramatically easier. By doing so, we improved our metrics beyond expectations.
-            </p>
-          </li>
-        </ul>
-      </TextSection>
-
-      {/* Outcomes */}
-      <Section>
-        <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
-          <ul className="list-disc space-y-4 pl-5">
-            <li className=" text-base text-muted-foreground">
-              <strong className="text-xl">Outcome 1</strong>
-              <p>Critical usage situations dropped from an <mark className="font-bold">expected 8.5% to 5.1% (40% improvement),</mark> exceeding our original target.</p>
-            </li>
-          </ul>
-          <OutcomeCard title="Expected 8.5% &rarr; Actual 5.1%" subtitle="Critical-situation reduction" />
-        </div>
-      </Section>
-
-      <section className="max-w-[720px] mx-auto mb-8">
-        <div className="rounded-xl bg-muted overflow-hidden">
-          <Image
-            src="/images/uip/uip.png"
-            alt="Usage Intelligence Platform dashboard"
-            width={1440}
-            height={1020}
-            className="w-full h-auto"
-            priority
+        <TextSection title="Options I ruled out">
+          <DataTable
+            caption="Options considered and why each was ruled out"
+            columns={["Option", "Why I ruled it out"]}
+            rows={[
+              ["Another analytics dashboard", "Existing tools were built for exploration, not accountability or action"],
+              ["Replacing Amplitude and Looker", "It would disrupt established workflows and slow adoption"],
+              ["Exhaustive standardization up front", "Heavy governance would have blocked early adoption"],
+            ]}
           />
-        </div>
-      </section>
+        </TextSection>
 
-
-
-      {/* Outcomes */}
-      <Section>
-        <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
-          <ul className="list-disc space-y-4 pl-5">
-            <li className=" text-base text-muted-foreground">
-              <strong className="text-xl">Outcome 2</strong>
-              <p>An intuitive way to create events without relying on manual coding.</p>
-            </li>
-          </ul>
-          <OutcomeCard title="No-code" subtitle="Easier event creation, faster tracking launch" />
-        </div>
-      </Section>
-
-      <section className="max-w-[720px] mx-auto mb-8">
-        <div className="rounded-xl bg-muted overflow-hidden">
-          <Image
-            src="/images/uip/createevent.png"
-            alt="No-code event creation experience"
-            width={1440}
-            height={1020}
-            className="w-full h-auto"
-            priority
+        <TextSection title="Designing for trust">
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>A flexible event schema instead of exhaustive standardization up front.</> },
+              { label: "Why", body: <>Teams needed to move fast, and heavy governance would have blocked early adoption.</> },
+              { label: "Tradeoff", body: <>More risk of inconsistency early on.</> },
+              { label: "Mitigation", body: <>Validation, auditing and alerting as safety nets.</> },
+            ]}
           />
-        </div>
-      </section>
 
+          <p><strong className="case-h3">No-code event creation</strong></p>
+          <p>Creating an event used to mean writing code. A four-step flow (details, properties, reviewers, review) lets teams define an event without engineering support. It builds in the naming standard, a noun plus a past-tense verb such as &ldquo;Deal Created,&rdquo; and asks up front whether the event is protected. I traced failures in the old flow back to decision points nobody needed, and removing them cut errors in event creation by 70%.</p>
+          <Figure caption="Creating an event without code: the naming standard and the protected-event choice are part of the flow.">
+            <Image
+              src="/images/uip/createevent.png"
+              alt="No-code event creation experience"
+              width={1440}
+              height={1020}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
 
-      {/* Outcomes */}
-      <Section>
-        <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
-          <ul className="list-disc space-y-4 pl-5">
-            <li className=" text-base text-muted-foreground">
-              <strong className="text-xl">Outcome 3</strong>
-              <p>Learn about issues and act on them quickly.</p>
-            </li>
+          <p><strong className="case-h3">Alerts before customers notice</strong></p>
+          <p>Each event shows its expected range, flags anomalies on its chart, and names the teams that own it. Teams subscribe to the events they care about, so an unexpected change reaches the owner while it is still a signal, not an incident.</p>
+          <Figure caption="An event in detail: expected range, flagged anomalies and the owning teams.">
+            <Image
+              src="/images/uip/alerts.png"
+              alt="Alerting experience for event anomalies"
+              width={1440}
+              height={1020}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+
+          <p><strong className="case-h3">Protection and auditing</strong></p>
+          <p>Important events can be protected, so they cannot disappear with a deleted file. Changes go through reviewers, and each event keeps a history of who changed what, so ownership stays visible long after launch.</p>
+          <p>The history also carries context. When a change in volume is intended, a team can mark it as an expected drop and record the reason, so the next person reading the chart does not mistake it for an incident.</p>
+          <Figure caption="An event&rsquo;s History tab: every change with its date, who made it and why, from creation to protection, with owners and alerts alongside.">
+            <Image
+              src="/images/uip/history.webp"
+              alt="Usage library event detail showing owners, anomaly chart and a History tab listing each change: status changes with reasons, collaborating teams and properties added, the description, protection and creation"
+              width={2000}
+              height={1822}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+        </TextSection>
+
+        <TextSection title="Validation">
+          <p>We checked the work three ways:</p>
+          <ul className="space-y-2">
+            <li><strong>The direction, before building.</strong> The eight SMB interviews and the cross-functional workshop tested the idea of governance over another dashboard before design went deep.</li>
+            <li><strong>The result, against a target.</strong> We tracked critical usage situations against the expected rate of 8.5%. They came in at 5.1%, beating the target.</li>
+            <li><strong>Whether it lasted.</strong> Event ownership and audit trails stayed in use after the initial rollout, instead of fading once launch attention moved on.</li>
           </ul>
-          <OutcomeCard title="Alert signals" subtitle="Teams notice anomalies earlier, fewer production incidents" />
-        </div>
-      </Section>
+          <p>What I could not measure: how much alerts and protection each contributed on their own. That is why those links stay hypotheses below.</p>
+        </TextSection>
+      </Chapter>
 
-      <section className="max-w-[720px] mx-auto mb-8">
-        <div className="rounded-xl bg-muted overflow-hidden">
-          <Image
-            src="/images/uip/alerts.png"
-            alt="Alerting experience for event anomalies"
-            width={1440}
-            height={1020}
-            className="w-full h-auto"
-            priority
+      <Chapter
+        number={4}
+        title="Outcome"
+        summary={<>Critical usage situations fell from an expected 8.5% to 5.1%, a 40% improvement that beat the target.</>}
+      >
+        <Results slug="usage-intelligence" />
+
+        <TextSection title="What my decisions plausibly moved">
+          <p>The result belongs to the whole team, so I claim only the links I can defend, and I mark the rest as hypotheses.</p>
+          <DataTable
+            caption="Design decisions, the result each most plausibly affected, and the evidence"
+            columns={["Decision", "Result it most plausibly affected", "Evidence"]}
+            rows={[
+              ["Alerts, protection and ownership", "Critical usage situations, 8.5% to 5.1%", "Hypothesis; not isolated from other changes"],
+              ["A simpler event creation flow", "Errors in event creation, down 70%", "Measured on the creation flow"],
+              ["Audit trail and ownership tracking", "Trust in usage data", "Ownership and audit trails persisted beyond launch"],
+            ]}
           />
-        </div>
-      </section>
+          <Figure caption="The usage library: pinned events, volume and trends, with alerts and notifications one click away.">
+            <Image
+              src="/images/uip/uip.png"
+              alt="Usage Intelligence Platform usage library"
+              width={1440}
+              height={1020}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+        </TextSection>
+      </Chapter>
 
-
-
-      {/* Outcomes */}
-      <Section>
-        <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
-          <ul className="list-disc space-y-4 pl-5">
-            <li className=" text-base text-muted-foreground">
-              <strong className="text-xl">Outcome 4</strong>
-              <p>Identify ownership and shared responsibility by tracking important events.</p>
-            </li>
+      <Chapter
+        number={5}
+        title="Reflection"
+        summary={<>Clear ownership and fast feedback mattered more than sophisticated analytics. Next: configurable anomaly rules, and usage data flowing into experimentation tools.</>}
+      >
+        <TextSection title="Where it got hard">
+          <ul className="space-y-2">
+            <li><strong>Migrating legacy events.</strong> Existing events had to move to a new database while keeping data integrity, history and live customer workflows intact.</li>
+            <li><strong>Scaling without over-engineering.</strong> The architecture had to leave room for growth without building for needs nobody had yet.</li>
+            <li><strong>A shared framework.</strong> Teams needed one documented usage library for creating, capturing and processing events, or the flexibility would turn into inconsistency.</li>
           </ul>
-          <OutcomeCard title="Auditing" subtitle="Increased trust in data, faster decision-making" />
-        </div>
-      </Section>
+        </TextSection>
 
-      {/* Next actions */}
-      <TextSection title="Next actions I would have taken">
-        <ul className="list-disc pl-5 space-y-2">
-          <li className="font-bold">Configurable event anomaly detection:</li>
-          <ul>
-            <li>Enable users to define event-specific volume thresholds and anomaly rules, giving teams control over what constitutes normal versus critical behavior for their context.</li>
+        <TextSection title="What I would do next">
+          <ul className="space-y-2">
+            <li><strong>Configurable anomaly rules,</strong> so each team decides what normal and critical look like for its own events.</li>
+            <li><strong>Usage data flowing both ways</strong> between experimentation and analytics tools, so product decisions are validated faster.</li>
+            <li><strong>Behavioral signals in context,</strong> such as heat maps and rage clicks, so diagnosis does not require switching tools.</li>
           </ul>
-          <li className="font-bold">Seamless data flow across experimentation and analytics:</li>
-          <ul>
-            <li>Allow usage data to flow bi-directionally between A/B testing and analytical tools, reducing duplication and enabling faster validation of product and growth decisions.</li>
-          </ul>
-          <li className="font-bold">Integrated behavioral signals:</li>
-          <ul>
-            <li>Introduce contextual insights such as heat maps, rage clicks, and session indicators directly within the experience, supporting efficient diagnosis without requiring tool switching.</li>
-          </ul>
-        </ul>
-      </TextSection>
+          <Callout label="Lesson">Reliable systems, clear ownership and fast feedback loops matter more than sophisticated analytics when teams need to act with confidence at scale.</Callout>
+        </TextSection>
+      </Chapter>
 
-      {/* Conclusion */}
-      <TextSection title="Conclusion">
-        <p>
-          This project established usage intelligence as a durable platform capability rather than an afterthought or external dependency. By focusing on reliability, visibility, and speed to action, <mark className="font-bold">the team moved from reactive investigation to proactive usage monitoring,</mark> reducing critical situations and enabling faster, more confident decisions across product and customer teams.
-        </p>
-        <p>
-          More importantly, the work led to a durable foundation that scales with product complexity and organizational change instead of relying on individual ownership or manual processes. The system establishes accountability, safeguards, and clarity, supporting long-term adoption and consistent outcomes. This shift positioned usage data as an operational asset that teams can trust, act on, and evolve over time.
-        </p>
-
-        <div className="my-10 sm:my-14">
-          <div className="relative overflow-hidden rounded-2xl bgColor px-6 py-5 sm:px-8 sm:py-6">
-              {/* Accent rail */}
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-2 bg-popover"
-              />
-
-              {/* Content */}
-              <p className="text-base sm:text-base leading-relaxed text-foreground">This work reinforced my belief that reliable systems, clear ownership, and fast feedback loops matter more than sophisticated analytics when teams need to act with confidence at scale.
-              </p>
-          </div>
-        </div>
-      </TextSection>
-    </main>
-    </>
-  )
-}
-
-/* ------------------ */
-/* Reusable pieces   */
-/* ------------------ */
-
-function Section({ children }: { children: React.ReactNode }) {
-  return (
-    <section className="max-w-[720px] mx-auto mb-16">
-      {children}
-    </section>
-  )
-}
-
-function TextSection({
-  title,
-  children,
-}: {
-  title: string
-  children: React.ReactNode
-}) {
-  return (
-    <Section>
-      <h2 className="mb-4 text-4xl italic font-light text-muted-foreground">
-        {title}
-      </h2>
-      <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
-        {children}
-      </div>
-    </Section>
-  )
-}
-
-function MetaBlock({
-  label,
-  value,
-}: {
-  label: string
-  value: string[]
-}) {
-  return (
-    <div>
-      <div className="mb-1 font-medium text-muted-foreground">
-        {label}
-      </div>
-      <ul className="space-y-1">
-        {value.map((v) => (
-          <li key={v}>{v}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-function OutcomeCard({
-  title,
-  subtitle,
-}: {
-  title: string
-  subtitle: string
-}) {
-  return (
-    <div className="rounded-xl px-4 py-6 text-center bgColor">
-      <div className="text-xl font-semibold">{title}</div>
-      <div className="mt-1 text-base">
-        {subtitle}
-      </div>
-    </div>
+    </CaseBody>
+    </CaseStudyLayout>
   )
 }

@@ -1,258 +1,624 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@custom-variant dark (&:is(.dark *));
+/* ================================================================
+   Design tokens — see DESIGN.md
+   Warm cream editorial: eggshell paper, black ink, whisper headlines.
+   ================================================================ */
+
+@theme {
+  /* Palette */
+  --color-eggshell: #fdfcfc;
+  --color-warm-taupe: #f5f3f1;
+  --color-stone: #ebe8e4;
+  --color-ink: #000000;
+  --color-graphite: #44403b;
+  --color-smoke: #6b655e; /* 4.7:1 or better on eggshell, taupe and stone */
+  --color-ash: #a59f97;
+  --color-violet-spark: #0447ff;
+  --color-ember-orange: #ff4704;
+  --color-button-border: #e5e5e5;
+
+  /* Type scale (size / line-height / tracking) */
+  --text-caption: 13px;
+  --text-caption--line-height: 1.6;
+  --text-mono: 13px;
+  --text-mono--line-height: 1.69;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--letter-spacing: 0.01em;
+  --text-body: 16px;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: 0.01em;
+  --text-subheading: 18px;
+  --text-subheading--line-height: 1.6;
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 1.35;
+  --text-title: 24px;
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.02em;
+  --text-heading-sm: 32px;
+  --text-heading-sm--line-height: 1.13;
+  --text-heading-sm--letter-spacing: -0.02em;
+  --text-heading: 36px;
+  --text-heading--line-height: 1.17;
+  --text-heading--letter-spacing: -0.02em;
+  --text-display: 48px;
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.02em;
+  /* Hero: display style, scaled up on wide screens */
+  --text-hero: clamp(2.75rem, 6vw, 4.5rem);
+  --text-hero--line-height: 1.04;
+  --text-hero--letter-spacing: -0.03em;
+
+  /* Radius */
+  --radius-input: 4px;
+  --radius-small: 10px;
+  --radius-card: 20px;
+  --radius-card-lg: 24px;
+
+  /* Elevation */
+  --shadow-whisper: rgba(0, 0, 0, 0.4) 0px 0px 1px 0px,
+    rgba(0, 0, 0, 0.04) 0px 1px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 4px 0px;
+  --shadow-hairline: rgba(0, 0, 0, 0.075) 0px 0px 0px 0.5px inset;
+
+  /* Layout */
+  --container-page: 1280px;
+  --container-prose: 720px;
+}
 
 @theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+
+  /* shadcn semantic colors, mapped onto the palette */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-satoshi);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: var(--radius-small);
+  --radius-xl: 16px;
+  --radius-2xl: var(--radius-card);
+  --radius-3xl: var(--radius-card-lg);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(64.51% 0.260 2.78);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(42.39% 0.000 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(64.82% 0.175 131.68);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --border-bottom: 2px solid oklch(64.51% 0.260 2.78);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(64.51% 0.260 2.78);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #fdfcfc;
+  --foreground: #000000;
+  --card: #fdfcfc;
+  --card-foreground: #000000;
+  --popover: #fdfcfc;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #fdfcfc;
+  --secondary: #f5f3f1;
+  --secondary-foreground: #000000;
+  --muted: #f5f3f1;
+  --muted-foreground: #6b655e;
+  --accent: #f5f3f1;
+  --accent-foreground: #000000;
+  --destructive: #b42318;
+  --border: #ebe8e4;
+  --input: #ebe8e4;
+  --ring: #a59f97;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans text-body;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: var(--color-stone);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  /* Case studies use <mark> for highlights: keep it on-palette */
+  mark {
+    background-color: var(--color-stone);
+    color: inherit;
+    padding: 0 0.15em;
+    border-radius: 2px;
   }
 }
 
-/* Hide default cursor */
-* {
-  cursor: none;
-}
-
-/* Custom cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  background-color: rgba(255, 0, 127, 0.5); /* #FF007F @ 50% */
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
-  z-index: 9999;
-}
-
-/* Scale on hover */
-.custom-cursor.hover {
-  transform: translate(-50%, -50%) scale(1.5);
-}
-
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none;
+/* ===== Case-study long-form prose ===== */
+@layer components {
+  .case-prose {
+    color: var(--color-graphite);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+  .case-prose strong,
+  .case-prose b {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .case-prose ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .case-prose li::marker {
+    color: var(--color-ash);
+  }
+  /* "Title:" item followed by a nested description list */
+  .case-prose li.font-medium {
+    color: var(--color-ink);
+    margin-top: 1rem;
+  }
+  .case-prose li.font-medium:first-child {
+    margin-top: 0;
+  }
+  .case-prose ul > ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  /* Subsection headings rendered inside single-item lists */
+  .case-prose ul:has(> li > .case-h3) {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2.5rem;
+  }
+  .case-prose .case-h3 {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--text-title);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+  .case-prose .case-pullquote {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    border-left: 1px solid var(--color-ink);
+    padding-left: 1.5rem;
   }
 }
 
-/* @font-face {
-  font-family: "Sembilu";
-  src: url("/fonts/Sembilu Script.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* Legacy helper: now the taupe surface */
+.bgColor {
+  background-color: var(--color-warm-taupe);
 }
 
-.font-sembilu {
-  font-family: "Sembilu", serif;
-  font-weight: 400;
-  font-size: clamp(28px, 5vw, 55px);
-} */
-
-@font-face {
-  font-family: "Jalliya";
-  src: url("/fonts/Jalliya.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font-jalliya {
-  font-family: "Jalliya", serif;
-  font-weight: 400;
-  font-size: clamp(28px, 2vw, 55px);
-}
-
-mark{background-color:	#deff00;}
-.bgColor{background-color: #F8F4EC}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 2px rgba(110, 163 ,13, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 0 4px rgba(110, 163, 13, 0.30);
-  }
-}
-
-/* ===== BASE SLIDER ===== */
+/* ===== Range sliders (video player) ===== */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
+  background: transparent;
 }
 
-/* ===== WEBKIT (Chrome / Safari) ===== */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 10px;
   width: 10px;
   border-radius: 9999px;
-  background: #ff007f;
-  cursor: pointer;
+  background: var(--color-eggshell);
   border: none;
-
-  transform: scale(1);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-
-  box-shadow: 0 0 0 0 rgba(255, 0, 127, 0.0);
+  transition: transform 0.15s ease;
 }
 
-/* Hover = slight grow */
 input[type="range"]:hover::-webkit-slider-thumb {
-  transform: scale(1.4);
-  box-shadow: 0 0 0 6px rgba(255, 0, 127, 0.12);
+  transform: scale(1.3);
 }
 
-/* Active (dragging) = snap feel */
-input[type="range"]:active::-webkit-slider-thumb {
-  transform: scale(1.6);
-  box-shadow: 0 0 0 8px rgba(255, 0, 127, 0.18);
-}
-
-/* ===== FIREFOX ===== */
 input[type="range"]::-moz-range-thumb {
   height: 10px;
   width: 10px;
   border-radius: 9999px;
-  background: #ff007f;
-  cursor: pointer;
+  background: var(--color-eggshell);
   border: none;
-
-  transform: scale(1);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-
-  box-shadow: 0 0 0 0 rgba(255, 0, 127, 0.0);
 }
 
-input[type="range"]:hover::-moz-range-thumb {
-  transform: scale(1.4);
-  box-shadow: 0 0 0 6px rgba(255, 0, 127, 0.12);
+/* Sutra's logo. Paths always carry these classes; only .sutra-loop animates them.
+   Longhand animation-* properties on purpose: the CSS build drops a nameless shorthand. */
+.sutra-draw-thread,
+.sutra-draw-rising {
+  stroke-dasharray: 1 1;
+}
+.sutra-dot {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-input[type="range"]:active::-moz-range-thumb {
-  transform: scale(1.6);
-  box-shadow: 0 0 0 8px rgba(255, 0, 127, 0.18);
+/* Loading: the thread draws out of the top dot, the rising stroke follows,
+   the bottom dot lands, then the thread runs out and the loop starts again. */
+.sutra-loop :is(.sutra-draw-thread, .sutra-draw-rising, .sutra-dot) {
+  animation-duration: 2.6s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-iteration-count: infinite;
+}
+.sutra-loop .sutra-draw-thread { animation-name: sutra-draw-thread; }
+.sutra-loop .sutra-draw-rising { animation-name: sutra-draw-rising; }
+.sutra-loop .sutra-dot-top { animation-name: sutra-dot-top; }
+.sutra-loop .sutra-dot-bottom { animation-name: sutra-dot-bottom; }
+
+@keyframes sutra-draw-thread {
+  0%, 6% { stroke-dashoffset: 1; }
+  48%, 76% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1; }
+}
+@keyframes sutra-draw-rising {
+  0%, 24% { stroke-dashoffset: 1; }
+  58%, 80% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1; }
+}
+@keyframes sutra-dot-top {
+  0% { transform: scale(0); }
+  8%, 76% { transform: scale(1); }
+  88%, 100% { transform: scale(0); }
+}
+@keyframes sutra-dot-bottom {
+  0%, 44% { transform: scale(0); }
+  54%, 88% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+/* Hero headline: hovering it thickens the two key phrases (and draws the wavy underline,
+   see .wave-word below). Tighter tracking inside each word (not the spaces between)
+   offsets the extra weight, so the words keep their width and nothing else moves.
+   The matching right margin gives back the space the last letter's tracking takes.
+   Tuned for Fraunces: 300 -> 500 at -0.07em. */
+.hero-key,
+.hero-key .wave-word {
+  transition-property: font-weight, letter-spacing, margin-right;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-key-2,
+.hero-key-2 .wave-word {
+  transition-delay: 0.06s;
+}
+#hero-title:hover .hero-key {
+  font-weight: 500;
+}
+#hero-title:hover .hero-key .wave-word {
+  letter-spacing: -0.07em;
+  margin-right: 0.07em;
+}
+
+/* Wavy underline (components/ds/WaveText). Sized in em so it scales with the text,
+   with a floor so it stays visible on small text. */
+.wave-word {
+  --wave-h: max(0.17em, 7px);
+  --wave-w: calc(var(--wave-h) * 2);
+  position: relative;
+  display: inline-block;
+}
+/* where supported, snap to whole pixels so the repeating tiles line up without seams */
+@supports (width: round(1.5px, 1px)) {
+  .wave-word {
+    --wave-h: round(max(0.17em, 7px), 1px);
+  }
+}
+.wave-word::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0.04em;
+  bottom: calc(0px - var(--wave-h) * 0.6);
+  height: var(--wave-h);
+  background-image: linear-gradient(90deg, #ff9933, #f8a35a 35%, #6f8fd0 70%, #0047ab);
+  /* one wave period (24×12), tiled across the word. The path runs half a period past
+     both edges of the tile, so neighbouring tiles overlap instead of meeting at a flat
+     cut across a sloped stroke (which left a wedge-shaped gap at every seam). */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M-12 6Q-6 10.5 0 6T12 6T24 6T36 6' fill='none' stroke='black' stroke-width='2.75'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M-12 6Q-6 10.5 0 6T12 6T24 6T36 6' fill='none' stroke='black' stroke-width='2.75'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: var(--wave-w) var(--wave-h);
+  mask-size: var(--wave-w) var(--wave-h);
+  -webkit-mask-position: 0 50%;
+  mask-position: 0 50%;
+  /* hidden until triggered: drawn in left to right, word after word */
+  clip-path: inset(0 100% 0 0);
+  transition-property: clip-path;
+  transition-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 0.09s);
+  /* the wave travels while visible */
+  animation-name: wave-flow;
+  animation-duration: 0.9s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.wave-trigger:hover .wave-word::after,
+.wave-trigger:has(:focus-visible) .wave-word::after,
+.wave-on .wave-word::after {
+  clip-path: inset(0 0 0 0);
+  animation-play-state: running;
+}
+@keyframes wave-flow {
+  to {
+    -webkit-mask-position: var(--wave-w) 50%;
+    mask-position: var(--wave-w) 50%;
+  }
+}
+
+/* Page-load intro (components/Intro.tsx). One second in total: the slabs meet by 0.55s,
+   then the layer dissolves from 0.6s to 1.0s. Keep INTRO_SECONDS in Motion.tsx in step. */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  background: #fdfcfc;
+  animation-name: intro-out;
+  animation-duration: 0.4s;
+  animation-delay: 0.6s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-fill-mode: forwards;
+}
+.intro-bg {
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(ellipse 55% 60% at 22% 28%, #ff9933 0%, rgba(255, 153, 51, 0) 70%),
+    radial-gradient(ellipse 60% 60% at 80% 76%, #0047ab 0%, rgba(0, 71, 171, 0) 70%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, #fdfcfc 0%, rgba(253, 252, 252, 0) 100%),
+    #f8dfcb;
+  filter: blur(30px);
+  animation-name: intro-drift;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+/* Fine film grain over the gradient (under the monogram, so the mark stays crisp) */
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+  opacity: 0.38;
+}
+.intro-mark {
+  position: relative;
+  z-index: 2;
+  width: min(34vw, 176px);
+  color: #000;
+  animation-name: intro-settle;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+.intro-slab-a,
+.intro-slab-b {
+  animation-duration: 0.5s;
+  animation-delay: 0.05s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+/* each slab slides in along its own slant and the two lock together */
+.intro-slab-a { animation-name: intro-slab-a; }
+.intro-slab-b { animation-name: intro-slab-b; }
+
+@keyframes intro-slab-a {
+  from { opacity: 0; transform: translate(-160px, 72px); }
+  40% { opacity: 1; }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes intro-slab-b {
+  from { opacity: 0; transform: translate(160px, -72px); }
+  40% { opacity: 1; }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes intro-settle {
+  from { transform: scale(0.92); }
+  to { transform: scale(1); }
+}
+@keyframes intro-drift {
+  from { transform: scale(1.2) rotate(-8deg); opacity: 0.6; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes intro-out {
+  to { opacity: 0; filter: blur(14px); transform: scale(1.04); visibility: hidden; }
+}
+
+/* Monogram hover: the two slabs part along their slant and click back together, once */
+.group:is(:hover, :focus-visible) .mono-part .mono-a,
+.group:is(:hover, :focus-visible) .mono-part .mono-b {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.group:is(:hover, :focus-visible) .mono-part .mono-a { animation-name: mono-part-a; }
+.group:is(:hover, :focus-visible) .mono-part .mono-b { animation-name: mono-part-b; }
+@keyframes mono-part-a {
+  40% { transform: translate(-44px, 20px); }
+  to { transform: translate(0, 0); }
+}
+@keyframes mono-part-b {
+  40% { transform: translate(44px, -20px); }
+  to { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sutra-draw-thread,
+  .sutra-draw-rising,
+  .sutra-dot { animation: none !important; stroke-dasharray: none; transform: none; }
+  .wave-word::after { animation: none !important; }
+  .intro { display: none; }
+  .mono-part path { animation: none !important; }
+
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Sutra side panel (components/AskMe.tsx). From 1024px the page makes room for the
+   420px panel (+ 12px gap each side) instead of being covered; fixed bars marked
+   .sutra-aware move over with it. On phones the sheet locks the page behind it. */
+/* The case-study bar (components/StickyHome.tsx) slides in and out (translate, with its
+   own duration in --bar-dur) and moves aside with the page when Sutra opens (right, 1s). */
+.sutra-aware {
+  transition-property: right, translate;
+  transition-duration: 1s, var(--bar-dur, 0.6s);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 1024px) {
+  body {
+    transition-property: padding-right;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html.sutra-open body {
+    padding-right: 444px;
+  }
+  html.sutra-open .sutra-aware {
+    right: 444px;
+  }
+}
+html.sutra-sheet-open {
+  overflow: hidden;
+}
+
+/* Sutra's border (components/AskMe.tsx): a thin saffron-to-cobalt edge whose colours
+   slowly travel around the panel. Drawn as a gradient ring masked to its padding,
+   so it follows the rounded corners. Still for reduced motion. */
+@property --sutra-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.sutra-border {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--sutra-angle),
+    #ff9933,
+    #ffc58f,
+    #0047ab,
+    #8fa3e0,
+    #ff9933
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation-name: sutra-border-spin;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+/* Its outer glow: the same moving gradient, blurred and spread outward behind the
+   panel, like a soft light thrown by the border. Same 8s loop, so the two stay in step. */
+.sutra-glow {
+  background: conic-gradient(
+    from var(--sutra-angle),
+    #ff9933,
+    #ffc58f,
+    #0047ab,
+    #8fa3e0,
+    #ff9933
+  );
+  filter: blur(26px);
+  scale: 1.015;
+  animation-name: sutra-border-spin;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes sutra-border-spin {
+  to {
+    --sutra-angle: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sutra-border,
+  .sutra-glow {
+    animation: none !important;
+  }
+}
+
+/* The case-study "Ask Sutra" pill's outline (components/case-study/AskAboutThis.tsx):
+   Sutra's gradient as a 1.5px ring. Still at rest so it never pulls at a reader; it turns
+   once when the page opens (data-sweep), and keeps turning only while hovered or focused.
+   One turn is 3s, so the sweep ends where it began. Still for reduced motion. */
+.sutra-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--sutra-angle),
+    #ff9933,
+    #ffc58f,
+    #0047ab,
+    #8fa3e0,
+    #ff9933
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation-name: sutra-border-spin;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.sutra-ring[data-sweep],
+.group\/ask:hover .sutra-ring,
+.group\/ask:focus-visible .sutra-ring {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sutra-ring {
+    animation: none !important;
+  }
 }
