@@ -69,7 +69,7 @@ export const projects: Project[] = [
   },
   {
     slug: "pricing-calculator",
-    questions: ["Why move pricing upstream?", "Account progression fell 8%. Why ship it anyway?", "What did the test not prove?"],
+    questions: ["Why put it on the Teams page?", "Account progression fell 8%. Why ship it anyway?", "What did the test not prove?"],
     readMinutes: 6,
     icon: "/lottie/sliders.json",
     title: "Coursera for Teams Pricing Calculator",
@@ -85,12 +85,12 @@ export const projects: Project[] = [
     glance: {
       problem:
         "Small teams discovered the price, the 5-seat minimum and the licensing rules too late in the purchase journey, which added friction at checkout.",
-      role: "Product Designer",
+      role: "Lead Product Designer",
       team: "2 product designers, engineering, 3 marketers, and data and analytics",
       duration: "Feb – Jul 2026, concept to A/B readout",
       decisions: [
         "Move pricing discovery upstream, even if fewer visitors progress into checkout",
-        "Self-serve pricing for 5–125 seats; a guided sales path above that, inputs kept",
+        "Put it on the Teams page, not the enterprise page, where buyers need a price",
         "Licensing rules in plain language beside the price, not in fine print",
       ],
       outcomes: [

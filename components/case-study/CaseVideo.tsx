@@ -11,7 +11,7 @@ function fmt(s: number) {
 }
 
 /** File version per video (bump when a video is re-rendered, so no cached copy shows). */
-const VERSION: Record<string, string> = {}
+const VERSION: Record<string, string> = { "pricing-calculator": "v7" }
 
 /**
  * The one-minute narrated summary at the top of a case study.

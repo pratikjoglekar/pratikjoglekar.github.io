@@ -715,8 +715,8 @@ PROJECT 5: Coursera for Teams Pricing Calculator — Coursera
 ===============================================================
  
 CASE STUDY HEADLINE: Moving purchase decisions upstream
-ROLE: Product Designer (one of two product designers on the project)
-TEAM: 2 product designers, engineering, 3 marketers, and data and analytics
+ROLE: Lead Product Designer (Pratik led the project; the team had two product designers)
+TEAM: 2 product designers (Pratik leading), engineering, 3 marketers, and data and analytics
 DURATION: Feb 2026 to Jul 2026, concept to A/B readout
 DISCIPLINES: UX and UI, Pricing and Purchase Journey Design, Experimentation and Conversion Design
 STATUS: Rolled out to 100% of Coursera for Teams (C4T) traffic after the A/B test.
@@ -742,6 +742,7 @@ DESIGN GOALS:
 - Protect the purchase journey: move pricing decisions earlier without compromising downstream purchase activity.
  
 WHERE IT GOT HARD:
+- Where the calculator should live: stakeholders wanted it on the enterprise page (Coursera for Business). Pratik convinced them to put it on the Coursera for Teams page instead: for enterprise buyers the answer is always Contact sales, so a calculator there adds little value; small teams are the buyers who need a real price before they commit.
 - A trustworthy number can still drive people away: rather than hide the price behind an optimistic starting figure, Pratik prioritized clarity, with a prominent billing cadence choice and a price breakdown that reads at a glance.
 - Two audiences, one module: self-serve and enterprise-bound buyers share the landing page, and the sales handoff could not feel like a failed checkout.
 - Policy reads as fine print: the 10% license rotation limit and mid-cycle add and remove rules had to be understandable beside the price, not buried in a legal section.
@@ -753,7 +754,12 @@ STRATEGY:
  
 KEY DECISIONS:
  
-  Decision: Self-serve pricing for 5–125 licenses; guided Contact Sales path above that.
+  Decision: Put the calculator on the Coursera for Teams page, not the enterprise page.
+  Why: Enterprise buyers always end at Contact sales, so a calculator adds little there; small teams need a price before they commit.
+  Tradeoff: Enterprise visitors do not get a calculator on their page.
+  Mitigation: Above 500 licenses the Teams calculator hands off to sales with the seat count kept.
+ 
+  Decision: Self-serve pricing for 5–500 licenses; guided Contact Sales path above that.
   Why: Small teams needed an immediate, reliable estimate; larger teams needed a clear path to a sales conversation.
   Tradeoff: Buyers above the self-serve threshold do not get an instant price.
   Mitigation: Explain the sales handoff and carry seat count and billing cadence into the sales form.
@@ -762,7 +768,7 @@ KEY DECISIONS:
   Why: The experiment supported moving pricing discovery upstream while observed downstream purchase activity held (Billing visits unchanged, conversion directionally positive).
  
 WHAT WAS DESIGNED (final module):
-- Upfront configuration: a seat selector for the self-serve range with the 5-seat minimum clearly stated; above the range, the price area becomes a Contact Sales panel explaining the next step (in the final design, more than 500 licenses shows custom pricing and Contact sales, with the seat count kept).
+- Upfront configuration: a seat selector for the self-serve range with the 5-seat minimum clearly stated; above the range, the price area becomes a Contact Sales panel explaining the next step (self-serve covers 5 to 500 licenses; above 500, the estimate shows custom pricing and Contact sales, with the seat count kept).
 - A de-risked price: a prominent quarterly and annual billing choice ($399 per license per year annual, $439 quarterly in the design), and a clear breakdown of billing cadence, any discount and the total ("Your Estimate", taxes included, 14-day refund policy).
 - No-surprise policies beside the price: quarterly billing (pay every 3 months with an annual commitment), license transfers (reassign up to 10% of licenses per billing cycle), team size flexibility (add licenses anytime with prorated pricing), payment options (card, PayPal or invoice; checks not accepted).
 - Local currency and payment clarity before checkout.
@@ -771,12 +777,12 @@ WHAT WAS DESIGNED (final module):
  
 DIRECTIONS EXPLORED:
 - A plan comparison ("Find the right plan for your goals"): For Teams (5–125, listed price, Buy now) against For Enterprises (125+, custom price, Contact sales), from wireframes through light, blue and dark treatments. It answered which plan fits, not what a team would pay, so it gave way to a calculator.
-- Two strips for the Coursera for Business page that expand into the calculator: seat count first (switching to enterprise pricing at high counts), and intent first (Teams or Enterprise, then cadence). Both were decommissioned; the module shipped on the Coursera for Teams page.
+- Two strips for the Coursera for Business page that expand into the calculator: seat count first (switching to enterprise pricing at high counts), and intent first (Teams or Enterprise, then cadence). Both were decommissioned once stakeholders agreed, after Pratik's argument, that the calculator belonged on the Teams page; the module shipped there.
  
 EXPERIMENT:
 - Five-week, 50:50 A/B test, randomized by cookie. Control: original C4T landing page without the calculator. Treatment: the page with the pricing module. Seven-day attribution window from exposure.
 - About 20% of landing-page traffic was exposed to the module; 24% of those engaged with it.
-- Exposure to Account page: 12.3% → 11.3% (−8%, reported statistically significant decrease).
+- Exposure to Account page: 12.3% → 11.3% (−8%, statistically significant decrease, confirmed).
 - Exposure to Billing page: 1.4% → 1.4% (about 0%, no observed change).
 - Exposure to Teams conversion: 0.80% → 0.92% (+15% relative, positive and directional, not statistically significant; Pratik does not claim a proven lift).
  

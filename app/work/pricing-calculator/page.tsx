@@ -26,7 +26,7 @@ export default function PricingCalculator() {
     <CaseStudyLayout slug="pricing-calculator">
       <CaseHeader
         slug="pricing-calculator"
-        tldr={<>Small teams were discovering critical pricing and licensing constraints too late in the Coursera for Teams purchase journey, which added friction at checkout. I designed a pricing calculator that moved those decisions to the landing page: an upfront estimate, transparent licensing rules and a guided sales path for larger teams. In a five-week A/B test, 24% of exposed visitors engaged with it. Account page progression fell 8%, Billing visits held steady, and overall conversion showed a positive but statistically inconclusive 15% relative lift. The calculator was then rolled out to all C4T traffic.</>}
+        tldr={<>Small teams were discovering critical pricing and licensing constraints too late in the Coursera for Teams purchase journey, which added friction at checkout. I led the design of a pricing calculator that moved those decisions to the Teams landing page: an upfront estimate, transparent licensing rules and a guided sales path for larger teams. In a five-week A/B test, 24% of exposed visitors engaged with it. Account page progression fell 8%, Billing visits held steady, and overall conversion showed a positive but statistically inconclusive 15% relative lift. The calculator was then rolled out to all C4T traffic.</>}
       />
 
       <CaseBody>
@@ -51,7 +51,7 @@ export default function PricingCalculator() {
             Teams buyers could not see what a contract would cost until late in checkout. The 5-seat minimum and the licensing restrictions surfaced even later, often after buyers had already invested time in the purchase.
           </p>
           <p>
-            I designed a pricing calculator for the Coursera for Teams landing page that brought these decisions forward. Buyers could configure 5 to 125 seats, compare quarterly and annual billing, understand the key licensing policies, and email an estimate to themselves. Larger teams were routed to a guided sales experience, with their configuration preserved.
+            I designed a pricing calculator for the Coursera for Teams landing page that brought these decisions forward. Buyers could configure 5 to 500 seats, compare quarterly and annual billing, understand the key licensing policies, and email an estimate to themselves. Larger teams were routed to a guided sales experience, with their configuration preserved.
           </p>
           <p>
             The objective was not simply to increase checkout entries. <mark className="font-medium">It was to help buyers understand the financial commitment before checkout,</mark> so they could make a more informed purchase decision.
@@ -90,7 +90,7 @@ export default function PricingCalculator() {
         <TextSection title="The design decision">
           <DecisionLog
             rows={[
-              { label: "Decision", body: <>Offer transparent self-serve pricing for 5 to 125 licenses, with a guided Contact Sales experience above that range.</> },
+              { label: "Decision", body: <>Offer transparent self-serve pricing for 5 to 500 licenses, with a guided Contact Sales experience above that range.</> },
               { label: "Why", body: <>Small teams needed an immediate, reliable estimate. Larger teams needed a clear path to a sales conversation.</> },
               { label: "Tradeoff", body: <>Buyers above the self-serve threshold would not get an instant price.</> },
               { label: "Mitigation", body: <>Explain the sales handoff, and carry the seat count and billing cadence into the sales form.</> },
@@ -120,6 +120,8 @@ export default function PricingCalculator() {
         <TextSection title="Where it got hard">
           <p>The challenge was not simply presenting a price. It was making a complex purchase decision understandable without adding another layer of friction.</p>
           <ul className="space-y-2">
+            <li className="font-medium">Where the calculator should live:</li>
+            <ul><li>Stakeholders wanted the calculator on the enterprise page, Coursera for Business. I argued for the Teams page instead: for enterprise buyers the answer would always be Contact sales, so a calculator there adds little. The buyers who need a real number before they commit are small teams, so that is where the calculator belonged.</li></ul>
             <li className="font-medium">A trustworthy number can still drive people away:</li>
             <ul><li>Showing the real commitment earlier could discourage some buyers. Rather than hide the price behind an optimistic starting figure, I prioritized clarity: a prominent billing cadence choice and a price breakdown that reads at a glance.</li></ul>
             <li className="font-medium">Two audiences, one module:</li>
@@ -127,6 +129,14 @@ export default function PricingCalculator() {
             <li className="font-medium">Policy reads as fine print:</li>
             <ul><li>The 10% license rotation limit and the mid-cycle add and remove rules mattered to the purchase decision, so they had to be understandable beside the price, not buried in a legal section.</li></ul>
           </ul>
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Put the calculator on the Coursera for Teams page, not the enterprise page.</> },
+              { label: "Why", body: <>Enterprise buyers always end at Contact sales, so a calculator adds little there. Small teams are the buyers who need a price before they commit.</> },
+              { label: "Tradeoff", body: <>Enterprise visitors do not get a calculator on their page.</> },
+              { label: "Mitigation", body: <>Above 500 licenses, the Teams calculator hands off to sales with the seat count kept.</> },
+            ]}
+          />
         </TextSection>
 
         <TextSection title="Design strategy">
@@ -172,7 +182,7 @@ export default function PricingCalculator() {
             />
           </Figure>
           <p>
-            I also explored the calculator for the Coursera for Business page, as a compact strip that expands into the full module. Two options framed the first choice differently. One started from the seat count and switched to enterprise pricing once the count went past the self-serve range. The other asked buyers up front whether they were buying for a team or an enterprise. Both were decommissioned, and the module shipped on the Coursera for Teams page.
+            I also explored the calculator for the Coursera for Business page, as a compact strip that expands into the full module. Two options framed the first choice differently. One started from the seat count and switched to enterprise pricing once the count went past the self-serve range. The other asked buyers up front whether they were buying for a team or an enterprise. Both were decommissioned when the team agreed the calculator belonged on the Teams page, and the module shipped there.
           </p>
           <Figure caption="Option 1, seat count first: the strip, the expanded calculator, and the switch to enterprise pricing at a high seat count.">
             <Image
@@ -199,8 +209,8 @@ export default function PricingCalculator() {
             columns={["Option", "What happened"]}
             rows={[
               ["A plan comparison (For Teams against For Enterprises)", "It answered which plan fits, not what a team would pay, so it gave way to a calculator"],
-              ["A seat-count strip on the Coursera for Business page", "Explored, then decommissioned with the Business page version"],
-              ["An intent-first strip (Teams or Enterprise) on the same page", "Explored, then decommissioned with the Business page version"],
+              ["A seat-count strip on the Coursera for Business page", "Decommissioned: on the enterprise page the answer is always Contact sales"],
+              ["An intent-first strip (Teams or Enterprise) on the same page", "Decommissioned for the same reason; the calculator moved to the Teams page"],
             ]}
           />
         </TextSection>
