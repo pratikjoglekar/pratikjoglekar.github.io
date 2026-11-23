@@ -31,13 +31,8 @@ export default function c4cintegrations() {
       >
         <TextSection title="The middleware could not carry for-credit learning">
           <p>Universities connect Coursera to their learning management system (Canvas, Blackboard, Moodle) through LTI, an industry standard. It lets learners launch courses from the LMS without another login, lets instructors place Coursera content inside their course, and sends grades back to the gradebook.</p>
-          <p>Coursera for Campus ran that connection through a third-party middleware. The same four problems kept coming back:</p>
-          <ul className="space-y-2">
-            <li><strong>Late, opaque grades.</strong> Grade sync lagged by a day or two, and when it failed, nobody could easily see why. Faculty could not trust the gradebook for credit.</li>
-            <li><strong>Slow, manual setup.</strong> Onboarding was high-touch and often took two to three weeks of back-and-forth.</li>
-            <li><strong>Missing academic workflows.</strong> Universities relied on customizations such as multiple LMS shells, granular grade sync and roster-based access. Replacing the middleware without them would have broken existing partners.</li>
-            <li><strong>A disconnected learner experience.</strong> Coursera content opened in a separate browser tab, so it felt like a third-party tool instead of part of the course.</li>
-          </ul>
+          <p>Coursera for Campus ran that connection through a third-party middleware, and it kept failing universities in the same places. Grades synced a day or two late, and when a sync failed nobody could easily see why, so faculty could not rely on the gradebook for credit. Setup was high-touch and often took two to three weeks of back-and-forth.</p>
+          <p>Universities also depended on customizations the middleware handled, such as multiple LMS shells, granular grade sync and roster-based access. Dropping them would have broken existing partners. And learners met Coursera in a separate browser tab, which made it feel like a third-party tool bolted onto the course.</p>
           <DecisionLog
             rows={[
               { label: "Decision", body: <>Replace the middleware with a native LTI instead of continuing to patch it.</> },
@@ -90,10 +85,10 @@ export default function c4cintegrations() {
         <TextSection title="How I led the work">
           <p>As the only product designer, working with a PM, eight developers and a data analyst, I treated alignment as part of the design job.</p>
           <ul className="space-y-2">
-            <li><strong>Started from the field.</strong> The focus group meant the roadmap began from what customers had actually raised, not from assumptions.</li>
+            <li><strong>Started from the field.</strong> The focus group meant the roadmap began with what customers had actually raised.</li>
             <li><strong>Ran JTBD interviews with instructors and admins</strong> and created a shared prioritization framework, so the team moved past surface feature requests to the integration gaps behind them.</li>
             <li><strong>Co-authored the initiative concept</strong> with the PM: the problem, the phased roadmap, the risks and the baseline metrics.</li>
-            <li><strong>Facilitated a cross-functional workshop</strong> that scored ideas on user impact, technical feasibility and platform leverage, so priorities came from shared criteria instead of the loudest voice.</li>
+            <li><strong>Facilitated a cross-functional workshop</strong> that scored ideas on user impact, technical feasibility and platform leverage, so everyone ranked ideas against the same criteria.</li>
             <li><strong>Stepped into an open Product Manager role</strong> for the instructor-facing side (due dates, learner progress and certificates), owning discovery, stakeholder alignment, sprint planning and delivery across engineering, QA and customer success.</li>
             <li><strong>Used an early prototype to settle direction.</strong> With little time for traditional research, I built an AI-assisted, end-to-end concept so engineering and the business could react to something concrete before committing build effort.</li>
           </ul>
@@ -115,11 +110,63 @@ export default function c4cintegrations() {
           <Callout label="Insight">Top university partners would not move until the native tool matched what they already had. So the roadmap protected existing customers before it added anything new.</Callout>
           <ol className="list-decimal space-y-2 pl-5">
             <li><strong>Core integration.</strong> LMS registration, content linking with course search, single sign-in, course-level grade sync and basic rostering. The first customer went live in December 2025.</li>
-            <li><strong>One-click setup.</strong> Admins connect Coursera with a single URL instead of back-and-forth with support.</li>
+            <li><strong>One-click setup.</strong> Admins connect Coursera by pasting a single URL.</li>
             <li><strong>Academic customizations.</strong> Granular grade sync first, then incremental sync and restoring grades for re-enrolled students.</li>
             <li><strong>Content discovery.</strong> A structured catalog with search and filters, so instructors can judge content before linking it.</li>
             <li><strong>Embedded learner experience.</strong> Coursera content inside the LMS, so learners never leave the course.</li>
           </ol>
+        </TextSection>
+
+        <TextSection title="Guided LMS setup">
+          <p>
+            Connecting an LMS used to mean weeks of back-and-forth with support, exchanging IDs and URLs by email. I redesigned it as a guided flow an admin can finish alone, from Coursera&rsquo;s own Settings.
+          </p>
+          <ol className="list-decimal space-y-2 pl-5">
+            <li><strong>Choose the LMS and how to connect.</strong> Canvas, Moodle, Blackboard, D2L and others. Dynamic registration is the recommended default because it exchanges the details automatically; static registration remains for platforms that need it.</li>
+            <li><strong>Copy Coursera&rsquo;s details into the LMS.</strong> Every value an LMS asks for, each with a copy button and a short explanation, so nothing is retyped or guessed.</li>
+            <li><strong>Paste the LMS details back into Coursera.</strong> One form, in the order most LMS consoles show them, marked as a production or test environment.</li>
+            <li><strong>See every connection in one place.</strong> Each LMS appears in a table with its configuration type and environment, ready to view or remove.</li>
+          </ol>
+          <Figure caption="Step 1: choose the LMS and the configuration type, with dynamic registration recommended.">
+            <Image
+              src="/images/integrations/lms-setup-choose.png"
+              alt="Choose your LMS: Moodle selected, and a choice between Dynamic (Automatic), marked Recommended, and Static (Manual) configuration"
+              width={1140}
+              height={1010}
+              className="mx-auto h-auto w-full max-w-[520px]"
+              sizes="520px"
+            />
+          </Figure>
+            <Figure caption="Step 2: copy Coursera's configuration into the LMS, one value at a time.">
+              <Image
+                src="/images/integrations/lms-setup-coursera-config.png"
+                alt="Coursera Config, step 1 of 2: Tool URL, Initiate login URL, Redirection URIs, Public keyset and Content Selection URL, each with a Copy button"
+                width={1130}
+                height={1193}
+                className="mx-auto h-auto w-full max-w-[520px]"
+                sizes="520px"
+              />
+            </Figure>
+            <Figure caption="Step 3: paste the LMS details back into Coursera and pick the environment.">
+              <Image
+                src="/images/integrations/lms-setup-lms-config.png"
+                alt="LMS configuration, step 2 of 2: platform name, environment, client ID, deployment ID, platform ID, public keyset, access token and authentication request URLs, and a Configure LTI tool button"
+                width={1130}
+                height={1660}
+                className="mx-auto h-auto w-full max-w-[520px]"
+                sizes="520px"
+              />
+            </Figure>
+          <Figure caption="Step 4: the connection is confirmed, and every LMS sits in one table with its configuration type and environment.">
+            <Image
+              src="/images/integrations/lms-setup-connections.png"
+              alt="Settings, Integrations, LTI tool configurations: a success message and a table of Moodle, Blackboard and D2L connections with client ID, static or dynamic configuration, production or test environment, and view and delete actions"
+              width={2480}
+              height={1250}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
         </TextSection>
 
         <TextSection title="Designing safe defaults">
@@ -133,33 +180,65 @@ export default function c4cintegrations() {
           />
 
           <p><strong className="case-h3">Giving admins control over what instructors see</strong></p>
-          <p>Every instructor saw every program, which risked misused licenses, contract breaches and blocked rollouts. I added an org-level control that opens program selection, and it only turns on once an active program is saved. Each LTI registration shows a status in words (Configured, Not configured, Needs attention), and a warning appears when enabling with unconfigured registrations. The unsafe state, control on with nothing visible, cannot happen. Existing links keep working, so the control only affects future selection.</p>
-          <Figure caption="Before: Program Access Control is off, and every program is visible to instructors.">
+          <p>Every instructor saw every program, which risked misused licenses, contract breaches and blocked rollouts. I added a control for each LMS connection that opens program selection, and it only turns on once an active program is saved. Each LTI registration shows a status in words (Configured, Not configured, Needs attention), and a warning appears when enabling with unconfigured registrations. The unsafe state, control on with nothing visible, cannot happen. Existing links keep working, so the control only affects future selection.</p>
+          <Figure caption="Before: access is set per LMS connection. Every connection starts at All programs, with its own toggle.">
             <Image
-              src="/images/integrations/access-off.png"
-              alt="Settings, Integrations: Program Access Control with its toggle off"
-              width={1568}
-              height={606}
+              src="/images/integrations/access-off-v2.png"
+              alt="Settings, Integrations, Additional settings: Program Access Control with a table of two Moodle connections, each showing All programs and a toggle that is off"
+              width={2494}
+              height={1059}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <Figure caption="Turning it on goes straight to choosing programs, so the control is never on with nothing selected.">
+          <Figure caption="Turning it on explains the consequence and goes straight to choosing groups, so the control is never on with nothing selected.">
             <Image
-              src="/images/integrations/access-select-programs.png"
-              alt="Dialog titled Program Access Control Enabled explaining that instructors will only see selected programs, with a Select programs button"
-              width={1568}
-              height={659}
+              src="/images/integrations/access-enable-dialog.png"
+              alt="Dialog titled Group Access Control Enabled: instructors will only see the groups you select, unselected groups are hidden, and the selection can be updated at any time. Select groups and Cancel buttons"
+              width={1102}
+              height={534}
+              className="mx-auto h-auto w-full max-w-[560px]"
+              sizes="560px"
+            />
+          </Figure>
+          <Figure caption="Choosing the groups: search, sort and filter across hundreds of programs, see when each was created and how many courses it holds, and select only the ones instructors should see.">
+            <Image
+              src="/images/integrations/access-group-dialog.png"
+              alt="Group selection dialog for a Moodle connection: a search field, sort and filter controls, a paginated table of groups with checkboxes, created dates and course counts, a count of selected groups, and Select groups and Select all groups buttons"
+              width={2506}
+              height={1527}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <Figure caption="After: the control is on, with a plain-language confirmation of what instructors will see.">
+          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
+            <Figure caption="Saving with nothing changed says what to do next.">
+              <Image
+                src="/images/integrations/access-group-error.png"
+                alt="Inline error under the group table: No changes detected. Add or remove at least one program to update your selection."
+                width={1040}
+                height={470}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 360px, 100vw"
+              />
+            </Figure>
+            <Figure caption="Turning the control off asks first, and says exactly what will happen: every group becomes visible again.">
+              <Image
+                src="/images/integrations/access-disable-confirm.png"
+                alt="Confirmation dialog: Are you sure you want to disable group access control? If you disable this setting, all groups will be visible within the LMS. Disable and Cancel buttons"
+                width={1102}
+                height={476}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 360px, 100vw"
+              />
+            </Figure>
+          </div>
+          <Figure caption="After: the control is on for one connection only, with a plain-language confirmation naming it, and Select groups to change the selection later.">
             <Image
-              src="/images/integrations/access-on.png"
-              alt="Program Access Control switched on, with a Select programs link and a green confirmation that only selected programs will be available"
-              width={1568}
-              height={727}
+              src="/images/integrations/access-on-v3.png"
+              alt="Group Access Control table: one Moodle connection still on All groups with its toggle off, the other switched on with a Select groups link, and a green confirmation that only selected groups will be available for that connection"
+              width={2484}
+              height={1185}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
@@ -167,13 +246,13 @@ export default function c4cintegrations() {
 
           <p><strong className="case-h3">Letting instructors set a grade-sync cutoff</strong></p>
           <p>Sync was continuous, so gradebooks kept changing after evaluation ended, and the LMS did not send due dates. Instead of guessing, instructors can set an optional date when they create a link, labeled &ldquo;Stop grade sync to Gradebook&rdquo; so it cannot be mistaken for the LMS due date. It solves a real need without relying on data the LMS does not provide.</p>
-          <Figure caption="Link setup: the optional cutoff sits beside the grade configuration, with copy that separates it from the LMS due date.">
+          <Figure caption="Confirm Selection: the course, the grade configuration and the optional grade sync cutoff, reviewed together before anything is linked, with copy that separates the cutoff from the LMS due date.">
             <Image
-              src="/images/integrations/grade-sync-cutoff.png"
-              alt="Finalize Setup screen with an optional Stop Grade Sync to Gradebook date and time, and a Grade Configuration choice between final grade sync and item level grade sync"
-              width={957}
-              height={1232}
-              className="mx-auto h-auto w-full max-w-[460px]"
+              src="/images/integrations/confirm-selection.png"
+              alt="Confirm Selection screen: the selected IBM course, a Grade Configuration choice between item level and final grade sync, and an optional Stop Grade Sync to Gradebook date and time, marked Ready to confirm"
+              width={2506}
+              height={1612}
+              className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
@@ -184,12 +263,12 @@ export default function c4cintegrations() {
             <li><strong>Progress and certificates.</strong> Status appears next to the linked item, and only for items that were actually deep linked. Instructors can view certificates but not download them.</li>
             <li><strong>Embedded learner view.</strong> Content appears inside the LMS, adapting to hosts that scale responsively and to hosts that only allow fixed-size pop-ups.</li>
           </ul>
-          <Figure caption="Course detail in the content picker: instructors see the modules and what each includes before they link anything.">
+          <Figure caption="Course detail in the content picker: instructors browse modules and preview each item, then assign a whole module or a single piece of content without leaving the LMS.">
             <Image
-              src="/images/integrations/course-detail.png"
-              alt="Course detail view in the Coursera content picker, with modules and their contents"
-              width={1395}
-              height={1280}
+              src="/images/integrations/content-page.png"
+              alt="Course page for Introduction to Artificial Intelligence: a module list with an open module and its readings, videos and assessments, a content preview, and Assign module and Assign content buttons"
+              width={2506}
+              height={2238}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
@@ -239,8 +318,8 @@ export default function c4cintegrations() {
       >
         <Results slug="c4cintegrations" />
 
-        <TextSection title="What my decisions plausibly moved">
-          <p>The results belong to the whole team, so I claim only the links I can defend, and I mark the rest as hypotheses.</p>
+        <TextSection title="Which decisions moved which numbers">
+          <p>These results belong to the whole team. Here is where I think design made the difference, and how sure I am.</p>
           <DataTable
             caption="Design decisions, the result each most plausibly affected, and the evidence today"
             columns={["Decision", "Result it most plausibly affected", "Evidence today"]}
@@ -251,20 +330,20 @@ export default function c4cintegrations() {
               ["Content picker and embedded view", "Content linking and learner adoption", "Hypothesis; no per-decision measurement"],
             ]}
           />
-          <Figure caption="The north-star design: instructors see gaps in their curriculum and the Coursera content that fits, without leaving the LMS.">
+          <Figure caption="Shipped: the content home inside the LMS. Recommendations based on the instructor&rsquo;s LMS course come first, then 350+ partners and curated courses, videos and guided projects.">
             <Image
-              src="/images/integrations/northstar-home.png"
-              alt="North-star design of Coursera content inside an LMS"
+              src="/images/integrations/content-home.png"
+              alt="Coursera content home inside an LMS: a welcome message, recommendations based on the instructor's LMS course, partner logos, and curated courses, videos and guided projects"
               width={1400}
               height={868}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <Figure caption="North-star browsing: instructors filter the catalog by topic, duration, product type, language and level, then view or select any course, certificate, project or video without leaving the LMS.">
+          <Figure caption="Shipped: browsing the catalog. Instructors filter by topic, duration, product type, language and level, then view or select any course, certificate, project or video without leaving the LMS.">
             <Image
-              src="/images/integrations/northstar-search.png"
-              alt="North-star search page with filters and a grid of Coursera courses, certificates, guided projects and videos, each with View and Select actions"
+              src="/images/integrations/content-search.png"
+              alt="Coursera catalog search inside an LMS: filters and a grid of courses, certificates, guided projects and videos, each with View and Select actions"
               width={1299}
               height={924}
               className="h-auto w-full"
@@ -279,13 +358,10 @@ export default function c4cintegrations() {
         title="Reflection"
         summary={<>Self-serve is a product plus an operating model. The setup flow is half of it; what happens when setup fails is the other half.</>}
       >
-        <TextSection title="Where it got hard">
-          <ul className="space-y-2">
-            <li><strong>We could not control the host.</strong> Each LMS behaves differently. Canvas decides multi-select per placement at launch, and Moodle adds its own confirmation page. Most platforms exposed little data, so the design had to degrade gracefully per placement instead of assuming one behavior.</li>
-            <li><strong>Migration had a short window.</strong> Customers would only move between academic semesters, and the move depended on getting enrollment and grade data out of the old middleware.</li>
-            <li><strong>Self-serve alone was not enough.</strong> Customers often still needed hands-on help through setup and testing. Clear ownership from field teams mattered as much as the product.</li>
-            <li><strong>The component library was not built for this.</strong> Enterprise integration workflows needed components that did not exist yet, so we extended the system while keeping it consistent and accessible.</li>
-          </ul>
+        <TextSection title="What we could not design away">
+          <p>We could not control the host. Each LMS behaves differently: Canvas decides multi-select per placement at launch, Moodle adds its own confirmation page, and most platforms expose little data. So the design had to work placement by placement.</p>
+          <p>The calendar was tight too. Universities would only migrate between semesters, and each move depended on getting enrollment and grade data out of the old middleware.</p>
+          <p>Self-serve was not enough on its own. Many customers still needed hands-on help through setup and testing, so clear ownership from the field teams mattered as much as the product. And the component library had nothing for enterprise integration workflows, so we extended it while keeping it consistent and accessible.</p>
         </TextSection>
 
         <TextSection title="What I would carry forward">

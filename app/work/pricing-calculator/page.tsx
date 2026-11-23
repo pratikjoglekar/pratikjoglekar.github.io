@@ -71,17 +71,7 @@ export default function PricingCalculator() {
         </TextSection>
 
         <TextSection title="Why was this needed?">
-          <p>Small-team buyers met four sources of uncertainty in the purchase journey:</p>
-          <ul className="space-y-2">
-            <li className="font-medium">Sticker shock:</li>
-            <ul><li>A large annual total appeared early, without a lower-commitment option beside it.</li></ul>
-            <li className="font-medium">Hidden details:</li>
-            <ul><li>Payment methods, billing specifics and licensing rules appeared only late in checkout.</li></ul>
-            <li className="font-medium">Fear of inflexibility:</li>
-            <ul><li>Buyers could not easily tell how adding, removing or swapping users would work.</li></ul>
-            <li className="font-medium">A late seat minimum:</li>
-            <ul><li>The 5-seat minimum was revealed far down the funnel, where it could end a purchase after buyers had already invested time.</li></ul>
-          </ul>
+          <p>Small-team buyers hit the same uncertainty at four points. A large annual total appeared early, with no lower-commitment option beside it. Payment methods, billing details and licensing rules showed up only late in checkout. Buyers could not easily tell how adding, removing or swapping users would work. And the 5-seat minimum appeared far down the funnel, where it could end a purchase after buyers had already invested time.</p>
           <p>
             The common thread was timing. Buyers were being asked to commit to a purchase before they had enough information to evaluate it.
           </p>
@@ -102,7 +92,7 @@ export default function PricingCalculator() {
       <Chapter
         number={3}
         title="Approach"
-        summary={<>A purchase-journey redesign, not an isolated pricing widget: show the commitment upstream, make it understandable, and design for the next decision.</>}
+        summary={<>A purchase-journey redesign: show the commitment upstream, make it understandable, and design for the next decision.</>}
       >
         <TextSection title="Design goals">
           <ul className="space-y-2">
@@ -118,17 +108,10 @@ export default function PricingCalculator() {
         </TextSection>
 
         <TextSection title="Where it got hard">
-          <p>The challenge was not simply presenting a price. It was making a complex purchase decision understandable without adding another layer of friction.</p>
-          <ul className="space-y-2">
-            <li className="font-medium">Where the calculator should live:</li>
-            <ul><li>Stakeholders wanted the calculator on the enterprise page, Coursera for Business. I argued for the Teams page instead: for enterprise buyers the answer would always be Contact sales, so a calculator there adds little. The buyers who need a real number before they commit are small teams, so that is where the calculator belonged.</li></ul>
-            <li className="font-medium">A trustworthy number can still drive people away:</li>
-            <ul><li>Showing the real commitment earlier could discourage some buyers. Rather than hide the price behind an optimistic starting figure, I prioritized clarity: a prominent billing cadence choice and a price breakdown that reads at a glance.</li></ul>
-            <li className="font-medium">Two audiences, one module:</li>
-            <ul><li>Self-serve buyers and enterprise-bound buyers shared the same landing page. The experience had to support both without the sales handoff feeling like a failed checkout.</li></ul>
-            <li className="font-medium">Policy reads as fine print:</li>
-            <ul><li>The 10% license rotation limit and the mid-cycle add and remove rules mattered to the purchase decision, so they had to be understandable beside the price, not buried in a legal section.</li></ul>
-          </ul>
+          <p>The hard part was making a complex purchase decision understandable without adding friction.</p>
+          <p><strong className="case-h3">Where the calculator should live</strong></p>
+          <p>Stakeholders wanted the calculator on the enterprise page, Coursera for Business. I argued for the Teams page: for enterprise buyers the answer would always be Contact sales, so a calculator there adds little. The buyers who need a real number before they commit are small teams, so that is where the calculator belonged.</p>
+          <p>Three other tensions shaped the design. Showing the real commitment earlier could discourage some buyers, but I chose clarity over an optimistic starting figure, with a prominent billing cadence choice and a breakdown that reads at a glance. Self-serve and enterprise-bound buyers shared one landing page, so the sales handoff had to feel like a next step, never a failed checkout. And the 10% license rotation limit and the mid-cycle add and remove rules mattered to the decision, so they had to be readable beside the price.</p>
           <DecisionLog
             rows={[
               { label: "Decision", body: <>Put the calculator on the Coursera for Teams page, not the enterprise page.</> },
@@ -153,7 +136,7 @@ export default function PricingCalculator() {
             <ul><li>Let buyers carry the estimate forward by email or continue straight to checkout, with a guided sales path for larger teams.</li></ul>
           </ul>
           <p>
-            Success would be judged across the purchase journey, not by calculator engagement or the number of people entering checkout alone.
+            Success would be judged across the whole purchase journey. Calculator engagement and checkout entries were only part of the picture.
           </p>
         </TextSection>
 
@@ -231,6 +214,60 @@ export default function PricingCalculator() {
             <li className="font-medium">A shareable estimate:</li>
             <ul><li>Buyers can email the estimate to themselves or continue straight to checkout.</li></ul>
           </ul>
+          <p><strong className="case-h3">One estimate, every pricing state</strong></p>
+          <p>
+            The same estimate card had to stay honest across every case: the billing choice, volume tiers, seasonal promotions and the two together. Only one discount applies at a time, so when both qualify the estimate shows the better one and strikes through the other, so buyers never have to work it out.
+          </p>
+          <Figure caption="Quarterly billing: the same layout, with the higher per-license price and the amount due each quarter.">
+            <Image
+              src="/images/pricing-calculator/quarterly.png"
+              alt="Calculator with Quarterly selected, 5 licenses, and an estimate of $549 due per quarter at $439 per license per year"
+              width={2346}
+              height={860}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+          <Figure caption="A volume discount at 200 licenses: 27% off, the saving shown in the total, and the seasonal discount struck through because only one applies.">
+            <Image
+              src="/images/pricing-calculator/volume-discount.png"
+              alt="Calculator with 200 licenses: the estimate shows $79,800 struck through and $58,254, $291 per license, a 27% volume discount, and a struck-through seasonal discount"
+              width={2346}
+              height={860}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+          <Figure caption="A seasonal promotion: 50% off for a small team, with the original total struck through so the saving is obvious.">
+            <Image
+              src="/images/pricing-calculator/seasonal-discount.png"
+              alt="Calculator with 10 licenses: the estimate shows $3,990 struck through and $1,995, with a 50% seasonal discount"
+              width={2346}
+              height={860}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+            />
+          </Figure>
+          <Figure caption="The Volume discounts link opens the tiers in one place, each with a one-click way to buy at that level.">
+            <Image
+              src="/images/pricing-calculator/volume-modal.png"
+              alt="Volume discount dialog: 125 to 199 licenses at 15% off, $340 per license, and 200 to 499 licenses at 25% off, $290 per license, each with a Buy button"
+              width={1060}
+              height={700}
+              className="mx-auto h-auto w-full max-w-[520px]"
+              sizes="520px"
+            />
+          </Figure>
+          <Figure caption="On mobile, the module stacks in decision order: billing, licenses, the next step, the estimate, then the policies.">
+            <Image
+              src="/images/pricing-calculator/mobile.png"
+              alt="Three mobile screens of the calculator: the standard estimate, a volume discount and a seasonal discount, each stacking billing cycle, licenses, actions, estimate and policies"
+              width={1477}
+              height={1590}
+              className="mx-auto h-auto w-full max-w-[600px]"
+              sizes="600px"
+            />
+          </Figure>
           <Figure caption="Above the self-serve range: the price becomes custom, the billing choice steps back, and Contact sales takes over with the seat count kept.">
             <Image
               src="/images/pricing-calculator/contact-sales.png"
@@ -286,7 +323,7 @@ export default function PricingCalculator() {
             <table className="w-full min-w-[560px] border-collapse text-left text-body-sm">
               <caption className="sr-only">A/B test results, control versus calculator</caption>
               <thead>
-                <tr className="border-b border-stone font-mono text-mono uppercase tracking-wide text-smoke">
+                <tr className="border-b border-stone text-body-sm font-medium text-smoke">
                   <th scope="col" className="py-3 pr-4 font-normal">Metric</th>
                   <th scope="col" className="py-3 pr-4 font-normal">Control</th>
                   <th scope="col" className="py-3 pr-4 font-normal">Treatment</th>
@@ -341,9 +378,9 @@ export default function PricingCalculator() {
       <Chapter
         number={5}
         title="Reflection"
-        summary={<>Optimize the decision, not just the funnel: more checkout entries do not always mean a healthier purchase journey.</>}
+        summary={<>More checkout entries do not always mean a healthier purchase journey.</>}
       >
-        <TextSection title="Conclusion: optimize the decision, not just the funnel">
+        <TextSection title="Design for the decision">
           <p>
             The biggest lesson was that <mark className="font-medium">more checkout entries do not necessarily mean a healthier purchase journey.</mark> Buyers had been discovering important financial and licensing constraints after entering checkout. Moving that information upstream gave them the chance to understand their commitment before investing more time.
           </p>
@@ -351,7 +388,7 @@ export default function PricingCalculator() {
             The experiment showed early-funnel progression could fall while Billing visits held steady, and overall conversion moved positively, though we could not establish a statistically significant lift.
           </p>
           <p>
-            It changed how I design purchase experiences. The goal is not to move everyone through every step. It is to give people the right information at the right moment, so they can decide without avoidable surprises later. I would also design the follow-up as part of the original product from day one: saving and sharing an estimate is part of the buyer&rsquo;s job, not an extra feature.
+            It changed how I design purchase experiences. The goal is to give people the right information at the right moment, so they can decide without surprises later, even if fewer of them move through every step. I would also design the follow-up as part of the original product from day one: saving and sharing an estimate is part of the buyer&rsquo;s job.
           </p>
           <Callout>A better purchase journey is not the one with the most people entering checkout. It is the one where buyers understand what they are committing to before they get there.</Callout>
         </TextSection>

@@ -20,7 +20,7 @@ export default function UsageIntelligenceCaseStudy() {
     <CaseStudyLayout slug="usage-intelligence">
       <CaseHeader
         slug="usage-intelligence"
-        tldr={<>HubSpot customers could create usage events, but had no trusted way to own, protect or monitor them, so data problems surfaced only after they caused damage. In 5 months, as the sole product designer, I designed a governance layer that sits beside analytics tools instead of replacing them: no-code event creation, alerts and auditing. Critical usage situations fell from an expected 8.5% to 5.1%.</>}
+        tldr={<>HubSpot customers could create usage events, but had no trusted way to own, protect or monitor them, so data problems surfaced only after they caused damage. In 5 months, as the sole product designer, I designed a governance layer that sits beside the analytics tools teams already used: no-code event creation, alerts and auditing. Critical usage situations fell from an expected 8.5% to 5.1%.</>}
       />
 
       <CaseBody>
@@ -31,13 +31,7 @@ export default function UsageIntelligenceCaseStudy() {
       >
         <TextSection title="Events nobody owned">
           <p>Usage events are the signals that show how customers use a product: a feature activated, a report run, a workflow completed. HubSpot customers could already create them, but making sense of them depended on outside tools such as Amplitude and Looker. Many SMB customers did not have those tools at all.</p>
-          <p>The same four problems kept coming back:</p>
-          <ul className="space-y-2">
-            <li><strong>Nobody owned the events.</strong> Event logic lived in code files. Anyone could change it, with no visibility, accountability or shared understanding.</li>
-            <li><strong>Data disappeared silently.</strong> Deleting a code file deleted live event data, with no safeguard and no signal.</li>
-            <li><strong>Problems surfaced late.</strong> Issues showed up only after they had spread into analytics tools, and nothing flagged unexpected changes in event volume.</li>
-            <li><strong>What mattered was hard to see.</strong> There was no simple way to find the most important events or follow their trends without leaving the product.</li>
-          </ul>
+          <p>Four things kept going wrong. Event logic lived in code files that anyone could change, and nobody owned the result. Deleting one of those files deleted live event data, with no safeguard and no signal. Problems showed up only after they had spread into analytics tools, because nothing flagged a sudden change in volume. And there was no simple way to find the events that mattered most, or follow their trends, without leaving the product.</p>
           <Figure caption="Before: no data reliability, instrumentation protection, or reporting in place.">
             <Image
               src="/images/uip/flow.png"
@@ -51,7 +45,7 @@ export default function UsageIntelligenceCaseStudy() {
           <DecisionLog
             rows={[
               { label: "Decision", body: <>Build ownership and governance, not another analytics surface.</> },
-              { label: "Why", body: <>Existing tools were built for exploration, not for accountability or action.</> },
+              { label: "Why", body: <>Amplitude and Looker were built for exploring data. Nobody was accountable for an event, and nothing told a team when one broke.</> },
               { label: "Tradeoff", body: <>Less flexibility for ad-hoc analysis, in favor of consistency and trust.</> },
               { label: "Mitigation", body: <>Position it as a complementary layer that coexists with Amplitude and Looker.</> },
             ]}
@@ -124,25 +118,69 @@ export default function UsageIntelligenceCaseStudy() {
 
           <p><strong className="case-h3">No-code event creation</strong></p>
           <p>Creating an event used to mean writing code. A four-step flow (details, properties, reviewers, review) lets teams define an event without engineering support. It builds in the naming standard, a noun plus a past-tense verb such as &ldquo;Deal Created,&rdquo; and asks up front whether the event is protected. I traced failures in the old flow back to decision points nobody needed, and removing them cut errors in event creation by 70%.</p>
-          <Figure caption="Creating an event without code: the naming standard and the protected-event choice are part of the flow.">
+          <Figure caption="Step 1, event details: the naming standard builds the name from a noun and a past-tense verb, and the protected-event choice is asked up front.">
             <Image
-              src="/images/uip/createevent.png"
-              alt="No-code event creation experience"
-              width={1440}
-              height={1020}
+              src="/images/uip/create-1.png"
+              alt="Create New Event, step 1 of 4: team and limit counters, namespace, noun and verb fields that combine into Deal Created, database, event class, a protected-event choice and a description"
+              width={1928}
+              height={1617}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
+          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
+            <Figure caption="Step 2: properties, with the naming rule and a correct and incorrect example beside the field.">
+              <Image
+              src="/images/uip/create-2.png"
+              alt="Create New Event, add properties: property counters, naming guidance with incorrect and correct examples, and an Action property with its description"
+              width={1928}
+              height={1475}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            </Figure>
+            <Figure caption="Step 3: owners, product analysts and reviewers, so every event has someone accountable from day one.">
+              <Image
+              src="/images/uip/create-3.png"
+              alt="Create New Event, add reviewers: owning teams, product analysts, additional reviewers and a documentation link"
+              width={1928}
+              height={1362}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            </Figure>
+          </div>
+          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
+            <Figure caption="Step 4: one review of everything before it goes out.">
+              <Image
+              src="/images/uip/create-4.png"
+              alt="Create New Event, review changes: owners, analysts and reviewers, the event name Sales Qualified Deal Created with its database, class and protection, and each property described"
+              width={1928}
+              height={1703}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            </Figure>
+            <Figure caption="Submitting says what happens next: the event is created once a teammate or analyst reviews it.">
+              <Image
+              src="/images/uip/modal-submit.png"
+              alt="Dialog: Are you sure you want to submit the event for review? The event will be created after a team member or product analyst reviews it. Submit for Review and Cancel"
+              width={1034}
+              height={524}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            </Figure>
+          </div>
 
           <p><strong className="case-h3">Alerts before customers notice</strong></p>
-          <p>Each event shows its expected range, flags anomalies on its chart, and names the teams that own it. Teams subscribe to the events they care about, so an unexpected change reaches the owner while it is still a signal, not an incident.</p>
-          <Figure caption="An event in detail: expected range, flagged anomalies and the owning teams.">
+          <p>Each event shows its expected range, flags anomalies on its chart, and names the teams that own it. Teams subscribe to the events they care about, so an unexpected change reaches the owner before it turns into an incident.</p>
+          <Figure caption="An event in detail: expected range, flagged anomalies, the owning teams, and every chart and cohort that depends on it.">
             <Image
-              src="/images/uip/alerts.png"
-              alt="Alerting experience for event anomalies"
-              width={1440}
-              height={1020}
+              src="/images/uip/detail-usedby.png"
+              alt="Event detail for Chrome Devtools Interaction: owners in Slack and teams, a usage chart with expected range and five flagged anomalies, and the Used By tab listing charts, cohorts, custom events and URLs that depend on it"
+              width={1928}
+              height={2383}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
@@ -164,13 +202,8 @@ export default function UsageIntelligenceCaseStudy() {
         </TextSection>
 
         <TextSection title="Validation">
-          <p>We checked the work three ways:</p>
-          <ul className="space-y-2">
-            <li><strong>The direction, before building.</strong> The eight SMB interviews and the cross-functional workshop tested the idea of governance over another dashboard before design went deep.</li>
-            <li><strong>The result, against a target.</strong> We tracked critical usage situations against the expected rate of 8.5%. They came in at 5.1%, beating the target.</li>
-            <li><strong>Whether it lasted.</strong> Event ownership and audit trails stayed in use after the initial rollout, instead of fading once launch attention moved on.</li>
-          </ul>
-          <p>What I could not measure: how much alerts and protection each contributed on their own. That is why those links stay hypotheses below.</p>
+          <p>We tested the direction before building: the eight SMB interviews and the cross-functional workshop put governance up against another dashboard before design went deep. We tracked the result against a target, the expected 8.5% rate of critical usage situations, and it came in at 5.1%. Event ownership and audit trails were still in use after the initial rollout.</p>
+          <p>What I could not measure: how much alerts and protection each contributed on their own. So the table below separates what was measured from what I believe.</p>
         </TextSection>
       </Chapter>
 
@@ -181,8 +214,7 @@ export default function UsageIntelligenceCaseStudy() {
       >
         <Results slug="usage-intelligence" />
 
-        <TextSection title="What my decisions plausibly moved">
-          <p>The result belongs to the whole team, so I claim only the links I can defend, and I mark the rest as hypotheses.</p>
+        <TextSection title="What I can and cannot claim">
           <DataTable
             caption="Design decisions, the result each most plausibly affected, and the evidence"
             columns={["Decision", "Result it most plausibly affected", "Evidence"]}
@@ -194,10 +226,10 @@ export default function UsageIntelligenceCaseStudy() {
           />
           <Figure caption="The usage library: pinned events, volume and trends, with alerts and notifications one click away.">
             <Image
-              src="/images/uip/uip.png"
-              alt="Usage Intelligence Platform usage library"
-              width={1440}
-              height={1020}
+              src="/images/uip/library.png"
+              alt="Usage library: event search with team, analyst, database, stack and class filters, pinned and other events with volume, queries and trend lines, anomaly warnings, and team stats"
+              width={2502}
+              height={2586}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
@@ -210,21 +242,13 @@ export default function UsageIntelligenceCaseStudy() {
         title="Reflection"
         summary={<>Clear ownership and fast feedback mattered more than sophisticated analytics. Next: configurable anomaly rules, and usage data flowing into experimentation tools.</>}
       >
-        <TextSection title="Where it got hard">
-          <ul className="space-y-2">
-            <li><strong>Migrating legacy events.</strong> Existing events had to move to a new database while keeping data integrity, history and live customer workflows intact.</li>
-            <li><strong>Scaling without over-engineering.</strong> The architecture had to leave room for growth without building for needs nobody had yet.</li>
-            <li><strong>A shared framework.</strong> Teams needed one documented usage library for creating, capturing and processing events, or the flexibility would turn into inconsistency.</li>
-          </ul>
+        <TextSection title="Migration and scale">
+          <p>The hardest part was migration. Existing events had to move to a new database without losing data, history or the customer workflows running on them. The architecture also had to leave room to grow without building for needs nobody had yet.</p>
+          <p>What held it together was one documented usage library for creating, capturing and processing events. Without it, the flexible schema would have turned into inconsistency.</p>
         </TextSection>
 
         <TextSection title="What I would do next">
-          <ul className="space-y-2">
-            <li><strong>Configurable anomaly rules,</strong> so each team decides what normal and critical look like for its own events.</li>
-            <li><strong>Usage data flowing both ways</strong> between experimentation and analytics tools, so product decisions are validated faster.</li>
-            <li><strong>Behavioral signals in context,</strong> such as heat maps and rage clicks, so diagnosis does not require switching tools.</li>
-          </ul>
-          <Callout label="Lesson">Reliable systems, clear ownership and fast feedback loops matter more than sophisticated analytics when teams need to act with confidence at scale.</Callout>
+          <p>First, configurable anomaly rules, so each team decides what normal and critical look like for its own events. Then usage data flowing both ways between experimentation and analytics tools, and behavioral signals such as heat maps and rage clicks shown in context, so diagnosing a problem does not mean switching tools.</p>
         </TextSection>
       </Chapter>
 

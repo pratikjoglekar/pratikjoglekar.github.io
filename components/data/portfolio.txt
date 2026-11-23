@@ -448,6 +448,26 @@ DESIGN DECISIONS IN DEPTH:
 - Progress and certificates appear only for deep-linked items; instructors can view certificates but not download them.
 - Embedded learner view adapts to LMS hosts that scale responsively and to hosts that only allow fixed-size pop-ups.
 
+CONTENT DISCOVERY IN THE LMS (shipped, not a north-star concept):
+- The content home inside the LMS is implemented: a welcome message, a search field, recommendations based on the instructor's LMS course, 350+ partner universities and companies, and curated courses, videos and guided projects.
+- Catalog browsing is implemented: filters for topic, duration, learning product, language and level, and a grid of courses, certificates, guided projects and videos, each with View and Select actions.
+ 
+PROGRAM (GROUP) ACCESS CONTROL, UI DETAIL (from the Figma file):
+- Access is set per LMS connection: Settings > Integrations > Additional settings shows a table of connections (for example two Moodle connections), each starting at "All programs" with its own toggle.
+- Turning a toggle on shows a "Group Access Control Enabled" dialog explaining that instructors will only see the selected groups, unselected groups are hidden, and the selection can be changed at any time; it leads straight to Select groups.
+- Once on, a green confirmation names the connection ("Program Access Control is enabled for Moodle (...)"), and a Select groups link lets the admin change the selection later.
+- Turning the control on opens a group selection dialog per LMS connection (for example Moodle): search by learning program name, sort and filter (alphabetical, ascending, show all or selected), a paginated table of groups with checkboxes, created date and course count, a running count of selected groups, and Select groups or Select all groups.
+- Saving without any change shows an inline error: "No changes detected. Add or remove at least one program to update your selection."
+- Turning the control off asks for confirmation first and states the consequence plainly: if disabled, all groups become visible within the LMS.
+ 
+GUIDED LMS SETUP (self-serve registration, from the Figma file):
+- Connecting an LMS used to take weeks of back-and-forth with support, exchanging IDs and URLs by email. Pratik redesigned it as a guided flow an admin finishes alone, from Settings > Integrations > LTI tool configurations in Coursera.
+- Step 1, choose the LMS (Canvas, Moodle, Blackboard, D2L and others) and the configuration type: Dynamic (Automatic) is recommended because it exchanges registration details automatically; Static (Manual) remains for platforms that need it.
+- Step 2, Coursera Config: copy Coursera's values into the LMS (Tool URL, Initiate login URL, Redirection URIs, Public keyset, Content Selection URL), each with a Copy button and an info tooltip.
+- Step 3, LMS configuration: paste the LMS values back into Coursera (platform name, environment, client ID, deployment ID, platform ID, public keyset URL, access token URL, authentication request URL), then Configure LTI tool.
+- Step 4: a success message, and a table listing every connection (for example Moodle, Blackboard, D2L) with client ID, Static or Dynamic configuration, Prod or Test environment, and view and delete actions.
+- The flow also covers error states, LMS-specific variants (Canvas, Moodle, Blackboard) and status states for dynamic registration.
+ 
 WHERE IT GOT HARD:
 - Each LMS behaves differently (Canvas decides multi-select per placement; Moodle adds its own confirmation page), and most expose little data, so the design degrades gracefully per placement.
 - Customers would only migrate between academic semesters, and migration depended on getting enrollment and grade data out of the old middleware.
@@ -542,6 +562,9 @@ DESIGN DETAIL (from the case study):
 - Each event's detail page shows its expected range, flags anomalies on the usage chart, names the owning teams, and lets teams subscribe; changes go through reviewers and each event keeps a history.
 - The History tab lists every change with its date, who made it and the details (collaborating teams added, properties added, description, protected status, creation). Teams can mark an intended volume change as an "expected drop" and record the reason, so it is not mistaken for an incident.
 - Pratik reframed the brief from "improve analytics visibility" to ownership and governance, ran a cross-functional workshop to map the system and its constraints, and aligned stakeholders on an ownership model before deep design.
+- Create-event flow, screen by screen: step 1 (event details) shows the team's owned-event count and the total against the 4,500 limit, then namespace, a noun and a past-tense verb that combine into the name, database (Product or Internal), event class, the protected-event choice and a description. Step 2 adds properties, with the naming rule and incorrect and correct examples beside the field. Step 3 names owners, product analysts and additional reviewers, plus a documentation link. Step 4 reviews everything. Submitting opens a dialog saying the event is created only after a team member or product analyst reviews it. Drafts can be saved and completed later.
+- Event detail, Used By tab: lists every chart, cohort, custom event and URL that depends on the event, so a team can see what would break before changing or deleting it.
+- Usage library: search plus filters (team, analyst, database, stack, class, protected), pinned events first, then other events with 30-day volume and queries, trend lines, and a warning on events with anomalies. A team stats panel shows events owned and estimated monthly event cost.
 - Attribution: the drop in critical usage situations (8.5% to 5.1%) is plausibly linked to alerts, protection and ownership, but Pratik treats that as a hypothesis, not isolated from other changes.
 
 OPTIONS RULED OUT:
@@ -774,6 +797,13 @@ WHAT WAS DESIGNED (final module):
 - Local currency and payment clarity before checkout.
 - A shareable estimate: Email estimate, or Continue to checkout.
 - Estimate email system: standard estimate emails and a limited-time-offer variant (for example, a 30% seasonal discount with the offer expiry date), Day 7 and Day 14 reminders, and two offer-expiry reminders. Each email restates the estimate (plan, dates, currency, total due today, original and discounted price, billing cycle, licenses, what is included) and ends with two paths: complete the purchase or contact sales.
+ 
+PRICING STATES (from the Figma dev hand-off):
+- The same estimate card covers every state: annual or quarterly billing (quarterly: $439 per license per year, billed per quarter, for example $549 for 5 licenses), volume tiers, and seasonal promotions.
+- Only one discount applies at a time; when both qualify, the estimate shows the better one and strikes through the other (for example 200 licenses: $79,800 struck through, $58,254, 27% volume discount, seasonal 20% struck through).
+- A seasonal promotion example: 10 licenses at 50% off, $3,990 struck through to $1,995.
+- The Volume discounts link opens a dialog of tiers: 125 to 199 licenses at 15% off ($340 per license), 200 to 499 licenses at 25% off ($290 per license), each with a Buy button for that tier.
+- Mobile stacks the module in decision order: billing cycle, licenses, Continue to checkout and Email estimate, the estimate, then the policies.
  
 DIRECTIONS EXPLORED:
 - A plan comparison ("Find the right plan for your goals"): For Teams (5–125, listed price, Buy now) against For Enterprises (125+, custom price, Contact sales), from wireframes through light, blue and dark treatments. It answered which plan fits, not what a team would pay, so it gave way to a calculator.

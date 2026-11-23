@@ -43,7 +43,7 @@ export default function Toc() {
 
   return (
     <nav aria-label="On this page" className="sticky top-24">
-      <p className="mb-4 font-mono text-mono uppercase tracking-wide text-smoke">On this page</p>
+      <p className="mb-4 text-body-sm font-medium text-smoke">On this page</p>
       <ol className="flex flex-col gap-1 border-l border-stone">
         {items.map((item) => (
           <li key={item.id}>

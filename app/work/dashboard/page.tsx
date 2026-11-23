@@ -30,13 +30,8 @@ export default function Dashboard() {
         summary={<>MassMutual&rsquo;s policyholder homepage was a pass-through: customers skimmed it and left to get anything done.</>}
       >
         <TextSection title="A homepage nobody stayed on">
-          <p>The homepage was the front door for life insurance and retirement policyholders. As portfolios grew more complex, with more products, coverage types and beneficiaries, it stopped helping. The same problems kept coming back:</p>
-          <ul className="space-y-2">
-            <li><strong>Tiles showed the wrong number.</strong> Each policy appeared as a tile with its face amount, and little else. Customers said face value was not the figure they cared about most.</li>
-            <li><strong>Quick links added steps.</strong> A list of links sent people elsewhere instead of letting them act.</li>
-            <li><strong>Payments lacked context.</strong> Billing was a main reason to log in, but payment information sat apart from what was being paid for.</li>
-            <li><strong>An outdated design system.</strong> The layout was hard to scan, which slowed every decision.</li>
-          </ul>
+          <p>The homepage was the front door for life insurance and retirement policyholders. As portfolios grew more complex, with more products, coverage types and beneficiaries, it stopped helping.</p>
+          <p>Each policy appeared as a tile showing its face amount and little else, and customers told us face value was not the number they cared about most. Below the tiles, a list of quick links sent people elsewhere to act. Billing was one of the main reasons to log in, yet payment details sat apart from the policies being paid for. And the dated design system made the whole page slow to scan.</p>
           <Figure caption="Before: policy tiles showing only face amounts, then a list of quick links.">
             <Image
               src="/images/dashboard/before-figma.png"
@@ -49,8 +44,8 @@ export default function Dashboard() {
           </Figure>
           <DecisionLog
             rows={[
-              { label: "Decision", body: <>Treat the homepage as a place to make decisions, not a navigation page.</> },
-              { label: "Why", body: <>Research showed customers log in to complete financial and policy tasks, not to browse.</> },
+              { label: "Decision", body: <>Treat the homepage as the place where customers act on their policies.</> },
+              { label: "Why", body: <>Research showed customers log in to get a financial or policy task done.</> },
               { label: "Tradeoff", body: <>Less room for secondary features and quick links.</> },
               { label: "Mitigation", body: <>Offer deeper exploration in context, without pulling people away from their task.</> },
             ]}
@@ -68,7 +63,7 @@ export default function Dashboard() {
         </TextSection>
 
         <TextSection title="Why customers log in">
-          <p>We surveyed customers on why they log in, and 4.7k responded. The answer was clear: they come to manage money and policies, not to browse.</p>
+          <p>We surveyed customers on why they log in, and 4.7k responded. The answer was clear: they come to manage money and policies.</p>
           <DataTable
             caption="Reasons customers log in, by share of survey respondents"
             columns={["Reason to log in", "Share of respondents"]}
@@ -102,13 +97,13 @@ export default function Dashboard() {
       <Chapter
         number={3}
         title="Approach"
-        summary={<>A full redesign, not a reskin. I tested two directions with customers and chose the one that guided them best, keeping what worked in the other.</>}
+        summary={<>I rebuilt the homepage&rsquo;s structure, tested two directions with customers and chose the one that guided them best, keeping what worked in the other.</>}
       >
         <TextSection title="How I led the work">
           <p>As the senior product designer, working with a product owner, seven developers, a business analyst and a data analyst:</p>
           <ul className="space-y-2">
             <li><strong>Reframed the homepage</strong> from a navigational dashboard to a place to make decisions, using the survey to show why.</li>
-            <li><strong>Let evidence choose the direction.</strong> I tested two north-star directions with policyholders on the same tasks, so the choice rested on what worked for them, not on preference.</li>
+            <li><strong>Let evidence choose the direction.</strong> I tested two north-star directions with policyholders on the same tasks, and let task success pick the direction.</li>
           </ul>
           <p><strong className="case-h3">The call I pushed for</strong></p>
           <p>A delivery timeline was pressing, and stakeholders preferred incremental fixes. The research said the information model itself was the problem, so I argued for a full redesign, framed as a place to make decisions rather than a navigation page. It meant a longer timeline, more coordination and less room for secondary features. I secured the redesign mandate.</p>
@@ -166,27 +161,18 @@ export default function Dashboard() {
           />
         </TextSection>
 
-        <TextSection title="Options I ruled out">
-          <DataTable
-            caption="Options considered and why each was ruled out"
-            columns={["Option", "Why I ruled it out"]}
-            rows={[
-              ["Incremental visual fixes", "They could not fix the information model underneath"],
-              ["Quick links as the main way to act", "9 of 10 customers found them unhelpful"],
-              ["Design A as the direction", "Lower ease of use, unclear labels and no clear next payment date"],
-              ["A cash value projection graph", "Customers did not find it actionable"],
-            ]}
-          />
+        <TextSection title="What I left out">
+          <p>Incremental visual fixes were off the table early: they could not fix the information model underneath. Quick links could not stay the main way to act, since 9 of 10 customers found them unhelpful. Design A lost on ease of use, unclear labels and a missing next payment date. And the cash value projection graph went, because customers did not find it actionable.</p>
         </TextSection>
 
         <TextSection title="The final homepage">
           <p>The final design opens with a greeting and &ldquo;What would you like to do?&rdquo;, with the most common tasks one click away. A dated &ldquo;Things to do&rdquo; list follows, so anything that needs attention, like a statement or a bill, is impossible to miss. Policies follow, grouped by type.</p>
           <Figure caption="After: tasks first, then what needs attention, then policies with context.">
             <Image
-              src="/images/dashboard/after-dashboard.png"
+              src="/images/dashboard/after-dashboard-v2.png"
               alt="Final MassMutual homepage redesign"
               width={2421}
-              height={1592}
+              height={1306}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
@@ -207,37 +193,24 @@ export default function Dashboard() {
       <Chapter
         number={4}
         title="Outcome"
-        summary={<>Median time engaged rose from 15s to 35s, because customers now finish tasks on the homepage instead of hunting for them. Adoption rose 9%.</>}
+        summary={<>Median time engaged rose from 15s to 35s, because customers now finish tasks on the homepage. Adoption rose 9%.</>}
       >
         <Results slug="dashboard" />
 
-        <TextSection title="What my decisions plausibly moved">
-          <p>Time engaged rose from 15.02s to 34.66s. That is a good sign only because of why it rose: customers stayed to finish tasks on the homepage instead of navigating away to find them. I claim only the links I can defend, and I mark the rest as hypotheses.</p>
-          <DataTable
-            caption="Design decisions, the result each most plausibly affected, and the evidence"
-            columns={["Decision", "Result it most plausibly affected", "Evidence"]}
-            rows={[
-              ["Tasks and status at the top of the homepage", "Time engaged, 15.02s to 34.66s", "Hypothesis; time engaged does not show which part people used"],
-              ["A homepage built around first-time and returning customers", "Adoption, up 9%", "Measured after launch; not isolated from other changes"],
-              ["Choosing Design B", "Ease of use", "7.85 / 8 against 6.6 / 8 in usability testing"],
-              ["Policy context instead of face value alone", "Understanding of policies", "Usability findings; no metric after launch on this page"],
-            ]}
-          />
+        <TextSection title="Reading the numbers">
+          <p>Time engaged rose from 15.02s to 34.66s. That is a good sign only because of why it rose: customers stayed to finish tasks on the homepage. Time engaged cannot say which part of the page they used, so the link to tasks and status at the top is my best explanation, not a measurement.</p>
+          <p>Adoption rose 9% after launch, alongside other changes, so I do not credit it to one decision. The clearest evidence is from testing: Design B scored 7.85 out of 8 for ease of use against 6.6 for Design A, and customers understood their policies better with coverage and benefits beside the face value.</p>
         </TextSection>
       </Chapter>
 
       <Chapter
         number={5}
         title="Reflection"
-        summary={<>Good dashboards help people decide, not navigate. Next: carry the pattern to policy pages and other transactions.</>}
+        summary={<>The homepage works because its order follows why people log in. Next: carry the pattern to policy pages and other transactions.</>}
       >
-        <TextSection title="Where it got hard">
-          <ul className="space-y-2">
-            <li><strong>Redesign or quick fixes.</strong> Getting agreement on a full redesign, over short-term fixes, took a clear case for long-term value and risk.</li>
-            <li><strong>New patterns at scale.</strong> The redesign needed new components and content patterns that worked across very different policy types and portfolios.</li>
-            <li><strong>Recruiting the right people.</strong> Finding participants with specific policies and products slowed research at key moments.</li>
-            <li><strong>Legacy data.</strong> Migrating legacy policy and product data added engineering complexity and stretched the timeline, so plans had to be reset along the way.</li>
-          </ul>
+        <TextSection title="Getting the redesign through">
+          <p>The first hurdle was agreement. A full redesign competes with cheaper short-term fixes, and winning that took a clear case for long-term value and risk. After that, the work needed new components and content patterns that held up across very different policy types and portfolios.</p>
+          <p>Two things slowed us down: recruiting participants who held specific policies, and migrating legacy policy data, which added engineering work and forced us to reset the plan along the way.</p>
         </TextSection>
 
         <TextSection title="What came next">
@@ -246,7 +219,7 @@ export default function Dashboard() {
             <li><strong>Carry the system across policy and product pages,</strong> so the whole experience shares the same hierarchy and patterns.</li>
             <li><strong>Apply it to other transactions,</strong> so the same clarity reaches tasks beyond the homepage.</li>
           </ul>
-          <Callout label="Lesson">Good dashboards help people decide, not navigate. When the hierarchy follows why people actually come, and complexity is translated into plain context, confidence and action follow.</Callout>
+          <Callout label="Lesson">Start from why people log in. Once the page&rsquo;s order followed that, and policy terms were put in plain words, customers acted on the homepage itself.</Callout>
         </TextSection>
       </Chapter>
 

@@ -34,10 +34,10 @@ export default function Cancellation() {
           <p>Cancellations and downgrades among starter customers were rising. Treated as a churn problem, the obvious fix was a lower price. Handled bluntly, that would have meant a permanent price change for everyone, including customers who were happy to pay.</p>
           <DecisionLog
             rows={[
-              { label: "Decision", body: <>Frame the work around dollar retention and lifetime value, not raw churn.</> },
+              { label: "Decision", body: <>Judge the work by dollar retention and lifetime value, the revenue a saved customer actually brings in.</> },
               { label: "Why", body: <>Churn alone hid the real risk: customers who left before payback created negative unit economics.</> },
               { label: "Tradeoff", body: <>Some retained customers would still leave later, which hurts short-term churn numbers.</> },
-              { label: "Mitigation", body: <>Measure success by dollar retention and by continuation after the discount, not by deferred cancellations.</> },
+              { label: "Mitigation", body: <>Count success as dollars retained and customers who stayed after the discount ended. A cancellation pushed back a month does not count.</> },
             ]}
           />
         </TextSection>
@@ -58,16 +58,16 @@ export default function Cancellation() {
             caption="Competitor patterns and the part of the design each one shaped"
             columns={["What the market showed", "What it shaped"]}
             rows={[
-              ["Offers appear at moments of intent, not all the time", "The offer appears only inside the cancellation flow"],
+              ["Offers appear only at a moment of intent", "The offer appears only inside the cancellation flow"],
               ["Framing changes with where the customer is", "Copy written for someone who has decided to leave"],
-              ["Supportive, benefit-led language gets accepted", "An offer that reads as help, not a hard sell"],
+              ["Supportive, benefit-led language gets accepted", "Offer copy that reads as help with the cost"],
               ["The discount applies the moment it is accepted", "A breakdown that shows the new price straight away"],
             ]}
           />
           <p>The hypothesis came with a clear failure line. A 50% discount should keep about a third of price-sensitive customers, and they should keep paying after it ends. If fewer than 5% continued after the discount, or lifetime value still did not exceed acquisition cost, the idea had failed.</p>
           <DecisionLog
             rows={[
-              { label: "Decision", body: <>Offer a time-bound discount only at the moment of cancellation, not earlier in the journey.</> },
+              { label: "Decision", body: <>Offer a time-bound discount only inside the cancellation flow.</> },
               { label: "Why", body: <>Cancellation is the moment of explicit intent and highest price sensitivity, so the offer is most relevant there.</> },
               { label: "Tradeoff", body: <>No reach for customers who leave silently, without entering the flow.</> },
               { label: "Mitigation", body: <>Validate impact on a tight scope first, before exploring earlier signals.</> },
@@ -92,17 +92,8 @@ export default function Cancellation() {
           <Callout label="Insight">Price-sensitive customers are not rejecting the product. They are signaling a temporary mismatch between when they get value and what they can afford. Well-timed flexibility can keep their trust and extend lifetime value.</Callout>
         </TextSection>
 
-        <TextSection title="Options I ruled out">
-          <DataTable
-            caption="Options considered and why each was ruled out"
-            columns={["Option", "Why I ruled it out"]}
-            rows={[
-              ["A permanent price cut", "It changes the price for everyone, including customers happy to pay"],
-              ["An offer earlier in the journey", "Without explicit intent to cancel, the offer is less relevant"],
-              ["Rolling out to every customer at once", "More noise, and less confidence in what caused the result"],
-              ["Counting deferred cancellations as wins", "It hides churn that simply arrives later"],
-            ]}
-          />
+        <TextSection title="Why not just cut the price">
+          <p>A permanent price cut would have lowered the bill for everyone, including customers who were happy to pay. Showing the offer earlier in the journey would have reached people with no intent to cancel, where it means little. Rolling it out to every customer at once would have added noise and made the result harder to read. And counting deferred cancellations as wins would only have hidden churn that arrives a month later.</p>
         </TextSection>
 
         <TextSection title="Strategy: validate narrowly, then expand">
@@ -172,38 +163,25 @@ export default function Cancellation() {
       >
         <Results slug="cancellation" />
 
-        <TextSection title="What my decisions plausibly moved">
-          <p>The result belongs to the whole team, so I claim only the links I can defend, and I mark the rest as hypotheses.</p>
-          <DataTable
-            caption="Design decisions, the result each most plausibly affected, and the evidence"
-            columns={["Decision", "Result it most plausibly affected", "Evidence"]}
-            rows={[
-              ["The offer at the moment of cancellation", "Dollar retention among recipients, 36%", "Measured on the experiment cohort"],
-              ["Measuring continuation after the discount", "Telling real retention from delayed churn", "14% continued, well above the 5% failure line"],
-              ["Clear terms and the offer breakdown", "Acceptance of the offer", "Hypothesis; acceptance was not measured per screen"],
-              ["A narrow, high-risk cohort", "Confidence in the result", "Not yet shown for other segments"],
-            ]}
-          />
+        <TextSection title="What the numbers do and do not show">
+          <p>Two links are measured. Placing the offer inside the cancellation flow kept 36% of recipients&rsquo; revenue on the experiment cohort. Tracking what happened after the discount ended showed 14% kept paying, well above the 5% failure line, which is how we told real retention from delayed churn.</p>
+          <p>Two are not. I believe the clear terms and the offer breakdown helped acceptance, but acceptance was not measured screen by screen. And the cohort was narrow and high-risk on purpose, so the result is not yet shown for other segments.</p>
         </TextSection>
       </Chapter>
 
       <Chapter
         number={5}
         title="Reflection"
-        summary={<>Retention is a systems problem, not a promotion problem. Next time I would A/B test discount levels, to find the smallest offer that still keeps customers.</>}
+        summary={<>The discount worked because of where and when it appeared. Next time I would A/B test discount levels, to find the smallest offer that still keeps customers.</>}
       >
-        <TextSection title="Where it got hard">
-          <ul className="space-y-2">
-            <li><strong>Many teams, competing priorities.</strong> Growth, pricing, legal, engineering and customer experience all had a stake, and their priorities did not always agree.</li>
-            <li><strong>Scope moved during the build.</strong> Customer-facing language, technical feasibility and the roadmap kept shifting, often while development was already underway.</li>
-            <li><strong>No precedent.</strong> HubSpot had not run a retention offer like this before, so the patterns, the safeguards and the compliance checks were all new.</li>
-            <li><strong>Real risks.</strong> Offers can teach customers to expect discounts, and they can distort short-term revenue. The failure line kept both in view.</li>
-          </ul>
+        <TextSection title="A first for HubSpot">
+          <p>HubSpot had not run a retention offer like this before, so the patterns, safeguards and compliance checks were all new. Growth, pricing, legal, engineering and customer experience each had a stake, and their priorities did not always agree. Customer-facing language, feasibility and the roadmap kept moving while development was already underway.</p>
+          <p>The risks were real, too. Offers can teach customers to expect discounts and can distort short-term revenue, so the failure line kept both in view.</p>
         </TextSection>
 
         <TextSection title="What I would do differently">
           <p>I would test discount levels systematically. The 50% offer was chosen to prove the idea quickly, and it did, but time did not allow testing smaller offers. The best balance between retention and revenue, for different levels of price sensitivity, is still unknown.</p>
-          <Callout label="Lesson">Effective retention is a systems problem, not a promotion problem. Clear intent signals, disciplined scoping and fast validation matter more than aggressive incentives when you need to protect lifetime value without eroding trust.</Callout>
+          <p>What I would keep: the offer&rsquo;s timing and scope did more work than its size. Shown once, right after customers said why they were leaving, it protected lifetime value without making discounts the default.</p>
         </TextSection>
       </Chapter>
 

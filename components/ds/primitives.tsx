@@ -76,7 +76,7 @@ export function Eyebrow({
   id?: string
 }) {
   return (
-    <Tag id={id} className={cn("font-mono text-mono uppercase tracking-wide text-smoke", className)}>
+    <Tag id={id} className={cn("text-body-sm font-medium text-smoke", className)}>
       {children}
     </Tag>
   )

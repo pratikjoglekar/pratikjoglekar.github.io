@@ -35,7 +35,7 @@ const COVERS: Record<string, { src: string; w: number; h: number; fitHeight?: bo
   "pricing-calculator": { src: "/images/covers/pricing-calculator-v3.png", w: 560, h: 704 },
   "usage-intelligence": { src: "/images/covers/usage-intelligence-v3.png", w: 1994, h: 1300 },
   cancellation: { src: "/images/covers/cancellation.png", w: 800, h: 600, fitHeight: true },
-  dashboard: { src: "/images/covers/dashboard.png", w: 2421, h: 1592, fitHeight: true },
+  dashboard: { src: "/images/covers/dashboard-v2.png", w: 2421, h: 1306, fitHeight: true },
 }
 
 export default function Projects() {
@@ -45,7 +45,7 @@ export default function Projects() {
         <Eyebrow as="h2" id="work-title">
           Selected work
         </Eyebrow>
-        <span className="font-mono text-mono text-smoke">{projects.length} case studies</span>
+        <span className="text-body-sm text-smoke">{projects.length} case studies</span>
       </Reveal>
 
       {/* Tiles rise in one after another as the grid scrolls into view. Hovering one leans

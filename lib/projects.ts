@@ -48,8 +48,8 @@ export const projects: Project[] = [
     metricLabel: "LMS connection success",
     summary:
       "A native LTI integration that replaced third-party middleware: near real-time grade sync, self-serve setup, content linking inside the LMS and admin controls.",
-    image: "/images/integrations/northstar-home.png",
-    imageAlt: "Coursera for Campuses LMS integration north star design",
+    image: "/images/integrations/content-home.png",
+    imageAlt: "Coursera content home inside an LMS, with recommendations based on the instructor's course",
     glance: {
       problem:
         "Middleware delayed grades by a day or two and made setup take weeks. Only 10% of LMS connections succeeded, and 57% of admin issues went to support.",
@@ -90,8 +90,8 @@ export const projects: Project[] = [
       duration: "Feb – Jul 2026, concept to A/B readout",
       decisions: [
         "Move pricing discovery upstream, even if fewer visitors progress into checkout",
-        "Put it on the Teams page, not the enterprise page, where buyers need a price",
-        "Licensing rules in plain language beside the price, not in fine print",
+        "Put it on the Teams page, where small teams need a price",
+        "Licensing rules in plain language, beside the price",
       ],
       outcomes: [
         { value: "24%", label: "Of exposed visitors engaged with the calculator" },
@@ -112,8 +112,8 @@ export const projects: Project[] = [
     metricLabel: "Critical usage gaps",
     summary:
       "A usage intelligence layer that made data reliable and let teams monitor customer behaviour without engineering support.",
-    image: "/images/uip/uip.png",
-    imageAlt: "HubSpot usage intelligence platform overview",
+    image: "/images/uip/library.png",
+    imageAlt: "HubSpot usage library: searchable events with volume, queries, trend lines and anomaly warnings",
     glance: {
       problem:
         "Nobody owned usage events, deleting a file silently lost live data, and problems surfaced only after they spread into analytics tools.",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
       team: "4 developers, 1 PM, 1 data analyst",
       duration: "5 months",
       decisions: [
-        "Ownership and governance, not another analytics surface",
+        "Ownership and governance, beside the analytics tools teams already used",
         "A flexible event schema, with validation, auditing and alerts as safety nets",
         "No-code event creation with protection and reviewers built in",
       ],
@@ -152,7 +152,7 @@ export const projects: Project[] = [
       team: "2 developers, 1 PM, 1 data analyst",
       duration: "2 months",
       decisions: [
-        "Measure lifetime value and dollar retention, not raw churn",
+        "Measure dollar retention and lifetime value",
         "Offer the discount only at the moment of cancellation",
         "Validate on a narrow, high-risk starter cohort first",
       ],
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     metricLabel: "Time engaged on the homepage",
     summary:
       "The policyholder homepage went from a pass-through to a control surface, so customers could get more done without leaving it.",
-    image: "/images/dashboard/after-dashboard.png",
+    image: "/images/dashboard/after-dashboard-v2.png",
     imageAlt: "Redesigned MassMutual customer dashboard",
     glance: {
       problem:
@@ -183,7 +183,7 @@ export const projects: Project[] = [
       team: "7 developers, 1 product owner, 1 business analyst, 1 data analyst",
       duration: "6 months",
       decisions: [
-        "Treat the homepage as a control surface, not a navigation page",
+        "Treat the homepage as the place customers act on their policies",
         "Invest in a full redesign rather than incremental visual fixes",
         "Choose Design B as the north star, keeping learnings from Design A",
       ],

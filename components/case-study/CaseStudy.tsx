@@ -111,7 +111,6 @@ export function CaseHeader({
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
         className="mt-12 md:mt-16"
       >
-        <Eyebrow className="mb-4">Prefer to watch?</Eyebrow>
         <CaseVideo slug={p.slug} title={p.title} />
       </Reveal>
 
@@ -166,7 +165,7 @@ function AtAGlance({ project: p }: { project: Project }) {
 function GlanceCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <StaggerItem className="border-b border-stone py-6 sm:pr-8 lg:border-b-0 lg:border-l lg:px-6 lg:py-6 lg:first:border-l-0 lg:first:pl-0">
-      <dt className="font-mono text-mono uppercase tracking-wide text-smoke">{label}</dt>
+      <dt className="text-body-sm font-medium text-smoke">{label}</dt>
       <dd className="mt-3 space-y-1 text-body-sm text-graphite">{children}</dd>
     </StaggerItem>
   )
@@ -222,7 +221,7 @@ export function Chapter({
       {summary && (
         <Reveal delay={0.15}>
           <p className="mt-6 border-l border-ink pl-5 text-body-lg text-ink">
-            <span className="mb-1 block font-mono text-mono uppercase tracking-wide text-smoke">In short</span>
+            <span className="mb-1 block text-body-sm font-medium text-smoke">In short</span>
             {summary}
           </p>
         </Reveal>
@@ -295,7 +294,7 @@ export function DecisionLog({
               i === 0 && "bg-stone/50"
             )}
           >
-            <dt className="font-mono text-mono uppercase tracking-wide text-smoke">
+            <dt className="text-body-sm font-medium text-smoke">
               {row.label}
             </dt>
             <dd className={cn("text-body", i === 0 ? "font-medium text-ink" : "text-graphite")}>
@@ -323,7 +322,7 @@ export function ScreenPlaceholder({ label, caption }: { label: string; caption?:
       <figure className="my-10">
         <div className="flex aspect-[16/10] flex-col items-center justify-center gap-3 rounded-card border border-dashed border-ash bg-warm-taupe p-6 text-center">
           <ImagePlus aria-hidden className="h-6 w-6 text-ash" strokeWidth={1.5} />
-          <p className="font-mono text-mono uppercase tracking-wide text-smoke">Screen to add</p>
+          <p className="text-body-sm font-medium text-smoke">Screen to add</p>
           <p className="max-w-[36ch] text-body-sm text-graphite">{label}</p>
         </div>
         {caption && <figcaption className="mt-3 text-body-sm text-smoke">{caption}</figcaption>}
@@ -348,7 +347,7 @@ export function DataTable({
         <table className="w-full min-w-[560px] border-collapse text-left text-body-sm">
           <caption className="sr-only">{caption}</caption>
           <thead>
-            <tr className="border-b border-stone font-mono text-mono uppercase tracking-wide text-smoke">
+            <tr className="border-b border-stone text-body-sm font-medium text-smoke">
               {columns.map((c) => (
                 <th key={c} scope="col" className="py-3 pr-4 font-normal last:pr-0">
                   {c}

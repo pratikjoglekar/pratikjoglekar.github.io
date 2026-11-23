@@ -43,7 +43,7 @@ export default function Hero() {
             starts a wrapped line, so no line ever begins or ends with a stray dot. */}
         <StaggerItem
           as="p"
-          className="mt-10 overflow-hidden font-mono text-mono uppercase tracking-wide text-smoke"
+          className="mt-10 overflow-hidden text-body-sm text-smoke"
         >
           <span className="-ml-[3ch] flex flex-wrap">
             {["Senior Product Designer", "B2B SaaS", "Enterprise", "EdTech", "Financial services"].map((item, i) => (

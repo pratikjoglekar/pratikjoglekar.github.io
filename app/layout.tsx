@@ -7,6 +7,7 @@ import { site } from "@/lib/projects";
 import { MotionProvider } from "@/components/ds/Motion";
 import Intro from "@/components/Intro";
 import { AskMeProvider } from "@/components/AskMe";
+import { UiSounds } from "@/components/ds/UiSounds";
 
 // Variable font (all weights), so the hero keywords can animate their weight smoothly.
 const inter = Inter({
@@ -66,6 +67,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <Intro />
+        <UiSounds />
         <MotionProvider>
           {/* Sutra lives here so one conversation follows the visitor across pages */}
           <AskMeProvider>{children}</AskMeProvider>
