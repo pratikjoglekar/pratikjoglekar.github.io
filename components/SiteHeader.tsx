@@ -2,6 +2,7 @@ import Link from "next/link"
 import Monogram from "@/components/ds/Monogram"
 import HeaderNav from "@/components/HeaderNav"
 import { SoundToggle } from "@/components/ds/UiSounds"
+import ThemeToggle from "@/components/ds/ThemeToggle"
 
 export default function SiteHeader() {
   return (
@@ -16,9 +17,12 @@ export default function SiteHeader() {
       </Link>
 
       {/* The two ways to act (LinkedIn, Email) are always in reach, on every screen size */}
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1.5 sm:gap-2">
         <HeaderNav />
-        <SoundToggle className="-mr-2" />
+        <div className="-mr-2 flex items-center">
+          <ThemeToggle />
+          <SoundToggle />
+        </div>
       </div>
     </header>
   )

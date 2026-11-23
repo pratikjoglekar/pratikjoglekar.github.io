@@ -58,7 +58,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${fraunces.variable} ${geistMono.variable}`}>
+      <head>
+        {/* Light is the default. If the visitor chose dark, apply it before the first
+            paint so the page never flashes light. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem("pj-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <a
           href="#main"

@@ -122,6 +122,53 @@
   --ring: #a59f97;
 }
 
+/* Dark mode (light is the default). Same warm editorial mood: a warm
+   near-black page, off-white ink, and the taupe and stone steps kept as small lifts.
+   Set by components/ds/ThemeToggle.tsx through data-theme on <html>. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-eggshell: #141210;
+  --color-warm-taupe: #1e1b18;
+  --color-stone: #2e2a26;
+  --color-ink: #f4f0ea;
+  --color-graphite: #d9d3cb;
+  --color-smoke: #a69e94; /* 7:1 on the page, 6:1 on cards */
+  --color-ash: #776f66;
+  --color-button-border: #2e2a26;
+  --shadow-whisper: rgba(0, 0, 0, 0.6) 0px 0px 1px 0px,
+    rgba(0, 0, 0, 0.3) 0px 1px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 4px 0px;
+  --shadow-hairline: rgba(255, 255, 255, 0.07) 0px 0px 0px 0.5px inset;
+
+  --background: #141210;
+  --foreground: #f4f0ea;
+  --card: #1e1b18;
+  --card-foreground: #f4f0ea;
+  --popover: #1e1b18;
+  --popover-foreground: #f4f0ea;
+  --primary: #f4f0ea;
+  --primary-foreground: #141210;
+  --secondary: #1e1b18;
+  --secondary-foreground: #f4f0ea;
+  --muted: #1e1b18;
+  --muted-foreground: #a69e94;
+  --accent: #1e1b18;
+  --accent-foreground: #f4f0ea;
+  --border: #2e2a26;
+  --input: #2e2a26;
+  --ring: #776f66;
+}
+html[data-theme="dark"] .intro-bg {
+  background:
+    radial-gradient(ellipse 55% 60% at 22% 28%, #ff9933 0%, rgba(255, 153, 51, 0) 70%),
+    radial-gradient(ellipse 60% 60% at 80% 76%, #0047ab 0%, rgba(0, 71, 171, 0) 70%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, #141210 0%, rgba(20, 18, 16, 0) 100%),
+    #2a1f17;
+}
+html.theme-fade,
+html.theme-fade * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -385,7 +432,7 @@ input[type="range"]::-moz-range-thumb {
   place-items: center;
   overflow: hidden;
   pointer-events: none;
-  background: #fdfcfc;
+  background: var(--color-eggshell);
   animation-name: intro-out;
   animation-duration: 0.4s;
   animation-delay: 0.6s;
@@ -422,7 +469,7 @@ input[type="range"]::-moz-range-thumb {
   position: relative;
   z-index: 2;
   width: min(34vw, 176px);
-  color: #000;
+  color: var(--color-ink);
   animation-name: intro-settle;
   animation-duration: 0.6s;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);

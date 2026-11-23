@@ -40,7 +40,7 @@ export default function IntroVideo() {
         aria-label="Video introduction"
         className="m-auto w-[min(92vw,960px)] overflow-visible bg-transparent p-0 backdrop:bg-ink/70 backdrop:backdrop-blur-sm"
       >
-        <div className="relative overflow-hidden rounded-card-lg bg-ink">
+        <div className="relative overflow-hidden rounded-card-lg bg-black">
           <video
             ref={videoRef}
             src="/videos/intro.mp4"

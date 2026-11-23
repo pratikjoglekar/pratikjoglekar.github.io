@@ -44,7 +44,7 @@ export default function HeaderNav() {
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) hide()
       }}
-      className="relative -mr-2.5 flex items-center sm:-mr-3"
+      className="relative flex items-center"
     >
       {pill && (
         <span

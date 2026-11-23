@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { SoundToggle } from "@/components/ds/UiSounds";
+import ThemeToggle from "@/components/ds/ThemeToggle";
 import Monogram from "@/components/ds/Monogram";
 import AskAboutThis from "@/components/case-study/AskAboutThis";
 import { useAskMe } from "@/components/AskMe";
@@ -86,6 +87,7 @@ export default function StickyHome() {
           </Link>
           <div className="flex items-center gap-2">
           <AskAboutThis compact />
+          <ThemeToggle />
           <SoundToggle />
           <Link
             href="/"
