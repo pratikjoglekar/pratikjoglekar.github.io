@@ -10,6 +10,9 @@ function fmt(s: number) {
   return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`
 }
 
+/** File version per video (bump when a video is re-rendered, so no cached copy shows). */
+const VERSION: Record<string, string> = {}
+
 /**
  * The one-minute narrated summary at the top of a case study.
  * Custom, quiet controls in the site's style instead of the browser's (no dark gradient).
@@ -81,8 +84,8 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
       >
         <video
           ref={ref}
-          src={`/videos/case/${slug}-v4.mp4`}
-          poster={`/videos/case/${slug}-v4-poster.jpg`}
+          src={`/videos/case/${slug}-${VERSION[slug] ?? "v6"}.mp4`}
+          poster={`/videos/case/${slug}-${VERSION[slug] ?? "v6"}-poster.jpg`}
           preload="none"
           playsInline
           onClick={toggle}
@@ -106,7 +109,7 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
             <span className={cn(pill, "gap-2.5 py-1.5 pr-4 pl-1.5 text-body-sm font-medium transition-transform duration-300 group-hover:scale-[1.04] sm:py-2 sm:pr-5 sm:pl-2")}>
               {/* Hovering the video melts the ink circle into the hero's blob */}
               <PlayBlob className="h-7 w-7 sm:h-8 sm:w-8" iconClassName="h-3.5 w-3.5" />
-              <span className="sm:hidden">Watch · 30s</span>
+              <span className="sm:hidden">Watch · 1 min</span>
               <span className="hidden sm:inline">Watch the one-minute summary</span>
             </span>
           </button>

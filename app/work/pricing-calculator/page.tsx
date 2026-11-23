@@ -16,9 +16,9 @@ import {
 export const metadata = caseStudyMetadata("pricing-calculator")
 
 const results = [
-  { metric: "Exposure to Account page", control: "12.3%", test: "11.3%", change: "−8%", read: "Statistically significant drop" },
-  { metric: "Exposure to Billing page", control: "1.4%", test: "1.4%", change: "+4%", read: "Neutral, directional only" },
-  { metric: "Exposure to Teams conversion", control: "0.80%", test: "0.92%", change: "+15%", read: "Neutral, directional only" },
+  { metric: "Exposure to Account page", control: "12.3%", test: "11.3%", change: "−8%", read: "Statistically significant decrease" },
+  { metric: "Exposure to Billing page", control: "1.4%", test: "1.4%", change: "~0%", read: "No observed change" },
+  { metric: "Exposure to Teams conversion", control: "0.80%", test: "0.92%", change: "+15%", read: "Positive and directional; not statistically significant" },
 ]
 
 export default function PricingCalculator() {
@@ -26,91 +26,124 @@ export default function PricingCalculator() {
     <CaseStudyLayout slug="pricing-calculator">
       <CaseHeader
         slug="pricing-calculator"
-        tldr={<>Small teams were leaving the Coursera for Teams purchase path because they learned the real constraints too late. As the only designer on the project, I designed a pricing calculator that puts the price, the 5-seat minimum and the license rules on the landing page, and sends larger teams to sales without a dead end. In a 5-week A/B test, 24% of exposed visitors engaged with it, and buyers got full price transparency at zero cost to conversion. It won 100% of C4T traffic.</>}
+        tldr={<>Small teams were discovering critical pricing and licensing constraints too late in the Coursera for Teams purchase journey, which added friction at checkout. I designed a pricing calculator that moved those decisions to the landing page: an upfront estimate, transparent licensing rules and a guided sales path for larger teams. In a five-week A/B test, 24% of exposed visitors engaged with it. Account page progression fell 8%, Billing visits held steady, and overall conversion showed a positive but statistically inconclusive 15% relative lift. The calculator was then rolled out to all C4T traffic.</>}
       />
 
       <CaseBody>
       <Chapter
         number={1}
         title="Context"
-        summary={<>Teams buyers could not see the price, the 5-seat minimum or the license rules until late in checkout, so small teams dropped out.</>}
+        summary={<>Teams buyers learned the real cost, the 5-seat minimum and the licensing rules only after they had invested time in checkout.</>}
       >
         <TextSection title="Project Overview">
+          <Figure caption="The final calculator on the Teams landing page: billing cycle, licenses and the estimate, with the key policies alongside.">
+            <Image
+              src="/images/pricing-calculator/calculator-final.png"
+              alt="Estimate your price module: annual or quarterly billing, a license stepper, Continue to checkout and Email estimate, an estimate of $1,995 due today, and policies for quarterly billing, license transfers, team size flexibility and payment options"
+              width={1568}
+              height={621}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 720px, 100vw"
+              priority
+            />
+          </Figure>
           <p>
-            Teams buyers could not see what a contract would cost until late in checkout, and the 5-seat minimum and license rules surfaced even later. I designed a module for the Teams landing page: pick 5–125 seats, compare quarterly and annual billing, read the key policies beside the price, and email the estimate to yourself. Above 125 seats it hands off to sales with the buyer&rsquo;s inputs preserved.
+            Teams buyers could not see what a contract would cost until late in checkout. The 5-seat minimum and the licensing restrictions surfaced even later, often after buyers had already invested time in the purchase.
           </p>
           <p>
-            I owned the design end to end, from the concept brief to the A/B readout: UX and UI, pricing and conversion design, the estimate emails and the experiment design, working with engineering, marketing, and data and analytics.
+            I designed a pricing calculator for the Coursera for Teams landing page that brought these decisions forward. Buyers could configure 5 to 125 seats, compare quarterly and annual billing, understand the key licensing policies, and email an estimate to themselves. Larger teams were routed to a guided sales experience, with their configuration preserved.
           </p>
-        </TextSection>
-
-        <TextSection title="Why was this needed?">
-          <p>Small-team buyers were abandoning the Teams purchase path for four related reasons:</p>
-          <ul className="space-y-2">
-            <li className="font-medium">Sticker shock:</li>
-            <ul><li>A large annual total appeared early, with no lower-commitment option beside it.</li></ul>
-            <li className="font-medium">Hidden details:</li>
-            <ul><li>Payment methods, billing specifics and licensing rules appeared only late in checkout.</li></ul>
-            <li className="font-medium">Fear of inflexibility:</li>
-            <ul><li>Buyers could not tell how adding, removing or swapping users would work.</li></ul>
-            <li className="font-medium">A late seat minimum:</li>
-            <ul><li>The 5-seat minimum was revealed far down the funnel, where it could end a deal.</li></ul>
-          </ul>
-
-          <DecisionLog
-            rows={[
-              { label: "Decision", body: <>Offer self-serve pricing for 5–125 licenses, and switch to a guided &ldquo;Contact sales&rdquo; path above that range.</> },
-              { label: "Why", body: <>Small teams get a fast answer, and larger teams reach sales with intent signals: seat count and billing cadence.</> },
-              { label: "Tradeoff", body: <>Buyers above the range do not get a number from the module.</> },
-              { label: "Mitigation", body: <>Explain what happens next, and carry the seat count and cadence into the sales form.</> },
-            ]}
-          />
+          <p>
+            The objective was not simply to increase checkout entries. <mark className="font-medium">It was to help buyers understand the financial commitment before checkout,</mark> so they could make a more informed purchase decision.
+          </p>
         </TextSection>
       </Chapter>
 
       <Chapter
         number={2}
         title="Problem"
-        summary={<>Show small teams a price they can trust early, and give larger teams a path to sales with no dead end.</>}
+        summary={<>The common thread was timing: buyers were asked to commit before they had enough information to evaluate the purchase.</>}
       >
         <TextSection title="Problem statement">
           <p className="case-pullquote">
-            How might we let small-team buyers estimate Coursera for Teams pricing quickly and trust what they see, while giving larger teams a clear path to sales, without adding friction for buyers who are ready to purchase?
+            How might we help small-team buyers understand the true cost and commitment of Coursera for Teams before checkout, while giving larger teams a clear path to sales without adding friction for buyers ready to purchase?
           </p>
         </TextSection>
 
-        <TextSection title="Goals">
+        <TextSection title="Why was this needed?">
+          <p>Small-team buyers met four sources of uncertainty in the purchase journey:</p>
           <ul className="space-y-2">
-            <li className="font-medium">No late surprises:</li>
-            <ul><li>Show the price, the 5-seat minimum and the license rules before checkout.</li></ul>
-            <li className="font-medium">No dead ends:</li>
-            <ul><li>Give buyers above the self-serve range a guided path to sales that keeps their inputs.</li></ul>
-            <li className="font-medium">A number worth carrying:</li>
-            <ul><li>Give managers an estimate they trust and can take to whoever approves the budget.</li></ul>
+            <li className="font-medium">Sticker shock:</li>
+            <ul><li>A large annual total appeared early, without a lower-commitment option beside it.</li></ul>
+            <li className="font-medium">Hidden details:</li>
+            <ul><li>Payment methods, billing specifics and licensing rules appeared only late in checkout.</li></ul>
+            <li className="font-medium">Fear of inflexibility:</li>
+            <ul><li>Buyers could not easily tell how adding, removing or swapping users would work.</li></ul>
+            <li className="font-medium">A late seat minimum:</li>
+            <ul><li>The 5-seat minimum was revealed far down the funnel, where it could end a purchase after buyers had already invested time.</li></ul>
           </ul>
+          <p>
+            The common thread was timing. Buyers were being asked to commit to a purchase before they had enough information to evaluate it.
+          </p>
         </TextSection>
 
-        <TextSection title="Where it got hard">
-          <ul className="space-y-2">
-            <li className="font-medium">A trustworthy number can still drive people away:</li>
-            <ul><li>Price had to appear early, so the design&rsquo;s job was framing the commitment: the cadence toggle first, and a breakdown readable at a glance.</li></ul>
-            <li className="font-medium">Two audiences, one module:</li>
-            <ul><li>Self-serve buyers and enterprise-bound buyers share a surface, and the handoff to sales could not feel like the tool had failed them.</li></ul>
-            <li className="font-medium">Policy reads as fine print:</li>
-            <ul><li>The 10% rotation limit and the mid-cycle add and remove rules matter to buyers, but they needed plain language beside the price, not a legal block below it.</li></ul>
-          </ul>
+        <TextSection title="The design decision">
+          <DecisionLog
+            rows={[
+              { label: "Decision", body: <>Offer transparent self-serve pricing for 5 to 125 licenses, with a guided Contact Sales experience above that range.</> },
+              { label: "Why", body: <>Small teams needed an immediate, reliable estimate. Larger teams needed a clear path to a sales conversation.</> },
+              { label: "Tradeoff", body: <>Buyers above the self-serve threshold would not get an instant price.</> },
+              { label: "Mitigation", body: <>Explain the sales handoff, and carry the seat count and billing cadence into the sales form.</> },
+            ]}
+          />
         </TextSection>
       </Chapter>
 
       <Chapter
         number={3}
         title="Approach"
-        summary={<>A plan comparison came first, then a calculator. The shipped module follows how buyers think: billing cadence, licenses, what is due today, and the rules.</>}
+        summary={<>A purchase-journey redesign, not an isolated pricing widget: show the commitment upstream, make it understandable, and design for the next decision.</>}
       >
-        <TextSection title="Design Strategy">
-          <Callout label="Insight">Teams buyers rarely decide alone. They need a number they trust, and they need to carry it to the person who approves the budget. Late surprises break that trust, and so does an estimate they cannot save or share.</Callout>
+        <TextSection title="Design goals">
+          <ul className="space-y-2">
+            <li className="font-medium">No late surprises:</li>
+            <ul><li>Show the price, the 5-seat minimum and the licensing rules before checkout.</li></ul>
+            <li className="font-medium">No dead ends:</li>
+            <ul><li>Give buyers above the self-serve range a guided path to sales that preserves their inputs.</li></ul>
+            <li className="font-medium">A number worth carrying:</li>
+            <ul><li>Give managers a reliable estimate they can share with whoever approves the budget.</li></ul>
+            <li className="font-medium">Protect the purchase journey:</li>
+            <ul><li>Move pricing decisions earlier without compromising downstream purchase activity.</li></ul>
+          </ul>
+        </TextSection>
+
+        <TextSection title="Where it got hard">
+          <p>The challenge was not simply presenting a price. It was making a complex purchase decision understandable without adding another layer of friction.</p>
+          <ul className="space-y-2">
+            <li className="font-medium">A trustworthy number can still drive people away:</li>
+            <ul><li>Showing the real commitment earlier could discourage some buyers. Rather than hide the price behind an optimistic starting figure, I prioritized clarity: a prominent billing cadence choice and a price breakdown that reads at a glance.</li></ul>
+            <li className="font-medium">Two audiences, one module:</li>
+            <ul><li>Self-serve buyers and enterprise-bound buyers shared the same landing page. The experience had to support both without the sales handoff feeling like a failed checkout.</li></ul>
+            <li className="font-medium">Policy reads as fine print:</li>
+            <ul><li>The 10% license rotation limit and the mid-cycle add and remove rules mattered to the purchase decision, so they had to be understandable beside the price, not buried in a legal section.</li></ul>
+          </ul>
+        </TextSection>
+
+        <TextSection title="Design strategy">
+          <Callout label="Insight">Buyers do not just need a price. They need a decision they can take back to their team: a number they trust, clarity about what they are committing to, and something they can share with whoever approves the budget.</Callout>
           <p>
-            My concept brief turned this into one idea tested three ways: show 5–125 seat pricing with a prominent cadence toggle, explain the key policies inside the module, and route larger selections to a guided sales path. Success was measured by time to convert, checkout completion and lead quality, with SQLs from non-self-serve leads as a guardrail.
+            Late surprises break that trust, and so does an estimate that buyers cannot save, explain or share. So I approached the problem as a purchase-journey redesign rather than an isolated pricing interface, in three parts:
+          </p>
+          <ul className="space-y-2">
+            <li className="font-medium">Move price discovery upstream:</li>
+            <ul><li>Make the real financial commitment visible before checkout.</li></ul>
+            <li className="font-medium">Make the commitment understandable:</li>
+            <ul><li>Explain billing cadence, licensing restrictions and payment details beside the estimate.</li></ul>
+            <li className="font-medium">Design for the next decision:</li>
+            <ul><li>Let buyers carry the estimate forward by email or continue straight to checkout, with a guided sales path for larger teams.</li></ul>
+          </ul>
+          <p>
+            Success would be judged across the purchase journey, not by calculator engagement or the number of people entering checkout alone.
           </p>
         </TextSection>
 
@@ -161,9 +194,6 @@ export default function PricingCalculator() {
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-        </TextSection>
-
-        <TextSection title="Options I ruled out">
           <DataTable
             caption="Directions explored and what happened to each"
             columns={["Option", "What happened"]}
@@ -175,70 +205,72 @@ export default function PricingCalculator() {
           />
         </TextSection>
 
-        <TextSection title="Final design">
+        <TextSection title="Final visual design">
           <p>
-            The final design brings the four buyer concerns into one module on the Teams landing page. Buyers move through it in the order they think: how often they pay, how many licenses, what is due today, and what the rules are.
+            The final design brought the four buyer concerns into one compact module on the Teams landing page. The interaction follows the order in which buyers make decisions: how many seats, how often they pay, what it costs, and what the rules are.
           </p>
-          <Figure caption="The shipped calculator: the policies on the left, billing and licenses in the middle, and what is due today on the right.">
+          <ul className="space-y-2">
+            <li className="font-medium">Upfront configuration:</li>
+            <ul><li>A seat selector covering the self-serve range, with the 5-seat minimum clearly stated. Above the self-serve range, the price area becomes a Contact Sales panel that explains the next step.</li></ul>
+            <li className="font-medium">A de-risked price:</li>
+            <ul><li>A prominent quarterly and annual billing choice lets buyers compare their commitment, and a clear breakdown shows the billing cadence, any discount and the total.</li></ul>
+            <li className="font-medium">No-surprise policies:</li>
+            <ul><li>The 10% license rotation limit in plain language, with short explanations of adding and removing users mid-cycle.</li></ul>
+            <li className="font-medium">Local currency and payment clarity:</li>
+            <ul><li>Pricing in the buyer&rsquo;s local currency, with accepted payment methods and plan details visible before checkout.</li></ul>
+            <li className="font-medium">A shareable estimate:</li>
+            <ul><li>Buyers can email the estimate to themselves or continue straight to checkout.</li></ul>
+          </ul>
+          <Figure caption="Above the self-serve range: the price becomes custom, the billing choice steps back, and Contact sales takes over with the seat count kept.">
             <Image
-              src="/images/pricing-calculator/calculator.png"
-              alt="Pricing calculator with policies, a choice between annual and quarterly billing, a license stepper, an Email estimate button, and a Due today summary with Continue to checkout"
+              src="/images/pricing-calculator/contact-sales.png"
+              alt="Calculator in the enterprise state: 500 licenses entered, a note to contact sales above 500 licenses, custom pricing in the estimate, and a Contact sales button"
               width={1568}
-              height={473}
+              height={548}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <ul className="space-y-2">
-            <li className="font-medium">The commitment, framed first:</li>
-            <ul><li>Annual and quarterly billing sit side by side as two clear choices, each with its price per license, so buyers see the lower-commitment option before any total.</li></ul>
-            <li className="font-medium">Licenses, with the range built in:</li>
-            <ul><li>A stepper starting at the 5-license minimum, with a link to volume discounts. Above the self-serve range, the price area becomes a &ldquo;Contact sales&rdquo; panel that explains why and what happens next.</li></ul>
-            <li className="font-medium">A total you can trust:</li>
-            <ul><li>&ldquo;Due today&rdquo; with taxes included, the billing cycle, the price per license and the number of licenses, plus the 14-day refund policy.</li></ul>
-            <li className="font-medium">Policies in plain language, beside the price:</li>
-            <ul><li>Quarterly billing, license transfers of up to 10% per billing cycle, adding licenses anytime with prorated pricing, and payment by card, ACH, wire, or purchase order over $10K.</li></ul>
-            <li className="font-medium">Two ways forward:</li>
-            <ul><li>Continue to checkout, or email the estimate to carry it to whoever approves the budget.</li></ul>
-          </ul>
         </TextSection>
 
         <TextSection title="The estimate email system">
-          <Figure caption="Email estimate: the number leaves with the buyer, ready to share.">
+          <p>
+            The calculator was not meant to end at the estimate. Buyers often needed to take that number to someone else before making a purchase, so I designed the estimate email as an extension of the purchase experience:
+          </p>
+          <ul className="space-y-2">
+            <li>Standard estimate emails, and a variant for limited-time offers.</li>
+            <li>Day 7 and Day 14 reminder emails.</li>
+            <li>Two offer-expiry reminders.</li>
+          </ul>
+          <p>
+            Each email restates the estimate and ends with the same two paths: <mark className="font-medium">complete the purchase, or contact sales.</mark> That carried the experience beyond the landing page and into the buyer&rsquo;s real decision-making process.
+          </p>
+          <Figure caption="The estimate email, offer variant: the plan, the discount, the total due today, what is included, and the two ways forward.">
             <Image
-              src="/images/pricing-calculator/email-estimate.png"
-              alt="Email estimate dialog with an email field and a Send estimate button"
-              width={1512}
-              height={788}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
+              src="/images/pricing-calculator/estimate-email.png"
+              alt="Coursera estimate email: Teams Plan, estimate and offer expiry dates, $1,395 due today with a 30% seasonal discount, billing cycle and licenses, what is included, and Complete your purchase or Contact sales"
+              width={1051}
+              height={2133}
+              className="mx-auto h-auto w-full max-w-[420px]"
+              sizes="420px"
             />
           </Figure>
-          <p>
-            Emailing the estimate turned the calculator into a follow-up channel. I designed the estimate email, with a variant for limited-time offers, a Day 7 and Day 14 reminder sequence, and two offer-expiry reminders. Each email restates the estimate and ends with the same two paths: <mark className="font-medium">complete the purchase, or contact sales.</mark>
-          </p>
         </TextSection>
       </Chapter>
 
       <Chapter
         number={4}
         title="Outcome"
-        summary={<>24% of exposed visitors engaged with it, and putting the price up front cost nothing in conversion. It won all C4T traffic.</>}
+        summary={<>Early-funnel progression fell while Billing visits held steady and conversion moved positively, though not significantly. The calculator was rolled out to all C4T traffic.</>}
       >
         <Results slug="pricing-calculator" />
 
-        <TextSection title="Impact">
+        <TextSection title="Results: earlier decisions, without losing downstream activity">
           <p>
-            <mark className="font-medium">24% of the roughly 20% of landing-page traffic exposed to the module engaged with it.</mark> Showing the full price early is the riskiest thing a pricing page can do, and it cost nothing in conversion: Billing page visits and Teams conversion held steady. The only drop, an 8% dip in Account page progression, came from budget-mismatched visitors choosing themselves out early instead of abandoning checkout later. That is why the calculator won 100% of C4T traffic.
+            We ran a five-week, 50:50 A/B experiment, randomized by cookie. The control showed the original C4T landing page without the calculator; the treatment included the new pricing module. Metrics used a seven-day attribution window, measured from exposure.
           </p>
           <p>
-            Of the visitors who engaged, 75% did not continue to checkout. That separated people exploring the price from people ready to buy, which is exactly what an upfront estimate should do.
-          </p>
-        </TextSection>
-
-        <TextSection title="Results">
-          <p>
-            We ran a 50:50 A/B test for about 5 weeks, randomized by cookie. The control was the C4T page without the calculator; the treatment was the page with it. Metrics use a 7-day attribution window, measured from exposure.
+            About 20% of landing-page traffic was exposed to the module, and <mark className="font-medium">24% of those exposed visitors engaged with it.</mark>
           </p>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left text-body-sm">
@@ -247,9 +279,9 @@ export default function PricingCalculator() {
                 <tr className="border-b border-stone font-mono text-mono uppercase tracking-wide text-smoke">
                   <th scope="col" className="py-3 pr-4 font-normal">Metric</th>
                   <th scope="col" className="py-3 pr-4 font-normal">Control</th>
-                  <th scope="col" className="py-3 pr-4 font-normal">Test</th>
+                  <th scope="col" className="py-3 pr-4 font-normal">Treatment</th>
                   <th scope="col" className="py-3 pr-4 font-normal">Change</th>
-                  <th scope="col" className="py-3 font-normal">Read</th>
+                  <th scope="col" className="py-3 font-normal">Interpretation</th>
                 </tr>
               </thead>
               <tbody>
@@ -265,24 +297,32 @@ export default function PricingCalculator() {
               </tbody>
             </table>
           </div>
-          <p>
-            The Teams conversion lift is directional and not statistically significant, so I do not claim it as a win.
-          </p>
         </TextSection>
 
-        <TextSection title="What the behavior shows">
+        <TextSection title="What the behavior showed">
           <ul className="space-y-2">
-            <li className="font-medium">There is real demand for upfront cost:</li>
-            <ul><li>About 20% of landing-page traffic saw the module, and 24% of those visitors engaged with it meaningfully.</li></ul>
-            <li className="font-medium">The drop works as a low-intent filter:</li>
-            <ul><li>Roughly 75% of visitors who used the calculator did not continue to the Account page. Because Billing visits and conversion held steady, these look like budget-mismatched visitors choosing themselves out, not visitors blocked by friction in the UI. The calculator did the filtering that checkout used to do, earlier and more kindly.</li></ul>
+            <li className="font-medium">Buyers engaged with upfront pricing:</li>
+            <ul><li>24% of visitors exposed to the calculator engaged with it meaningfully, a sign of real demand for understanding the commitment before checkout.</li></ul>
+            <li className="font-medium">The purchase journey changed:</li>
+            <ul><li>Account page progression fell from 12.3% to 11.3%, while Billing page visits stayed at about 1.4%. Fewer visitors moved through the early purchase stage, and the number reaching Billing held steady. The pattern is consistent with some pricing decisions moving earlier in the journey.</li></ul>
+            <li className="font-medium">Downstream conversion was not measurably harmed:</li>
+            <ul><li>Teams conversion moved from 0.80% to 0.92%, a 15% relative increase. It was directional and not statistically significant, so we did not claim a proven lift. The important finding was that early-funnel behavior changed without an observed drop in downstream purchase activity.</li></ul>
           </ul>
+        </TextSection>
+
+        <TextSection title="What we did not prove">
+          <p>
+            The experiment did not establish that calculator users had higher purchase intent, or that checkout abandonment fell. We read the drop in Account progression as a possible sign of buyers qualifying themselves earlier, but we could not establish why every visitor left.
+          </p>
+          <p>
+            A cohort analysis comparing calculator users with non-users would be needed to show whether the change improved revenue or buyer quality.
+          </p>
           <DecisionLog
             rows={[
-              { label: "Decision", body: <>Ship the pricing calculator to 100% of C4T traffic.</> },
-              { label: "Why", body: <>Visitors wanted upfront cost, and giving it to them protected conversion while filtering out low-intent visitors early.</> },
+              { label: "Decision", body: <>Roll out the pricing calculator to 100% of C4T traffic.</> },
+              { label: "Why", body: <>The experiment supported moving pricing discovery upstream while observed downstream purchase activity held.</> },
               { label: "Tradeoff", body: <>An 8% drop in Account page progression.</> },
-              { label: "Mitigation", body: <>Judge it downstream: the visitors who left looked budget-mismatched, not blocked.</> },
+              { label: "Mitigation", body: <>Judge the module downstream, and follow up with a cohort analysis of calculator users.</> },
             ]}
           />
         </TextSection>
@@ -291,27 +331,28 @@ export default function PricingCalculator() {
       <Chapter
         number={5}
         title="Reflection"
-        summary={<>An early drop-off can be the design working: showing cost sorts buyers by fit. Next, make the estimate easier to carry to whoever approves the budget.</>}
+        summary={<>Optimize the decision, not just the funnel: more checkout entries do not always mean a healthier purchase journey.</>}
       >
-        <TextSection title="Conclusion">
+        <TextSection title="Conclusion: optimize the decision, not just the funnel">
           <p>
-            Teams buyers will use an upfront estimate when it is offered, and <mark className="font-medium">showing cost early sorts buyers by fit while protecting conversion.</mark>
+            The biggest lesson was that <mark className="font-medium">more checkout entries do not necessarily mean a healthier purchase journey.</mark> Buyers had been discovering important financial and licensing constraints after entering checkout. Moving that information upstream gave them the chance to understand their commitment before investing more time.
           </p>
-          <Callout>A drop at the first step can be the design working. I now judge a pricing surface by what happens downstream, not by top-of-funnel progression.</Callout>
+          <p>
+            The experiment showed early-funnel progression could fall while Billing visits held steady, and overall conversion moved positively, though we could not establish a statistically significant lift.
+          </p>
+          <p>
+            It changed how I design purchase experiences. The goal is not to move everyone through every step. It is to give people the right information at the right moment, so they can decide without avoidable surprises later. I would also design the follow-up as part of the original product from day one: saving and sharing an estimate is part of the buyer&rsquo;s job, not an extra feature.
+          </p>
+          <Callout>A better purchase journey is not the one with the most people entering checkout. It is the one where buyers understand what they are committing to before they get there.</Callout>
         </TextSection>
 
-        <TextSection title="What I would do differently">
-          <p>
-            I would design the follow-up, the saved estimate and the reminders, as part of the module from day one, since the buyer&rsquo;s real job is to carry a number back to their team.
-          </p>
-        </TextSection>
-
-        <TextSection title="Next steps">
+        <TextSection title="What I would improve next">
           <ul className="space-y-2">
-            <li className="font-medium">Make the estimate easier to carry:</li>
-            <ul><li>A one-click copy or download of the quote.</li></ul>
-            <li className="font-medium">Measure the follow-up:</li>
-            <ul><li>Track how the estimate and reminder emails perform against faster time to convert and higher checkout completion.</li></ul>
+            <li>Make estimates easier to carry, with one-click copying or downloading.</li>
+            <li>Measure estimate-email engagement and its contribution to purchase completion.</li>
+            <li>Compare the purchase behavior of calculator users and non-users.</li>
+            <li>Track revenue per exposed visitor and sales-qualified leads.</li>
+            <li>Measure time to purchase and checkout abandonment with sufficient sample sizes.</li>
           </ul>
         </TextSection>
       </Chapter>

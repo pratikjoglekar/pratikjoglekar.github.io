@@ -389,8 +389,12 @@ export function Figure({
   return (
     <Reveal>
     <figure className="my-10">
-      <div className="overflow-hidden rounded-card bg-warm-taupe p-2 sm:p-4 [&_img]:rounded-small [&_img]:shadow-hairline">
-        {children}
+      {/* Warm-taupe frame, then a white mat, so every screen has room to breathe
+          (cut-out components never touch the edge). */}
+      <div className="overflow-hidden rounded-card bg-warm-taupe p-2 sm:p-4">
+        <div className="rounded-small bg-white p-[5%] shadow-hairline [&_img]:rounded-[6px]">
+          {children}
+        </div>
       </div>
       {caption && (
         <figcaption className="mt-3 text-body-sm text-smoke">{caption}</figcaption>

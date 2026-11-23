@@ -32,7 +32,7 @@ const TILES = [
    wider than the screen). Otherwise it fits the tile width. */
 const COVERS: Record<string, { src: string; w: number; h: number; fitHeight?: boolean }> = {
   c4cintegrations: { src: "/images/covers/c4cintegrations.png", w: 1400, h: 868 },
-  "pricing-calculator": { src: "/images/covers/pricing-calculator-v2.png", w: 562, h: 736 },
+  "pricing-calculator": { src: "/images/covers/pricing-calculator-v3.png", w: 560, h: 704 },
   "usage-intelligence": { src: "/images/covers/usage-intelligence-v3.png", w: 1994, h: 1300 },
   cancellation: { src: "/images/covers/cancellation.png", w: 800, h: 600, fitHeight: true },
   dashboard: { src: "/images/covers/dashboard.png", w: 2421, h: 1592, fitHeight: true },

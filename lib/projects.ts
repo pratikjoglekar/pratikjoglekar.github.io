@@ -69,8 +69,8 @@ export const projects: Project[] = [
   },
   {
     slug: "pricing-calculator",
-    questions: ["Why show the price so early?", "Progression fell 8%. Why ship it anyway?", "What happens above 125 seats?"],
-    readMinutes: 5,
+    questions: ["Why move pricing upstream?", "Account progression fell 8%. Why ship it anyway?", "What did the test not prove?"],
+    readMinutes: 6,
     icon: "/lottie/sliders.json",
     title: "Coursera for Teams Pricing Calculator",
     company: "Coursera",
@@ -78,24 +78,24 @@ export const projects: Project[] = [
     metric: "24%",
     metricLabel: "Engaged with the calculator",
     summary:
-      "An upfront pricing calculator that shows small teams the price and the rules before checkout, and hands larger teams to sales without a dead end.",
-    image: "/images/pricing-calculator/calculator.png",
+      "A pricing calculator that moved purchase decisions upstream: an upfront estimate, plain licensing rules and a guided sales path for larger teams.",
+    image: "/images/pricing-calculator/calculator-final.png",
     imageAlt:
-      "Coursera for Teams pricing calculator: policies, annual or quarterly billing, a license stepper, an Email estimate button and a Due today summary",
+      "Coursera for Teams pricing calculator: annual or quarterly billing, a license stepper, an estimate due today, Continue to checkout and Email estimate, with the key policies alongside",
     glance: {
       problem:
-        "Small-team buyers left the purchase path because the price, the 5-seat minimum and the license rules surfaced only late in checkout.",
-      role: "Sole Product Designer",
-      team: "engineering, marketing, and data and analytics",
+        "Small teams discovered the price, the 5-seat minimum and the licensing rules too late in the purchase journey, which added friction at checkout.",
+      role: "Product Designer",
+      team: "2 product designers, engineering, 3 marketers, and data and analytics",
       duration: "Feb – Jul 2026, concept to A/B readout",
       decisions: [
-        "Self-serve pricing for 5–125 seats; a guided sales path above that",
-        "Put the billing toggle beside the total, to frame the commitment",
-        "License rules in plain language next to the price, not in fine print",
+        "Move pricing discovery upstream, even if fewer visitors progress into checkout",
+        "Self-serve pricing for 5–125 seats; a guided sales path above that, inputs kept",
+        "Licensing rules in plain language beside the price, not in fine print",
       ],
       outcomes: [
         { value: "24%", label: "Of exposed visitors engaged with the calculator" },
-        { value: "100%", label: "Of C4T traffic, after a no-loss A/B test" },
+        { value: "100%", label: "Of C4T traffic, rolled out after the A/B test" },
       ],
     },
   },
