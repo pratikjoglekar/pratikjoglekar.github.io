@@ -11,7 +11,9 @@ import {
   DecisionLog,
   DataTable,
   Figure,
+  ScreenGrid,
 } from "@/components/case-study/CaseStudy"
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure"
 
 export const metadata = caseStudyMetadata("c4cintegrations")
 
@@ -127,6 +129,7 @@ export default function c4cintegrations() {
             <li><strong>Paste the LMS details back into Coursera.</strong> One form, in the order most LMS consoles show them, marked as a production or test environment.</li>
             <li><strong>See every connection in one place.</strong> Each LMS appears in a table with its configuration type and environment, ready to view or remove.</li>
           </ol>
+          <p>Steps 1 and 4 are below; steps 2 and 3 are in Screens and states, at the end of this chapter.</p>
           <Figure caption="Step 1: choose the LMS and the configuration type, with dynamic registration recommended.">
             <Image
               src="/images/integrations/lms-setup-choose.png"
@@ -137,26 +140,6 @@ export default function c4cintegrations() {
               sizes="520px"
             />
           </Figure>
-            <Figure caption="Step 2: copy Coursera's configuration into the LMS, one value at a time.">
-              <Image
-                src="/images/integrations/lms-setup-coursera-config.png"
-                alt="Coursera Config, step 1 of 2: Tool URL, Initiate login URL, Redirection URIs, Public keyset and Content Selection URL, each with a Copy button"
-                width={1130}
-                height={1193}
-                className="mx-auto h-auto w-full max-w-[520px]"
-                sizes="520px"
-              />
-            </Figure>
-            <Figure caption="Step 3: paste the LMS details back into Coursera and pick the environment.">
-              <Image
-                src="/images/integrations/lms-setup-lms-config.png"
-                alt="LMS configuration, step 2 of 2: platform name, environment, client ID, deployment ID, platform ID, public keyset, access token and authentication request URLs, and a Configure LTI tool button"
-                width={1130}
-                height={1660}
-                className="mx-auto h-auto w-full max-w-[520px]"
-                sizes="520px"
-              />
-            </Figure>
           <Figure caption="Step 4: the connection is confirmed, and every LMS sits in one table with its configuration type and environment.">
             <Image
               src="/images/integrations/lms-setup-connections.png"
@@ -191,16 +174,6 @@ export default function c4cintegrations() {
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <Figure caption="Turning it on explains the consequence and goes straight to choosing groups, so the control is never on with nothing selected.">
-            <Image
-              src="/images/integrations/access-enable-dialog.png"
-              alt="Dialog titled Group Access Control Enabled: instructors will only see the groups you select, unselected groups are hidden, and the selection can be updated at any time. Select groups and Cancel buttons"
-              width={1102}
-              height={534}
-              className="mx-auto h-auto w-full max-w-[560px]"
-              sizes="560px"
-            />
-          </Figure>
           <Figure caption="Choosing the groups: search, sort and filter across hundreds of programs, see when each was created and how many courses it holds, and select only the ones instructors should see.">
             <Image
               src="/images/integrations/access-group-dialog.png"
@@ -211,51 +184,33 @@ export default function c4cintegrations() {
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
-          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
-            <Figure caption="Saving with nothing changed says what to do next.">
-              <Image
-                src="/images/integrations/access-group-error.png"
-                alt="Inline error under the group table: No changes detected. Add or remove at least one program to update your selection."
-                width={1040}
-                height={470}
-                className="h-auto w-full"
-                sizes="(min-width: 1024px) 360px, 100vw"
-              />
-            </Figure>
-            <Figure caption="Turning the control off asks first, and says exactly what will happen: every group becomes visible again.">
-              <Image
-                src="/images/integrations/access-disable-confirm.png"
-                alt="Confirmation dialog: Are you sure you want to disable group access control? If you disable this setting, all groups will be visible within the LMS. Disable and Cancel buttons"
-                width={1102}
-                height={476}
-                className="h-auto w-full"
-                sizes="(min-width: 1024px) 360px, 100vw"
-              />
-            </Figure>
-          </div>
-          <Figure caption="After: the control is on for one connection only, with a plain-language confirmation naming it, and Select groups to change the selection later.">
-            <Image
-              src="/images/integrations/access-on-v3.png"
-              alt="Group Access Control table: one Moodle connection still on All groups with its toggle off, the other switched on with a Select groups link, and a green confirmation that only selected groups will be available for that connection"
-              width={2484}
-              height={1185}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/integrations/access-on-v3.png"
+            alt="Group Access Control table: one Moodle connection still on All groups with its toggle off, the other switched on with a Select groups link, and a green confirmation that only selected groups will be available for that connection"
+            width={2484}
+            height={1185}
+            caption="After: the control is on for one connection only."
+            pins={[
+              { x: 20.3, y: 48.3, title: "Says what changed.", body: "The confirmation names the connection and the consequence in plain words." },
+              { x: 83.5, y: 78.3, title: "One switch per connection.", body: "Turning access control on for one LMS leaves the others untouched." },
+              { x: 75.6, y: 90.5, title: "Never on with nothing chosen.", body: "Select groups appears once the control is on, so the selection is always one click away." },
+            ]}
+          />
 
           <p><strong className="case-h3">Letting instructors set a grade-sync cutoff</strong></p>
           <p>Sync was continuous, so gradebooks kept changing after evaluation ended, and the LMS did not send due dates. Instead of guessing, instructors can set an optional date when they create a link, labeled &ldquo;Stop grade sync to Gradebook&rdquo; so it cannot be mistaken for the LMS due date. It solves a real need without relying on data the LMS does not provide.</p>
-          <Figure caption="Confirm Selection: the course, the grade configuration and the optional grade sync cutoff, reviewed together before anything is linked, with copy that separates the cutoff from the LMS due date.">
-            <Image
-              src="/images/integrations/confirm-selection.png"
-              alt="Confirm Selection screen: the selected IBM course, a Grade Configuration choice between item level and final grade sync, and an optional Stop Grade Sync to Gradebook date and time, marked Ready to confirm"
-              width={2506}
-              height={1612}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/integrations/confirm-selection.png"
+            alt="Confirm Selection screen: the selected IBM course, a Grade Configuration choice between item level and final grade sync, and an optional Stop Grade Sync to Gradebook date and time, marked Ready to confirm"
+            width={2506}
+            height={1612}
+            caption="Confirm Selection: reviewed together before anything is linked."
+            pins={[
+              { x: 3.4, y: 21.2, title: "One review.", body: "The course, the grade setting and the cutoff are checked together before anything is linked." },
+              { x: 5, y: 53.6, title: "Flags what is permanent.", body: "Grade sync type cannot be changed later, so the screen says so and explains each option." },
+              { x: 65.9, y: 31.2, title: "A cutoff, not a due date.", body: "The optional stop date is labelled as separate from the LMS due date, so instructors do not confuse the two." },
+            ]}
+          />
 
           <p><strong className="case-h3">Three smaller decisions</strong></p>
           <ul className="space-y-2">
@@ -308,6 +263,19 @@ export default function c4cintegrations() {
               sizes="(min-width: 1024px) 720px, 100vw"
             />
           </Figure>
+        </TextSection>
+
+        <TextSection title="Screens and states">
+          <p>The rest of the setup flow, and the dialogs and edge cases around access control. Select any screen to see it full size.</p>
+          <ScreenGrid
+            items={[
+              { src: "/images/integrations/lms-setup-coursera-config.png", alt: "Coursera Config, step 1 of 2: Tool URL, Initiate login URL, Redirection URIs, Public keyset and Content Selection URL, each with a Copy button", width: 1130, height: 1193, caption: "Setup step 2: every value the LMS asks for, each with a copy button." },
+              { src: "/images/integrations/lms-setup-lms-config.png", alt: "LMS configuration, step 2 of 2: platform name, environment, client ID, deployment ID, platform ID, public keyset, access token and authentication request URLs, and a Configure LTI tool button", width: 1130, height: 1660, caption: "Setup step 3: the LMS details, in the order most consoles show them." },
+              { src: "/images/integrations/access-enable-dialog.png", alt: "Dialog titled Group Access Control Enabled: instructors will only see the groups you select, unselected groups are hidden, and the selection can be updated at any time. Select groups and Cancel buttons", width: 1102, height: 534, caption: "Turning access control on explains the consequence and goes straight to choosing groups." },
+              { src: "/images/integrations/access-group-error.png", alt: "Inline error under the group table: No changes detected. Add or remove at least one program to update your selection.", width: 1040, height: 470, caption: "Saving with nothing changed says what to do next." },
+              { src: "/images/integrations/access-disable-confirm.png", alt: "Confirmation dialog: Are you sure you want to disable group access control? If you disable this setting, all groups will be visible within the LMS. Disable and Cancel buttons", width: 1102, height: 476, caption: "Turning it off asks first, and says every group becomes visible again." },
+            ]}
+          />
         </TextSection>
       </Chapter>
 

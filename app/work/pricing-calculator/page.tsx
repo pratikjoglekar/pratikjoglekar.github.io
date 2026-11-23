@@ -11,7 +11,9 @@ import {
   DecisionLog,
   Figure,
   DataTable,
+  ScreenGrid,
 } from "@/components/case-study/CaseStudy"
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure"
 
 export const metadata = caseStudyMetadata("pricing-calculator")
 
@@ -36,17 +38,20 @@ export default function PricingCalculator() {
         summary={<>Teams buyers learned the real cost, the 5-seat minimum and the licensing rules only after they had invested time in checkout.</>}
       >
         <TextSection title="Project Overview">
-          <Figure caption="The final calculator on the Teams landing page: billing cycle, licenses and the estimate, with the key policies alongside.">
-            <Image
-              src="/images/pricing-calculator/calculator-final.png"
-              alt="Estimate your price module: annual or quarterly billing, a license stepper, Continue to checkout and Email estimate, an estimate of $1,995 due today, and policies for quarterly billing, license transfers, team size flexibility and payment options"
-              width={1568}
-              height={621}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-              priority
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/pricing-calculator/calculator-final.png"
+            alt="Estimate your price module: annual or quarterly billing, a license stepper, Continue to checkout and Email estimate, an estimate of $1,995 due today, and policies for quarterly billing, license transfers, team size flexibility and payment options"
+            width={1568}
+            height={621}
+            caption="The final calculator on the Teams landing page: billing cycle, licenses and the estimate, with the key policies alongside."
+            pins={[
+              { x: 18, y: 30.1, title: "Billing choice, priced.", body: "Annual and quarterly side by side, each with its per-license price, so the cheaper commitment is visible up front." },
+              { x: 29.8, y: 51.9, title: "Seats from five.", body: "The stepper starts at the 5-seat minimum, and Volume discounts opens the tiers in one place." },
+              { x: 34.5, y: 23.5, title: "A live estimate.", body: "Billing cycle, price per license and seats update as you go, with taxes included and the refund policy beside the total." },
+              { x: 69.2, y: 27.4, title: "Rules beside the price.", body: "Quarterly billing, license transfers, adding seats and payment options, each in one plain line." },
+              { x: 28.6, y: 76.2, title: "A way to wait.", body: "Email estimate sends the number to whoever approves the budget." },
+            ]}
+          />
           <p>
             Teams buyers could not see what a contract would cost until late in checkout. The 5-seat minimum and the licensing restrictions surfaced even later, often after buyers had already invested time in the purchase.
           </p>
@@ -216,18 +221,8 @@ export default function PricingCalculator() {
           </ul>
           <p><strong className="case-h3">One estimate, every pricing state</strong></p>
           <p>
-            The same estimate card had to stay honest across every case: the billing choice, volume tiers, seasonal promotions and the two together. Only one discount applies at a time, so when both qualify the estimate shows the better one and strikes through the other, so buyers never have to work it out.
+            The same estimate card had to stay honest across every case: the billing choice, volume tiers, seasonal promotions and the two together. Only one discount applies at a time, so when both qualify the estimate shows the better one and strikes through the other, so buyers never have to work it out. Quarterly billing, a seasonal promotion and the volume tiers are in Screens and states, below.
           </p>
-          <Figure caption="Quarterly billing: the same layout, with the higher per-license price and the amount due each quarter.">
-            <Image
-              src="/images/pricing-calculator/quarterly.png"
-              alt="Calculator with Quarterly selected, 5 licenses, and an estimate of $549 due per quarter at $439 per license per year"
-              width={2346}
-              height={860}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
           <Figure caption="A volume discount at 200 licenses: 27% off, the saving shown in the total, and the seasonal discount struck through because only one applies.">
             <Image
               src="/images/pricing-calculator/volume-discount.png"
@@ -236,26 +231,6 @@ export default function PricingCalculator() {
               height={860}
               className="h-auto w-full"
               sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
-          <Figure caption="A seasonal promotion: 50% off for a small team, with the original total struck through so the saving is obvious.">
-            <Image
-              src="/images/pricing-calculator/seasonal-discount.png"
-              alt="Calculator with 10 licenses: the estimate shows $3,990 struck through and $1,995, with a 50% seasonal discount"
-              width={2346}
-              height={860}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
-          <Figure caption="The Volume discounts link opens the tiers in one place, each with a one-click way to buy at that level.">
-            <Image
-              src="/images/pricing-calculator/volume-modal.png"
-              alt="Volume discount dialog: 125 to 199 licenses at 15% off, $340 per license, and 200 to 499 licenses at 25% off, $290 per license, each with a Buy button"
-              width={1060}
-              height={700}
-              className="mx-auto h-auto w-full max-w-[520px]"
-              sizes="520px"
             />
           </Figure>
           <Figure caption="On mobile, the module stacks in decision order: billing, licenses, the next step, the estimate, then the policies.">
@@ -302,6 +277,17 @@ export default function PricingCalculator() {
               sizes="420px"
             />
           </Figure>
+        </TextSection>
+
+        <TextSection title="Screens and states">
+          <p>The same estimate card in other pricing states. Select any screen to see it full size.</p>
+          <ScreenGrid
+            items={[
+              { src: "/images/pricing-calculator/quarterly.png", alt: "Calculator with Quarterly selected, 5 licenses, and an estimate of $549 due per quarter at $439 per license per year", width: 2346, height: 860, caption: "Quarterly billing: the same layout, with the higher per-license price and the amount due each quarter." },
+              { src: "/images/pricing-calculator/seasonal-discount.png", alt: "Calculator with 10 licenses: the estimate shows $3,990 struck through and $1,995, with a 50% seasonal discount", width: 2346, height: 860, caption: "A seasonal promotion: 50% off for a small team, with the original total struck through so the saving is obvious." },
+              { src: "/images/pricing-calculator/volume-modal.png", alt: "Volume discount dialog: 125 to 199 licenses at 15% off, $340 per license, and 200 to 499 licenses at 25% off, $290 per license, each with a Buy button", width: 1060, height: 700, caption: "The Volume discounts link opens the tiers in one place, each with a one-click way to buy at that level." },
+            ]}
+          />
         </TextSection>
       </Chapter>
 

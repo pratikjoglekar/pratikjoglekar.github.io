@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { Maximize2, Pause, Play, RotateCcw, Volume2, VolumeX } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PlayBlob from "@/components/ds/PlayBlob"
@@ -9,6 +9,26 @@ function fmt(s: number) {
   if (!Number.isFinite(s)) return "0:00"
   return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`
 }
+
+/**
+ * Case studies whose poster is a composed board of the final design, rather than the
+ * video's title card, so the first big visual on the page is the work itself.
+ * One board per theme. The Watch pill moves to the corner so it does not cover the design.
+ */
+const BOARD: Record<string, { light: string; dark: string }> = {
+  c4cintegrations: { light: "/images/integrations/board-light.jpg", dark: "/images/integrations/board-dark.jpg" },
+  "pricing-calculator": { light: "/images/pricing-calculator/board-light.jpg", dark: "/images/pricing-calculator/board-dark.jpg" },
+  "usage-intelligence": { light: "/images/uip/board-light.jpg", dark: "/images/uip/board-dark.jpg" },
+  cancellation: { light: "/images/retention/board-light.jpg", dark: "/images/retention/board-dark.jpg" },
+  dashboard: { light: "/images/dashboard/board-light.jpg", dark: "/images/dashboard/board-dark.jpg" },
+}
+
+function subscribeTheme(fn: () => void) {
+  const mo = new MutationObserver(fn)
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] })
+  return () => mo.disconnect()
+}
+const isDark = () => document.documentElement.getAttribute("data-theme") === "dark"
 
 /** File version per video (bump when a video is re-rendered, so no cached copy shows). */
 const VERSION: Record<string, string> = { "pricing-calculator": "v7", c4cintegrations: "v9", dashboard: "v7" }
@@ -30,6 +50,8 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
   const [time, setTime] = useState(0)
   const [duration, setDuration] = useState(50)
   const [showControls, setShowControls] = useState(true)
+  const dark = useSyncExternalStore(subscribeTheme, isDark, () => false)
+  const board = BOARD[slug]
 
   // Controls fade out while playing and the pointer is still; they return on movement or focus.
   function wake() {
@@ -85,7 +107,7 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
         <video
           ref={ref}
           src={`/videos/case/${slug}-${VERSION[slug] ?? "v6"}.mp4`}
-          poster={`/videos/case/${slug}-${VERSION[slug] ?? "v6"}-poster.jpg`}
+          poster={board ? board[dark ? "dark" : "light"] : `/videos/case/${slug}-${VERSION[slug] ?? "v6"}-poster.jpg`}
           preload="none"
           playsInline
           onClick={toggle}
@@ -104,7 +126,7 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
             type="button"
             onClick={toggle}
             aria-label="Watch the one-minute summary"
-            className="absolute inset-0 flex items-center justify-center"
+            className={cn("absolute inset-0 flex", board ? "items-end justify-start p-4 sm:p-6" : "items-center justify-center")}
           >
             <span className={cn(pill, "gap-2.5 py-1.5 pr-4 pl-1.5 text-body-sm font-medium transition-transform duration-300 group-hover:scale-[1.04] sm:py-2 sm:pr-5 sm:pl-2")}>
               {/* Hovering the video melts the ink circle into the hero's blob */}

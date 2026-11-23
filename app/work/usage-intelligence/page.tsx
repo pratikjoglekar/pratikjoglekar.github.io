@@ -11,7 +11,9 @@ import {
   DecisionLog,
   DataTable,
   Figure,
+  ScreenGrid,
 } from "@/components/case-study/CaseStudy"
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure"
 
 export const metadata = caseStudyMetadata("usage-intelligence")
 
@@ -118,73 +120,35 @@ export default function UsageIntelligenceCaseStudy() {
 
           <p><strong className="case-h3">No-code event creation</strong></p>
           <p>Creating an event used to mean writing code. A four-step flow (details, properties, reviewers, review) lets teams define an event without engineering support. It builds in the naming standard, a noun plus a past-tense verb such as &ldquo;Deal Created,&rdquo; and asks up front whether the event is protected. I traced failures in the old flow back to decision points nobody needed, and removing them cut errors in event creation by 70%.</p>
-          <Figure caption="Step 1, event details: the naming standard builds the name from a noun and a past-tense verb, and the protected-event choice is asked up front.">
-            <Image
-              src="/images/uip/create-1.png"
-              alt="Create New Event, step 1 of 4: team and limit counters, namespace, noun and verb fields that combine into Deal Created, database, event class, a protected-event choice and a description"
-              width={1928}
-              height={1617}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
-          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
-            <Figure caption="Step 2: properties, with the naming rule and a correct and incorrect example beside the field.">
-              <Image
-              src="/images/uip/create-2.png"
-              alt="Create New Event, add properties: property counters, naming guidance with incorrect and correct examples, and an Action property with its description"
-              width={1928}
-              height={1475}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 360px, 100vw"
-            />
-            </Figure>
-            <Figure caption="Step 3: owners, product analysts and reviewers, so every event has someone accountable from day one.">
-              <Image
-              src="/images/uip/create-3.png"
-              alt="Create New Event, add reviewers: owning teams, product analysts, additional reviewers and a documentation link"
-              width={1928}
-              height={1362}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 360px, 100vw"
-            />
-            </Figure>
-          </div>
-          <div className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
-            <Figure caption="Step 4: one review of everything before it goes out.">
-              <Image
-              src="/images/uip/create-4.png"
-              alt="Create New Event, review changes: owners, analysts and reviewers, the event name Sales Qualified Deal Created with its database, class and protection, and each property described"
-              width={1928}
-              height={1703}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 360px, 100vw"
-            />
-            </Figure>
-            <Figure caption="Submitting says what happens next: the event is created once a teammate or analyst reviews it.">
-              <Image
-              src="/images/uip/modal-submit.png"
-              alt="Dialog: Are you sure you want to submit the event for review? The event will be created after a team member or product analyst reviews it. Submit for Review and Cancel"
-              width={1034}
-              height={524}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 360px, 100vw"
-            />
-            </Figure>
-          </div>
+          <AnnotatedFigure
+            src="/images/uip/create-1.png"
+            alt="Create New Event, step 1 of 4: team and limit counters, namespace, noun and verb fields that combine into Deal Created, database, event class, a protected-event choice and a description"
+            width={1928}
+            height={1617}
+            caption="Step 1 of creating an event."
+            pins={[
+              { x: 17.6, y: 1.9, title: "Four steps, always in view.", body: "Details, properties, reviewers, then review." },
+              { x: 12.6, y: 19.8, title: "Limits up front.", body: "Team-owned events and the total against the 4,500 limit, before anything is created." },
+              { x: 12.6, y: 45, title: "The naming standard, built in.", body: "A noun and a past-tense verb combine into the event name, so names stay consistent." },
+              { x: 12.6, y: 69.7, title: "Protection asked up front.", body: "Whether the event is protected is decided at creation, with what that means for downstream reports." },
+            ]}
+          />
 
           <p><strong className="case-h3">Alerts before customers notice</strong></p>
           <p>Each event shows its expected range, flags anomalies on its chart, and names the teams that own it. Teams subscribe to the events they care about, so an unexpected change reaches the owner before it turns into an incident.</p>
-          <Figure caption="An event in detail: expected range, flagged anomalies, the owning teams, and every chart and cohort that depends on it.">
-            <Image
-              src="/images/uip/detail-usedby.png"
-              alt="Event detail for Chrome Devtools Interaction: owners in Slack and teams, a usage chart with expected range and five flagged anomalies, and the Used By tab listing charts, cohorts, custom events and URLs that depend on it"
-              width={1928}
-              height={2383}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/uip/detail-usedby.png"
+            alt="Event detail for Chrome Devtools Interaction: owners in Slack and teams, a usage chart with expected range and five flagged anomalies, and the Used By tab listing charts, cohorts, custom events and URLs that depend on it"
+            width={1928}
+            height={2383}
+            caption="An event in detail."
+            pins={[
+              { x: 69, y: 3.4, title: "Subscribe to it.", body: "Teams pin and subscribe to the events they care about, so alerts reach them." },
+              { x: 73.5, y: 11.6, title: "Named owners.", body: "The Slack channels and teams that own the event, one click away." },
+              { x: 96.2, y: 18.9, title: "Anomalies, flagged.", body: "Unexpected points are marked on the chart against the expected range." },
+              { x: 20.4, y: 39.3, title: "What depends on it.", body: "Every chart, cohort and URL that uses the event, visible before anyone changes or deletes it." },
+            ]}
+          />
 
           <p><strong className="case-h3">Protection and auditing</strong></p>
           <p>Important events can be protected, so they cannot disappear with a deleted file. Changes go through reviewers, and each event keeps a history of who changed what, so ownership stays visible long after launch.</p>
@@ -204,6 +168,18 @@ export default function UsageIntelligenceCaseStudy() {
         <TextSection title="Validation">
           <p>We tested the direction before building: the eight SMB interviews and the cross-functional workshop put governance up against another dashboard before design went deep. We tracked the result against a target, the expected 8.5% rate of critical usage situations, and it came in at 5.1%. Event ownership and audit trails were still in use after the initial rollout.</p>
           <p>What I could not measure: how much alerts and protection each contributed on their own. So the table below separates what was measured from what I believe.</p>
+        </TextSection>
+
+        <TextSection title="Screens and states">
+          <p>The rest of the create-event flow. Select any screen to see it full size.</p>
+          <ScreenGrid
+            items={[
+              { src: "/images/uip/create-2.png", alt: "Create New Event, add properties: property counters, naming guidance with incorrect and correct examples, and an Action property with its description", width: 1928, height: 1475, caption: "Step 2: properties, with the naming rule and a correct and incorrect example beside the field." },
+              { src: "/images/uip/create-3.png", alt: "Create New Event, add reviewers: owning teams, product analysts, additional reviewers and a documentation link", width: 1928, height: 1362, caption: "Step 3: owners, product analysts and reviewers, so every event has someone accountable from day one." },
+              { src: "/images/uip/create-4.png", alt: "Create New Event, review changes: owners, analysts and reviewers, the event name Sales Qualified Deal Created with its database, class and protection, and each property described", width: 1928, height: 1703, caption: "Step 4: one review of everything before it goes out." },
+              { src: "/images/uip/modal-submit.png", alt: "Dialog: Are you sure you want to submit the event for review? The event will be created after a team member or product analyst reviews it. Submit for Review and Cancel", width: 1034, height: 524, caption: "Submitting says what happens next: the event is created once a teammate or analyst reviews it." },
+            ]}
+          />
         </TextSection>
       </Chapter>
 

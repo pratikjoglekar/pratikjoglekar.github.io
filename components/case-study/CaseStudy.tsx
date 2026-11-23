@@ -1,7 +1,9 @@
+import Image from "next/image"
 import * as React from "react"
 import { ImagePlus } from "lucide-react"
 import type { Metadata } from "next"
 import StickyHome from "@/components/StickyHome"
+import ImageLightbox from "@/components/case-study/ImageLightbox"
 import SiteFooter from "@/components/SiteFooter"
 import Toc, { ChapterPill } from "@/components/case-study/Toc"
 import CaseVideo from "@/components/case-study/CaseVideo"
@@ -58,6 +60,7 @@ export function CaseStudyLayout({
   return (
     <>
       <StickyHome />
+      <ImageLightbox />
       <main id="main" tabIndex={-1} className="mx-auto w-full max-w-page px-6 pt-24 outline-none md:px-16 md:pt-32">
         {children}
         <NextProject slug={slug} />
@@ -399,6 +402,76 @@ export function Figure({
         <figcaption className="mt-3 text-body-sm text-smoke">{caption}</figcaption>
       )}
     </figure>
+    </Reveal>
+  )
+}
+
+type Shot = { src: string; alt: string; width: number; height: number }
+
+/**
+ * Before and after, side by side on wide screens and stacked on phones, each in the
+ * same frame as Figure. For case studies where the change itself is the story.
+ */
+export function BeforeAfter({ before, after, caption }: { before: Shot; after: Shot; caption?: string }) {
+  return (
+    <Reveal>
+      <figure className="my-12">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {([["Before", before], ["After", after]] as const).map(([label, shot]) => (
+            <div key={label}>
+              <p className="mb-2 text-body-sm font-medium text-ink">{label}</p>
+              <div className="overflow-hidden rounded-card bg-warm-taupe p-2">
+                <div className="flex aspect-[4/3] items-start justify-center overflow-hidden rounded-small bg-white p-[5%] shadow-hairline">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={shot.width}
+                    height={shot.height}
+                    className="h-auto w-full rounded-[4px]"
+                    sizes="(min-width: 1024px) 360px, 100vw"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {caption && <figcaption className="mt-3 text-body-sm text-smoke">{caption}</figcaption>}
+      </figure>
+    </Reveal>
+  )
+}
+
+/**
+ * Secondary screens and states, grouped as a compact grid lower in the page, so the main
+ * story shows fewer, bigger screens. Each tile keeps the same frame as Figure, at a fixed
+ * shape so the grid lines up; the screen sits centred inside it.
+ */
+export function ScreenGrid({
+  items,
+}: {
+  items: { src: string; alt: string; width: number; height: number; caption: string }[]
+}) {
+  return (
+    <Reveal>
+      <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3">
+        {items.map((it) => (
+          <figure key={it.src}>
+            <div className="overflow-hidden rounded-card bg-warm-taupe p-1.5 sm:p-2">
+              <div className="flex aspect-[4/3] items-center justify-center rounded-small bg-white p-[8%] shadow-hairline">
+                <Image
+                  src={it.src}
+                  alt={it.alt}
+                  width={it.width}
+                  height={it.height}
+                  className="h-full w-auto max-w-full rounded-[4px] object-contain"
+                  sizes="(min-width: 1024px) 240px, 50vw"
+                />
+              </div>
+            </div>
+            <figcaption className="mt-2 text-caption text-smoke">{it.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
     </Reveal>
   )
 }

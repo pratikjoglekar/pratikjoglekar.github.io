@@ -11,7 +11,9 @@ import {
   DecisionLog,
   DataTable,
   Figure,
+  BeforeAfter,
 } from "@/components/case-study/CaseStudy"
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure"
 
 export const metadata = caseStudyMetadata("dashboard")
 
@@ -167,26 +169,30 @@ export default function Dashboard() {
 
         <TextSection title="The final homepage">
           <p>The final design opens with a greeting and &ldquo;What would you like to do?&rdquo;, with the most common tasks one click away. A dated &ldquo;Things to do&rdquo; list follows, so anything that needs attention, like a statement or a bill, is impossible to miss. Policies follow, grouped by type.</p>
-          <Figure caption="After: tasks first, then what needs attention, then policies with context.">
-            <Image
-              src="/images/dashboard/after-dashboard-v2.png"
-              alt="Final MassMutual homepage redesign"
-              width={2421}
-              height={1306}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
-          <Figure caption="One policy in detail: face value, cash value and death benefit side by side, each in plain words, then billing with the next payment due.">
-            <Image
-              src="/images/dashboard/policy-detail.png"
-              alt="Whole Life policy page showing face value, cash value and death benefit with plain-language explanations, quick actions, and a Billing and Payments section with the next premium due"
-              width={1468}
-              height={1198}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/dashboard/after-dashboard-v2.png"
+            alt="Final MassMutual homepage redesign"
+            width={2421}
+            height={1306}
+            caption="After: tasks first, then what needs attention, then policies with context."
+            pins={[
+              { x: 20.4, y: 52.9, title: "Tasks first.", body: "The most common reasons to log in, one click from the homepage." },
+              { x: 3, y: 63.9, title: "What needs attention.", body: "Statements and bills, dated, so nothing is missed." },
+              { x: 42.4, y: 95.4, title: "Policies below.", body: "Grouped by type, each explained in plain words." },
+            ]}
+          />
+          <AnnotatedFigure
+            src="/images/dashboard/policy-detail.png"
+            alt="Whole Life policy page showing face value, cash value and death benefit with plain-language explanations, quick actions, and a Billing and Payments section with the next premium due"
+            width={1468}
+            height={1198}
+            caption="One policy in detail: face value, cash value and death benefit side by side, each in plain words, then billing with the next payment due."
+            pins={[
+              { x: 12.2, y: 28, title: "Tasks on the policy itself.", body: "Pay, borrow or change beneficiaries without leaving the page." },
+              { x: 2, y: 38.2, title: "Three numbers, three meanings.", body: "Face value, cash value and death benefit side by side, each with a sentence in plain words." },
+              { x: 26, y: 67.5, title: "The next payment, in context.", body: "The amount and date sit with the policy being paid for." },
+            ]}
+          />
         </TextSection>
       </Chapter>
 
@@ -199,6 +205,11 @@ export default function Dashboard() {
 
         <TextSection title="Reading the numbers">
           <p>Time engaged rose from 15.02s to 34.66s. That is a good sign only because of why it rose: customers stayed to finish tasks on the homepage. Time engaged cannot say which part of the page they used, so the link to tasks and status at the top is my best explanation, not a measurement.</p>
+          <BeforeAfter
+            before={{ src: "/images/dashboard/before-figma.png", alt: "Existing MassMutual dashboard before the redesign", width: 1218, height: 1360 }}
+            after={{ src: "/images/dashboard/after-dashboard-v2.png", alt: "Final MassMutual homepage redesign", width: 2421, height: 1306 }}
+            caption="The homepage before and after: tiles showing only face amounts, then tasks first with what needs attention."
+          />
           <p>Adoption rose 9% after launch, alongside other changes, so I do not credit it to one decision. The clearest evidence is from testing: Design B scored 7.85 out of 8 for ease of use against 6.6 for Design A, and customers understood their policies better with coverage and benefits beside the face value.</p>
         </TextSection>
       </Chapter>

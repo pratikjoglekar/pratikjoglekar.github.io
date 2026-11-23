@@ -12,6 +12,7 @@ import {
   DataTable,
   Figure,
 } from "@/components/case-study/CaseStudy"
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure"
 
 export const metadata = caseStudyMetadata("cancellation")
 
@@ -130,16 +131,19 @@ export default function Cancellation() {
 
           <p><strong className="case-h3">An offer that reads as help</strong></p>
           <p>The offer says what it is in one line: 50% off for the next three months. It shows the old and new price side by side, the date the discount ends, and, in plain words, that it covers existing products and seats only.</p>
-          <Figure caption="The offer at step 2 of 4: the discount, the new price, when it ends and what it covers.">
-            <Image
-              src="/images/retention/retention-offer.png"
-              alt="Retention offer shown during cancellation: 50% off for 3 months"
-              width={1456}
-              height={832}
-              className="h-auto w-full"
-              sizes="(min-width: 1024px) 720px, 100vw"
-            />
-          </Figure>
+          <AnnotatedFigure
+            src="/images/retention/retention-offer.png"
+            alt="Retention offer shown during cancellation: 50% off for 3 months"
+            width={1456}
+            height={832}
+            caption="The offer at step 2 of 4: the discount, the new price, when it ends and what it covers."
+            pins={[
+              { x: 57, y: 2.8, title: "Right after the reason.", body: "The offer appears at step 2, once the customer has said why they are leaving." },
+              { x: 60.5, y: 47.8, title: "The new price, against the old.", body: "$60 becomes $30 a month, with the saving and the end date in one line." },
+              { x: 31.2, y: 61.5, title: "Exactly what it covers.", body: "Existing products and seats only; add-ons and new purchases stay at list price." },
+              { x: 92, y: 87.2, title: "Leaving stays one click away.", body: "Cancel subscription stays in the footer, so the offer never feels like a trap." },
+            ]}
+          />
 
           <p><strong className="case-h3">No surprises on the bill</strong></p>
           <p>Before accepting, customers can open an offer breakdown. It lists, line by line, what is discounted and what is not, so the new total is never a surprise. Clear terms let customers reverse their decision with confidence, without eroding trust in HubSpot&rsquo;s pricing.</p>
