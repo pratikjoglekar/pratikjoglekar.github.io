@@ -41,7 +41,7 @@ export function caseStudyMetadata(slug: string): Metadata {
       title,
       description: p.summary,
       url: `/work/${p.slug}`,
-      images: [{ url: p.image, width: 1440, height: 1020, alt: p.imageAlt }],
+      // the preview image is app/work/<slug>/opengraph-image.tsx
     },
   }
 }
@@ -161,6 +161,18 @@ function AtAGlance({ project: p }: { project: Project }) {
           </ul>
         </GlanceCell>
       </Stagger>
+      {/* What Pratik personally did, so nobody has to guess what was his and what was the team's */}
+      <Reveal className="grid grid-cols-1 gap-3 border-stone py-6 lg:grid-cols-4 lg:gap-6 lg:border-t">
+        <h3 className="text-body-sm font-medium text-smoke">What I did</h3>
+        <ul className="grid gap-x-8 gap-y-3 text-body-sm text-graphite sm:grid-cols-2 lg:col-span-3">
+          {p.myPart.map((d) => (
+            <li key={d} className="flex gap-3">
+              <span aria-hidden className="mt-[0.6em] h-1 w-1 shrink-0 rounded-full bg-ash" />
+              <span>{d}</span>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
     </section>
   )
 }

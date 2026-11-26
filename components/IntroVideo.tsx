@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { X } from "lucide-react"
 import PlayBlob from "@/components/ds/PlayBlob"
+import { track } from "@/lib/track"
 
 /** "Watch the intro" link that opens the video in a native dialog. The video only loads when opened. */
 export default function IntroVideo() {
@@ -12,6 +13,7 @@ export default function IntroVideo() {
   function open() {
     dialogRef.current?.showModal()
     videoRef.current?.play().catch(() => {})
+    track("Video play", { video: "about" })
   }
 
   function close() {

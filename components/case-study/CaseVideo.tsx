@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { Maximize2, Pause, Play, RotateCcw, Volume2, VolumeX } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PlayBlob from "@/components/ds/PlayBlob"
+import { track } from "@/lib/track"
 
 function fmt(s: number) {
   if (!Number.isFinite(s)) return "0:00"
@@ -66,6 +67,7 @@ export default function CaseVideo({ slug, title }: { slug: string; title: string
     if (!v) return
     if (!started) {
       setStarted(true)
+      track("Video play", { video: slug })
       v.volume = 0.8
     }
     if (v.paused || v.ended) {

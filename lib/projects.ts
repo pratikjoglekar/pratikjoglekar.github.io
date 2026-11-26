@@ -20,6 +20,8 @@ export type Project = {
   readMinutes: number
   /** Suggested questions in Sutra when it is opened on this case study */
   questions: string[]
+  /** What Pratik personally did, shown under "At a glance" (from components/data/portfolio.txt) */
+  myPart: string[]
   /** Recoloured LottieFiles icon in /public/lottie */
   icon: string
   /** Still frame for the icon (fraction 0–1); defaults to the last frame */
@@ -38,6 +40,12 @@ export const projects: Project[] = [
   {
     slug: "c4cintegrations",
     questions: ["Why build parity before new features?", "How does the grade-sync cutoff work?", "What did the field teams ask for most?"],
+    myPart: [
+      "Argued for a first-party integration when go-to-market pressure pushed to keep the middleware.",
+      "Ran a focus group with eight Customer Success Managers, Implementation Managers and Solutions Architects across LATAM, EMEA and APAC.",
+      "Redesigned LMS setup from weeks of emails into a guided flow an admin finishes alone.",
+      "Designed admin access control, the grade-sync cutoff, content linking and the embedded learner view.",
+    ],
     readMinutes: 7,
     icon: "/lottie/link.json",
     title: "Coursera for Campuses Integrations",
@@ -70,6 +78,12 @@ export const projects: Project[] = [
   {
     slug: "pricing-calculator",
     questions: ["Why put it on the Teams page?", "Account progression fell 8%. Why ship it anyway?", "What did the test not prove?"],
+    myPart: [
+      "Led the project, with a second product designer, engineering, three marketers and data and analytics.",
+      "Convinced stakeholders to put the calculator on the Coursera for Teams page instead of the enterprise page.",
+      "Chose a clear, honest price over an optimistic starting figure.",
+      "Designed the module, its pricing states, the mobile layout and the estimate emails, through to the A/B readout.",
+    ],
     readMinutes: 6,
     icon: "/lottie/sliders.json",
     title: "Coursera for Teams Pricing Calculator",
@@ -102,6 +116,12 @@ export const projects: Project[] = [
   {
     slug: "usage-intelligence",
     questions: ["Why governance instead of another dashboard?", "What did the SMB interviews reveal?", "How do protected events work?"],
+    myPart: [
+      "Reframed the brief from analytics visibility to event ownership and governance.",
+      "Interviewed 8 SMB customers and ran a cross-functional workshop to map the system and its constraints.",
+      "Aligned stakeholders on an ownership model before deep design.",
+      "Designed no-code event creation, event detail and history, and the usage library.",
+    ],
     readMinutes: 5,
     icon: "/lottie/pulse.json",
     iconRest: 0.5,
@@ -134,6 +154,12 @@ export const projects: Project[] = [
   {
     slug: "cancellation",
     questions: ["Why a discount, not a price cut?", "How was the cohort chosen?", "What would Pratik test next?"],
+    myPart: [
+      "Reframed “reduce churn” as dollar retention and lifetime value, and judged success by who kept paying after the discount.",
+      "Ran a competitive analysis across six products and a cohort analysis with the data analyst.",
+      "Coordinated growth, pricing, legal, engineering and customer experience, and refined the offer language with legal.",
+      "Designed the offer, its breakdown and the mini-checkout inside the cancellation flow.",
+    ],
     readMinutes: 5,
     icon: "/lottie/discount.json",
     title: "Retention Intervention at Cancellation",
@@ -165,6 +191,12 @@ export const projects: Project[] = [
   {
     slug: "dashboard",
     questions: ["What did the customer survey show?", "Why was longer engagement a good sign?", "Why choose Design B?"],
+    myPart: [
+      "Used a survey of 4.7k customers and a usability study of the old homepage to decide what it should show.",
+      "Argued for a full redesign when stakeholders preferred incremental fixes.",
+      "Tested two directions in a Northstar usability study and chose Design B.",
+      "Designed the new homepage and the patterns later reused across other product surfaces.",
+    ],
     readMinutes: 6,
     icon: "/lottie/home.json",
     title: "Dashboard Redesign",

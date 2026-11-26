@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { Check, Copy } from "lucide-react"
 import { contact } from "@/lib/projects"
+import { track } from "@/lib/track"
 
 /** Small secondary action next to the visible email address. */
 export default function CopyEmailButton() {
@@ -12,6 +13,7 @@ export default function CopyEmailButton() {
   async function copy() {
     try {
       await navigator.clipboard.writeText(contact.email)
+      track("Email copy", { page: window.location.pathname })
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
       // A quiet "done": the wavy underline draws under the address, flows, then retracts.

@@ -17,6 +17,7 @@ import { ArrowUp, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import SutraMark from "@/components/SutraMark"
 import { projects } from "@/lib/projects"
+import { track } from "@/lib/track"
 
 type Message = { role: "user" | "assistant"; content: string }
 
@@ -123,6 +124,8 @@ export function AskMeProvider({ children }: { children: React.ReactNode }) {
     const question = text.trim()
     if (!question || loading) return
 
+    // the page and whether it was a suggested question; never what the visitor typed
+    track("Sutra question", { page: window.location.pathname, suggested: suggestions.includes(question) })
     const history: Message[] = [...messages, { role: "user", content: question }]
     setMessages(history)
     setInput("")

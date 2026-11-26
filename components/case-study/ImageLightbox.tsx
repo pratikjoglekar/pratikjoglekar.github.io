@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { X } from "lucide-react"
+import { track } from "@/lib/track"
 
 /** The original file behind a next/image URL, so the viewer shows full resolution. */
 function original(img: HTMLImageElement) {
@@ -43,6 +44,7 @@ export default function ImageLightbox() {
 
     function open(img: HTMLImageElement) {
       opener.current = img
+      track("Screenshot zoom", { page: window.location.pathname, image: original(img).split("/").pop() ?? "" })
       setShown({ src: original(img), alt: img.alt })
     }
     function onClick(e: MouseEvent) {
